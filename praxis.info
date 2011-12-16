@@ -1,0 +1,48 @@
+praxis.info
+
+number  exercise number
+file    base name of files
+pubmon  month of publication
+pubday  day of publication
+pubyear year of publication
+title   formatted title
+ptitle  plain title
+blurb   formatted blurb
+pblurb  plain blurb
+exer    exercise sub-page number
+soln    solution sub-page number
+extra   extra info sub-page number
+codepad eight-character codepad index
+theme   category in which exercise appears
+
+name/value pairs on a line separated by tabs,
+with records separated by blank lines
+
+the "number" field must appear first, others
+may be in any order, and are optional
+
+----+----1----+----2----+----3----+----4----+----5----+----6
+
+number	1
+file	rpn-calculator
+pubmon	2
+pubday	19
+pubyear	2009
+title	RPN Calculator
+blurb	Evaluate numeric expressions at the command line
+exer	1
+soln	2
+codepad	fjzlC50x
+theme	Parsing
+
+number	2
+file	sieve-of-eratosthenes
+pubmon	2
+pubday	19
+pubyear	2009
+title	Sieve of Eratosthenes
+blurb	A Scheme implementation of an ancient algorithm
+exer	1
+soln	2
+codepad	wI14BJ8Q
+theme	Prime Numbers
