@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Big Numbers: Division &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Big Numbers:&nbsp;Division</h2>
+<h3>June 7, 2011</h3>
+</div>
+<div class="entrybody">
+<p>We continue our examination of big-integer arithmetic today with a look at division. Long division was hard in grade school, and it&#8217;s hard for computers, too, with tricky algorithms and lots of special cases. Fortunately, Donald Knuth has made things easier for us, and we will be following his Algorithm 4.3.1 D.</p>
+<p>Division takes as input two numbers, <em>n</em> (the dividend, also called the numerator) and <em>d</em> (the divisor, also called the denominator) and returns two numbers <em>q</em> (the quotient) and <em>r</em> (the remainder) such that <em>q</em> &middot; <em>d</em> + <em>r</em> = <em>n</em>, with 0 &le; <em>r</em> &lt; <em>d</em>.  The basic idea of Algorithm D is to take successive partial divisions, where in each case the partial dividend has one more digit than the divisor, each successive partial division revealing one more digit of the quotient.  As with the other arithmetic operators, there is a notion of carry from one partial division to the next.</p>
+<p>We&#8217;re not going to give a detailed explanation here, because Knuth says it far better; you can run to your nearest copy of Knuth, or peek at the solution.  Beware that the code is lengthy, and there are lots of tricky bits, and plan from the start to do lots of debugging.</p>
+<p>Your task is to write a function that performs division on big integers.  When you are finished, you are welcome to <a href="/2011/06/07/big-numbers-division/2/">read</a> or <a href="http://programmingpraxis.codepad.org/MJl0kPSU">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

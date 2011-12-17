@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>A Turing Machine Simulator &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>A Turing Machine&nbsp;Simulator</h2>
+<h3>March 27, 2009</h3>
+</div>
+<div class="entrybody">
+<p>A turing machine is a hypothetical computer, invented in 1936 by the British mathematician Alan Turing, that can evaluate any computable function.  Though hypothetical, turing machines play a large role in computer science.  Many variants of turing machines have been devised; the purpose of this exercise is to build a simulator for a particular type of turing machine.</p>
+<p>The hardware of our turing machine consists of a read/write head and an infinite tape divided into cells that passes across the read/write head.  Each cell on the tape contains a symbol, which we take as an ascii character; there is a special <em>blank</em> symbol that is present  in all cells which are not yet written.  The read/write head can see one cell at a time, read its contents, and write a new symbol (possibly the <em>blank</em> symbol) to the cell.</p>
+<p>The software of our turing machine consists of a table encoding a transition function and a state register that maintains the current state.  In our machine, states are numbered with non-negative integers; the machine always starts in state zero, and halts if it enters a negative-numbered state.  The program being executed by the turing machine is encoded in the transition function, which takes two inputs, the current state and the symbol in the current cell, and then writes a new symbol (or the same symbol, or the special symbol <em>blank</em>) in the  current cell, then either moves the read/write head one cell to the left or one cell to the right or remains in the same place, then resets the state to a new state.  The transition function is thus encoded in a table of 5-tuples <em>q1</em> <em>s1</em> s<em>2</em> <em>d</em> <em>q2</em> where <em>q1</em> is the current state, <em>s1</em> is the symbol currently under the read/write head, <em>s2</em> is the symbol to be written, <em>d</em> is the direction to move the tape, and <em>q2</em> is the next state to enter.</p>
+<p>As an example, consider the tape <code>_ _ _ [1] 1 1 + 1 1 1 1 1 _ _ _</code>.  This is our notation for a tape that contains, in the middle of an infinite number of blanks, the nine symbols consisting of three one&#8217;s, a plus sign, and five one&#8217;s, with the read/write head positioned over the first one; the tape can be considered to model the problem of adding the two numbers three and five.  The program</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;0 1 1 R 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;0 + 1 R 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1 1 1 R 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1 _ _ L 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2 1 _ L -1</code></p>
+<p>adds the two numbers and writes <code>_ _ _ 1 1 1 1 1 1 1 [1] _ _ _</code> as its output.</p>
+<p>Write a function that takes a turing-machine program and a tape and simulates the action of a turing machine, writing the final tape as output.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "music");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/03/27/a-turing-machine-simulator/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/03/27/a-turing-machine-simulator/2/">2</a></p> </div></div>
+</body>
+</html>

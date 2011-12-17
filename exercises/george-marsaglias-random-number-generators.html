@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>George Marsaglia&#8217;s Random Number Generators &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>George Marsaglia&#8217;s Random Number&nbsp;Generators</h2>
+<h3>October 5, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In <a href="http://groups.google.co.uk/group/sci.stat.math/msg/edcb117233979602">two</a> <a href="http://groups.google.co.uk/group/sci.math.num-analysis/msg/eb4ddde782b17051">posts</a> on Usenet, George Marsaglia, a mathematician, statistician, computer scientist, and professor at Washington State and Florida State Universities, described a series of nine high-quality 32-bit random number generators; the references pages describe the various generators and their tasteful use in a variety of situations.  Here they are in C:</p>
+<p><code>&#035;define znew&nbsp;&nbsp;(z=36969*(z&amp;65535)+(z&gt;&gt;16))<br />
+&#035;define wnew&nbsp;&nbsp;(w=18000*(w&amp;65535)+(w&gt;&gt;16))<br />
+&#035;define MWC&nbsp;&nbsp;&nbsp;((znew&lt;&lt;16)+wnew)<br />
+&#035;define SHR3&nbsp;&nbsp;(jsr^=(jsr&lt;&lt;17), jsr^=(jsr&gt;&gt;13), jsr^=(jsr&lt;&lt;5))<br />
+&#035;define CONG&nbsp;&nbsp;(jcong=69069*jcong+1234567)<br />
+&#035;define FIB&nbsp;&nbsp;&nbsp;((b=a+b),(a=b-a))<br />
+&#035;define KISS&nbsp;&nbsp;((MWC^CONG)+SHR3)<br />
+&#035;define LFIB4 (c++,t[c]=t[c]+t[UC(c+58)]+t[UC(c+119)]+t[UC(c+178)])<br />
+&#035;define SWB&nbsp;&nbsp;&nbsp;(c++,bro=(x&lt;y),t[c]=(x=t[UC(c+34)])-(y=t[UC(c+19)]+bro))<br />
+&#035;define UNI&nbsp;&nbsp;&nbsp;(KISS*2.328306e-10)<br />
+&#035;define VNI&nbsp;&nbsp;&nbsp;((long) KISS)*4.656613e-10<br />
+&#035;define UC&nbsp;&nbsp;&nbsp;&nbsp;(unsigned char) &#047;*a cast operation*&#047;<br />
+typedef unsigned long UL;</code></p>
+<p><code>&#047;* Global static variables: *&#047;<br />
+static UL z=362436069, w=521288629, jsr=123456789, jcong=380116160;<br />
+static UL a=224466889, b=7584631, t[256], x=0, y=0, bro;<br />
+static unsigned char c=0;</code></p>
+<p><code>&#047;* Example procedure to set the table, using KISS: *&#047;<br />
+void settable(UL i1,UL i2,UL i3,UL i4,UL i5, UL i6)<br />
+{ int i; z=i1; w=i2; jsr=i3; jcong=i4; a=i5; b=i6;<br />
+for(i=0;i&lt;256;i=i+1) t[i]=KISS; }</code></p>
+<p>Personally, I think that code is a bit ugly on the outside but absolutely beautiful and exceedingly elegant on the inside.  Marsaglia also provided a test suite, which should print seven zeros on successive lines:</p>
+<p><code>&#035;include &lt;stdio.h&gt;<br />
+int main(void){<br />
+int i; UL k;<br />
+settable(12345,65435,34221,12345,9983651,95746118);</code></p>
+<p>for(i=1;i&lt;1000001;i++){k=LFIB4;} printf(&quot;%u&#092;n&quot;, k-1064612766U);<br />
+for(i=1;i&lt;1000001;i++){k=SWB&nbsp;&nbsp;;} printf(&quot;%u&#092;n&quot;, k- 627749721U);<br />
+for(i=1;i&lt;1000001;i++){k=KISS&nbsp;;} printf(&quot;%u&#092;n&quot;, k-1372460312U);<br />
+for(i=1;i&lt;1000001;i++){k=CONG&nbsp;;} printf(&quot;%u&#092;n&quot;, k-1529210297U);<br />
+for(i=1;i&lt;1000001;i++){k=SHR3&nbsp;;} printf(&quot;%u&#092;n&quot;, k-2642725982U);<br />
+for(i=1;i&lt;1000001;i++){k=MWC&nbsp;&nbsp;;} printf(&quot;%u&#092;n&quot;, k- 904977562U);<br />
+for(i=1;i&lt;1000001;i++){k=FIB&nbsp;&nbsp;;} printf(&quot;%u&#092;n&quot;, k-3519793928U); }</p>
+<p>Your task is to translate those nine random number generators into your favorite language.  When you are finished, you are welcome to <a href="/2010/10/05/george-marsaglias-random-number-generators/2/">read</a> or <a href="http://programmingpraxis.codepad.org/sf8Z4pJP">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

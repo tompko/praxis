@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Topological Sort &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Topological&nbsp;Sort</h2>
+<h3>November 19, 2010</h3>
+</div>
+<div class="entrybody">
+<p><img src="http://programmingpraxis.files.wordpress.com/2010/11/acyclic.png?w=640" align="right" />A graph <em>G</em> is a collection of its vertices <em>V</em> and the edges <em>E</em> between them: <em>G</em>(<em>V</em>, <em>E</em>); the interstate highway system is an example of a graph, with cities as vertices and highways as edges.  A directed graph is a graph in which each edge is identified with a <em>from</em> vertex and a <em>to</em> vertex; the roads in some city centers can be considered a directed graph, because one-way roads only allow traffic in a single direction (Venice has one-way canals, which blew my mind the first time I saw a <em>sensico unico</em> sign).  A directed acyclic graph, sometimes called a DAG, is a directed graph in which there are no cycles, that is, by following the successors of a vertex you can never return to that vertex; the tasks involved in building a house form a DAG, in which the framing must be done before drywall can be installed, and the modules of a program library form a DAG, in which some modules must be compiled before others that depend on them.</p>
+<p>A topological sort is an ordering of the vertices of a DAG in which each vertex appears before any of the vertices that depend on it.  Topological sorts are typically messy, with multiple right answers; a fireman can spray water on a burning building even while his colleagues are searching for anyone still inside.  There are many possible topological sorts of the sample graph; one of them is 7 5 11 2 3 8 9 10.</p>
+<p>There are many ways to perform a topological sort.  Perhaps the simplest is to pick a vertex that has no incoming edges; put it at the head of the sorted output, delete it and all the edges that come from it, and recur until no vertices remain.  If there is more than one vertex that has no incoming edges, any of them may be chosen.</p>
+<p>Your task is to write functions to identify cyclic graphs and perform topological sort of a graph.  When you are finished, you are welcome to <a href="/2010/11/19/topological-sort/2/">read</a> or <a href="http://programmingpraxis.codepad.org/RjhH0OAK">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

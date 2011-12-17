@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Dijkstra&#8217;s Algorithm &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Dijkstra&#8217;s&nbsp;Algorithm</h2>
+<h3>January 4, 2011</h3>
+</div>
+<div class="entrybody">
+<p><img src="http://programmingpraxis.files.wordpress.com/2010/12/digraph.jpg?w=640" align="right" width="30%" />[ Today's exercise was written by guest author Graham Enos, a PhD student in the Applied Mathematics program at UNC Charlotte, with solution in Python rather than Scheme.  Suggestions for exercises are always welcome, or you may wish to contribute your own exercise; feel free to <a href="mailto://programmingpraxis@gmail.com">contact me</a> if you are interested. ]</p>
+<p>We&#8217;ve worked with directed graphs (&#8220;digraphs&#8221;) in a <a href="http://programmingpraxis.com/2010/11/19/topological-sort/">recent</a> exercise. Today&#8217;s exercise is another graph theoretical procedure with many applications: Dijkstra&#8217;s Algorithm.</p>
+<p>Published by Edgar Dijkstra in 1959, this algorithm searches a digraph for the shortest paths beginning at a specified vertex; to quote the Wikipedia <a href="http://en.wikipedia.org/wiki/Dijkstra's_algorithm">article</a>,</p>
+<blockquote><p>For example, if the vertices of the graph represent cities and edge path costs represent driving distances between pairs of cities connected by a direct road, Dijkstra&#8217;s algorithm can be used to find the shortest route between one city and all other cities. As a result, the shortest path first is widely used in network routing protocols, most notably IS-IS and OSPF (Open Shortest Path First).</p></blockquote>
+<p>For instance, in the digraph pictured at right, the shortest path from vertex <em>a</em> to <em>e</em> is [<em>a</em>, <em>c</em>, <em>e</em>]. This path has a length of 7, which is shorter than the path [<em>a</em>, <em>d</em>, <em>e</em>] (which has a length of 16).</p>
+<p>The algorithm works its way through the vertices, indexed by their estimated distance from the starting point. At each vertex, the procedure &#8220;relaxes&#8221; all its outward edges, updating distance and predecessor estimates accordingly. Once complete, the algorithm has in effect constructed a subtree of the graph that gives all the shortest distance paths from the starting vertex to any other vertex in the graph via the predecessor attribute. The shortest path to the desired finishing vertex can then be reconstructed by traversing the predecessor subtree backwards. See Dijkstra&#8217;s <a href="http://www.springerlink.com/content/uu8608u0u27k7256/fulltext.pdf">1959 paper</a> &#8220;A Note on Two Problems in Connexion with Graphs&#8221; in <em>Numerische Mathematik</em> (Volume 1, pages 269-271) for more information.</p>
+<p>Your task: given a weighted digraph <em>D</em> = (<em>V</em>, <em>E</em>) where the edge weights represent distances between two vertices, a starting vertex <em>s</em>, and a destination vertex <em>f</em>, use Dijkstra&#8217;s Algorithm to find the shortest path from <em>s</em> to <em>f</em> in <em>G</em>.  When you are finished, you are welcome to <a href="/2011/01/04/dijkstras-algorithm/2/">read</a> or <a href="http://codepad.org/lRUh1tq8">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "health");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/01/04/dijkstras-algorithm/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/01/04/dijkstras-algorithm/2/">2</a></p> </div></div>
+</body>
+</html>

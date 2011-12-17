@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Improved Standard Continuation &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Improved Standard&nbsp;Continuation</h2>
+<h3>November 8, 2011</h3>
+</div>
+<div class="entrybody">
+<p>We recently <a href="/2011/09/16/pollards-p-1-factorization-algorithm-revisited/">examined</a> an improved second stage for John Pollard&#8217;s <em>p</em>&minus;1 factoring algorithm. In today&#8217;s exercise we will look at the similar second stage for the elliptic curve factoring algorithm, an optimization known as the <em>improved standard continuation</em>. We will be following Algorithm 7.4.4 in the book <em>Prime Numbers: A Computational Perspective</em> by Richard Crandall and Carl Pomerance.</p>
+<p>Recall from our <a href="/2010/04/23/modern-elliptic-curve-factorization-part-1/">previous</a> <a href="/2010/04/27/modern-elliptic-curve-factorization-part-2/">exercises</a> that the first stage of the elliptic curve algorithm ends with a point Q that fails to find a factor. In the second stage we want to calculate elliptic multiples of Q: 2Q, 4Q, 6Q, and so on. Recall also that the <em>p</em>&minus;1 method uses a strength reduction technique to replace exponentiation with multiplication. The improved standard continuation uses a similar technique to reduce elliptic multiplication, which is slow, to two modular multiplications plus an occasional elliptic addition. Here is the algorithm as given by Crandall and Pomerance:</p>
+<blockquote><p><em>S</em><sub>1</sub> = <em>doubleh</em>(<em>Q</em>)<br />
+<em>S</em><sub>2</sub> = <em>doubleh</em>(<em>S</em><sub>1</sub>)<br />
+for (<em>d</em> &isin; [1,<em>D</em>]) { // this loop computes <em>S<sub>d</sub></em> = [2<em>d</em>]<em>Q</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;if (<em>d</em> &gt; 2) <em>S<sub>d</sub></em> = <em>addh</em>(<em>S</em><sub><em>d</em>&minus;1</sub>, <em>S</em><sub>1</sub>, <em>S</em><sub><em>d</em>&minus;2</sub>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&beta;<sub><em>d</em></sub> = <em>X</em>(<em>S<sub>d</sub></em>) <em>Z</em>(<em>S<sub>d</sub></em>) (mod <em>n</em>)<br />
+}<br />
+<em>g</em> = 1<br />
+<em>B</em> = <em>B</em><sub>1</sub> &minus; 1 // <em>B</em> is odd<br />
+<em>T</em> = [<em>B</em> &minus; 2<em>D</em>]<em>Q</em> // via Algorithm 7.2.7<br />
+<em>R</em> = <em>B</em>[<em>Q</em>] // via Algorithm 7.2.7<br />
+for (<em>r</em> = <em>B</em>; <em>r</em> &lt; <em>B</em><sub>2</sub>; <em>r</em> = <em>r</em> + 2<em>D</em>) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&alpha; = <em>X</em>(<em>R</em>) <em>Z</em>(<em>R</em>) mod <em>n</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;for (prime <em>q</em> &isin; [<em>r</em> + 2, <em>r</em> + 2<em>D</em>]) { // loop over primes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&delta; = (<em>q</em> &minus; <em>r</em>) / 2 // distance to next prime<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>g</em> = <em>g</em>((<em>X</em>[<em>R</em>] &minus; <em>X</em>(<em>S</em><sub>&delta;</sub>))(<em>Z</em>(<em>R</em>) + <em>Z</em>(<em>S</em><sub>&delta;</sub>)) &minus; &alpha; + &beta;<sub>&delta;</sub>) mod <em>n</em><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<em>R</em>, <em>T</em>) = (<em>addh</em>(<em>R</em>, <em>S</em><sub><em>D</em></sub>, <em>T</em>), <em>R</em>)<br />
+}<br />
+<em>g</em> = <em>gcd</em>(<em>g</em>, <em>n</em>)<br />
+if (1 &lt; <em>g</em> &lt; <em>n</em>) return <em>g</em> // found a nontrivial factor of <em>n</em></p></blockquote>
+<p>In the notation of Crandall and Pomerance, <em>B</em><sub>1</sub> is the first-stage bound and <em>B</em><sub>2</sub> is the second-stage bound. <em>D</em> is a parameter that mediates a time-space trade-off, with a larger <em>D</em> taking more space but running faster; the memory required is about 3<em>D</em> <em>n</em>-sized integers. <em>Q</em>, <em>R</em> and <em>T</em> are points on the elliptic curve; the coordinates of point <em>P</em> are <em>X</em>(<em>P</em>) and <em>Z</em>(<em>P</em>). <em>S</em>[1 .. <em>D</em>] is an array of elliptic points, and &beta;[1 .. <em>D</em>] stores the products of the <em>X</em> and <em>Z</em> coordinates of the elliptic points in <em>S</em>.</p>
+<p>The <em>S</em> array corresponds to the array that we used in the second stage of the <em>p</em>&minus;1 algorithm, and is built at runtime in a similar way in the first loop (on <em>d</em>) of the algorithm given above. Then the primes from <em>B</em><sub>1</sub> to <em>B</em><sub>2</sub> are processed in segments of size 2<em>D</em>, with <em>r</em> the base value of each segment and <em>R</em> the corresponding elliptic point. At each prime in the segment the difference to the base of the segment is calculated, then the stored values of <em>S</em><sub>&delta;</sub> and &beta;<sub>&delta;</sub> are used to update the product <em>g</em>. When all the primes have been calculated, a single gcd is calculated; if it is nontrivial, it is reported, otherwise the curve has failed to find a factor and a different curve must be tried.</p>
+<p>The long formula that updates <em>g</em> takes the place of the elliptic multiplications of the first stage, in a very clever way. If you have available points <em>R</em> and <em>S</em>[1 .. <em>D</em>], the elliptic multiplication [<em>s</em>]<em>Q</em> = [<em>r</em> + &delta;]<em>Q</em> = <em>O</em> can be tested by checking whether the cross product <em>X<sub>r</sub></em> <em>Z</em><sub>&delta;</sub> &minus; <em>X</em><sub>&delta;</sub> <em>Z<sub>r</sub></em> has a nontrivial gcd with <em>n</em>; simple algebra can reduce the work of computing the cross product even further with the formula shown in the algorithm.</p>
+<p>Thus, by storing precomputed values of <em>X</em><sub>&delta;</sub>, <em>Z</em><sub>&delta;</sub> and the product <em>X</em><sub>&delta;</sub> <em>Z</em><sub>&delta;</sub>, it is possible to loop through the primes from <em>B</em><sub>1</sub> to <em>B</em><sub>2</sub> with only two modular multiplications per prime, plus a single elliptical addition for each segment.</p>
+<p>Your task is to write a function to compute factors using the improved standard continuation of the elliptic curve factorization method. When you are finished, you are welcome to <a href="/2011/11/08/improved-standard-continuation/2/">read</a> or <a href="http://programmingpraxis.codepad.org/SdrzlWbh">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/11/08/improved-standard-continuation/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/11/08/improved-standard-continuation/2/">2</a> <a href="http://programmingpraxis.com/2011/11/08/improved-standard-continuation/3/">3</a></p> </div></div>
+</body>
+</html>

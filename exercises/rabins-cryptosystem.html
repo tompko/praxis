@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Rabin&#8217;s Cryptosystem &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Rabin&#8217;s&nbsp;Cryptosystem</h2>
+<h3>November 22, 2011</h3>
+</div>
+<div class="entrybody">
+<p>The RSA encryption algorithm, which we studied in a <a href="/2010/11/16/rsa-cryptography/">previous exercise</a>, relies on the difficulty of factoring large integers for its security. Another cryptosystem was developed by Michael Rabin about the same time that Rivest, Shamir and Adelman were developing RSA, and is also based on the difficulty of factoring large integers. Although it is theoretically stronger than RSA, Rabin&#8217;s cryptosystem never became popular because in practice RSA is about equally strong, because RSA was first by about a year, and because Rabin&#8217;s cryptosystem requires additional work to disambiguate the decryption.</p>
+<p>Rabin&#8217;s cryptosystem is based on two integers <em>p</em> and <em>q</em> each congruent to 3 modulo 4 which form the private key; their product, <em>n</em> = <em>p</em> &times; <em>q</em>, is the public key. Then to encrypt the message <em>m</em>, the ciphertext is <em>c</em> = <em>m</em><sup>2</sup> mod <em>n</em>. The plaintext is recovered by finding the four square roots of <em>c</em> modulo <em>m</em>, and choosing the correct message from the four possibilities. Note that a text message is converted to a number <em>m</em> in the same way as RSA.</p>
+<p>The four square roots of the ciphertext <em>c</em> are calculated as follows. First determine <em>a</em> and <em>b</em> satisfying the equation <em>a</em> &times; <em>p</em> + <em>b</em> &times; <em>q</em> = 1 using the extended euclidean algorithm of a <a href="/2009/07/07/modular-arithmetic/">prior exercise</a>. Compute <em>r</em> = <em>c</em><sup>(<em>p</em>+1)/4</sup> mod <em>p</em>. Compute <em>s</em> = <em>c</em><sup>(<em>q</em>+1)/4</sup> mod <em>q</em>. Compute <em>x</em> = (<em>a</em> &times; <em>p</em> &times; <em>s</em> + <em>b</em> &times; <em>q</em> &times; <em>r</em>) mod <em>n</em>. Compute <em>y</em> = (<em>a</em> &times; <em>p</em> &times; <em>s</em> &minus; <em>b</em> &times; <em>q</em> &times; <em>r</em>) mod <em>n</em>. Then the four square roots are <em>m</em><sub>1</sub> = <em>x</em>, <em>m</em><sub>2</sub> = &minus;<em>x</em>, <em>m</em><sub>3</sub> = <em>y</em>, and <em>m</em><sub>4</sub> = &minus;<em>y</em>.</p>
+<p>The problem with Rabin&#8217;s cryptosystem is the decryption into four possible messages. The solution is to pad the message in such a way that only one of the four possible messages fits the padding. This is done by replicating the bits of the last portion of the message, adding them to the end of the message; only the correct decryption will have the trailing bits duplicated.</p>
+<p>An example makes this clear. Consider <em>p</em> = 7, <em>q</em> = 11, and <em>n</em> = 77. By the euclidean algorithm, (&minus;3)&times;7 + 2&times;11 = 1, so <em>a</em> = &minus;3 and <em>b</em> = 2. Now we send the message 5<sub>10</sub> = 101<sub>2</sub>, padded to the message <em>m</em> = 101101<sub>2</sub> = 45<sub>10</sub>. The ciphertext is <em>c</em> = 45<sup>2</sup> mod 77 = 23. Decryption first computes <em>r</em> = 23<sup>2</sup> mod 7 = 4 and <em>s</em> = 23<sup>2</sup> mod 11 = 1. Then <em>x</em> = (&minus;3)&times;7&times;1 + 2&times;11&times;4 mod 77 = 67 and <em>y</em> = (&minus;3)&times;7&times;1 &minus; 2&times;11&times;4 mod 77 = 45. Thus two of the square roots are 67 and 45, and the other two are 77 &minus; 67 = 10 and 77 &minus; 45 = 32. Now 10<sub>10</sub> = 001010<sub>2</sub>, 32<sub>10</sub> = 100000<sub>2</sub>, 45<sub>10</sub> = 101101<sub>2</sub> and 67<sub>10</sub> = 1000011<sub>2</sub>, so only 101101<sub>2</sub> has the required redundancy and the payload is 101<sub>2</sub> = 5<sub>10</sub>.</p>
+<p>In normal usage, the Rabin cryptosystem is generally based on blocks of 512 bits, or 1024 bits, or 2048 bits, of which the last 64 bits consist of padding, giving a payload of 448, 960 or 1984 bits (56, 120 or 248 bytes), respectively; sometimes a padding of 128 bits is used, if there is some concern about the (very unlikely) possibility of a false duplicate. Another method that is sometimes used pads the message with 64 0-bits (or 128 bits instead of 64 bits, or 1-bits instead of 0-bits, or some other known pattern), so that only the square root with the desired pattern is used. The message is split into blocks of the needed size, and is extended by adding a 1-bit followed by as many 0-bits as are needed to make the message a multiple of the block length.</p>
+<p>Your task is to write functions that generate keys and encrypt and decrypt messages using the Rabin cryptosystem. When you are finished, you are welcome to <a href="/2011/11/22/rabins-cryptosystem/2/">read</a> or <a href="http://programmingpraxis.codepad.org/wyHgxfpg">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/11/22/rabins-cryptosystem/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/11/22/rabins-cryptosystem/2/">2</a></p> </div></div>
+</body>
+</html>

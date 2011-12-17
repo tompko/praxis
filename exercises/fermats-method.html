@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Fermat&#8217;s Method &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Fermat&#8217;s&nbsp;Method</h2>
+<h3>May 19, 2009</h3>
+</div>
+<div class="entrybody">
+<p>We have previously <a href="/2009/05/08/wheel-factorization/">studied</a> integer factorization by trial division and wheel factorization.  In this exercise we will implement integer factorization by Fermat&#8217;s method.  Pierre de Fermat was a French lawyer and amateur mathematician of the seventeenth century, a contemporary of René Descartes and Blaise Pascal, who did early work in calculus, number theory, analytic geometry and probability.</p>
+<p>Fermat&#8217;s method works by noticing that if <em>n</em>, the odd number to be factored, can be written as the difference of two squares <em>n</em> = <em>x</em><sup>2</sup> &#8211; <em>y</em><sup>2</sup>, then it can be factored as (<em>x</em> &#8211; <em>y</em>) &times; (<em>x</em> + <em>y</em>). Thus, to find the factors of <em>n</em>, we start with <em>y</em> = 0 and <em>x</em> as the smallest integer greater than or equal to the square root of <em>n</em> and increase <em>y</em> until <em>x</em><sup>2</sup> &#8211; <em>y</em><sup>2</sup> is equal to <em>n</em>, in which case <em>x</em> and <em>y</em> reveal the factors of <em>n</em>, or <em>x</em><sup>2</sup> &#8211; <em>y</em><sup>2</sup> is less than <em>n</em>, when we increase <em>x</em> by one and iterate.  This process must terminate; if <em>n</em> is prime, it will stop with the factors 1 and <em>n</em>.</p>
+<p>Though this method works, the repeated squarings are relatively expensive, so it is normal to work with <em>u</em> = 2<em>x</em> + 1 and <em>v</em> = 2<em>y</em> + 1 and to keep track of <em>r</em> = <em>x</em><sup>2</sup> &#8211; <em>y</em><sup>2</sup> &#8211; <em>n</em>; when <em>r</em> = 0, the algorithm terminates.  The variable <em>u</em> keeps track of the amount <em>r</em> increases when <em>x</em><sup>2</sup> is replaced by (<em>x</em> + 1)<sup>2</sup> and variable <em>v</em> keeps track of the amount <em>r</em> decreases when <em>y</em> is replaced by (<em>y</em> + 1)<sup>2</sup>; as <em>x</em> and <em>y</em> increase by 1, <em>u</em> and <em>v</em> increase by 2.</p>
+<p>Your task is to implement integer factorization by Fermat&#8217;s method.  When you are finished, you are welcome to <a href="/2009/05/19/fermats-method/2/">read</a> or <a href="http://codepad.org/Exr2kj9L">run</a> the suggested solution, or post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/05/19/fermats-method/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/05/19/fermats-method/2/">2</a></p> </div></div>
+</body>
+</html>

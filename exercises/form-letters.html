@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Form Letters &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Form&nbsp;Letters</h2>
+<h3>November 30, 2010</h3>
+</div>
+<div class="entrybody">
+<blockquote><p><code>Welcome back, Jane!<br />
+We hope that you and all the members<br />
+of the Public family are constantly<br />
+reminding your neighbors there<br />
+on Maple Street to shop with us.<br />
+As usual, we will ship your order to<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Ms. Jane Q. Public<br />
+&nbsp;&nbsp;&nbsp;&nbsp;600 Maple Street<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Your Town, Iowa 12345</code></p></blockquote>
+<p>Everybody hates form letters.  But they are part of the computing universe, and today&#8217;s exercise asks you to print them.  Input to the form letter generator comes in two parts.  First, there is a schema that defines the letter to be written.  Here is the schema for the letter shown above:</p>
+<p><code>Welcome back, $1!<br />
+We hope that you and all the members<br />
+of the $0 family are constantly<br />
+reminding your neighbors there<br />
+on $5 to shop with us.<br />
+As usual, we will ship your order to<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$3 $1 $2. $0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$4 $5<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$6, $7 $8</code></p>
+<p>Variable text is identified as $<em>n</em>, where <em>n</em> is the field number from a database; although it&#8217;s not shown above, <em>n</em> can be larger than 9, extending right-ward until a non-digit is encountered.  Also not shown above is the construct $$, which prints a literal dollar sign.</p>
+<p>The data comes from a comma-separated values file, of the type we have previously encountered.  In this case, records have nine fields: last name, first name, middle initial, title, street number, street name, city, state, and zip code.  Here is a sample two-record data file:</p>
+<p><code>Public,Jane,Q,Ms.,600,Maple Street,Your Town, Iowa,12345<br />
+Smith,John,Z,Dr.,1234,Main Street,Anytown,Missouri,63011</code></p>
+<p>Your task is to write a program that takes a schema and a data file and writes a series of form letters.  When you are finished, you are welcome to <a href="/2010/11/30/form-letters/2/">read</a> or <a href="http://programmingpraxis.codepad.org/IU214JGT">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/11/30/form-letters/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/11/30/form-letters/2/">2</a></p> </div></div>
+</body>
+</html>

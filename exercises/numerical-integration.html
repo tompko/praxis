@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Numerical Integration &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Numerical&nbsp;Integration</h2>
+<h3>February 9, 2010</h3>
+</div>
+<div class="entrybody">
+<p><img src="http://programmingpraxis.files.wordpress.com/2010/02/int-trap.gif?w=640" align="right" />Computing the definite integral of a function is fundamental to many computations.  In many cases, the integral of a function can be determined symbolically and the definite integral computed directly.  Another approach, which we shall examine in today&#8217;s exercise, is to compute the definite integral numerically, an operation that numerical analysts call <em>quadrature</em>.  We will consider a function <em>f</em> for which we are to find the definite integral over the range <em>a</em> to <em>b</em>, with <em>a</em> &lt; <em>b</em>.</p>
+<p>Recall from your study of calculus that the definite integral is the area under a curve.  If we slice the curve into hundreds or thousands or millions of vertical strips, we can approximate the area under the curve by summing the areas of the individual strips, assuming that each is a rectangle with height equal to the value of the curve at the midpoint of the strip; this is, obviously, the rectangular method of quadrature.  The trapezoidal method is similar, but uses the average of the value of the curve at the two ends of the strip; the strip then forms a trapezoid with parallel sides, a flat bottom on the horizontal axis, and a slanted top that follows the curve.  A final method, called Simpson&#8217;s method, fits a parabola to the top of the strip by taking the height of the curve as its value at the left side of the strip plus its value at the right side of the strip plus four times its value at the midpoint of the strip.  Accuracy improves as we move from the rectangular method (one point) to the trapezoidal method (two points) to Simpson&#8217;s method (three points), because the approximation more closely fits the curve, and also as the number of slices increases.  The trapezoid rule is illustrated above right.</p>
+<p>Many curves are characterized by large portions that are nearly flat, where the approximations work well, with a few small portions that change rapidly, where the approximations fail.  If we increase the number of slices, there is little effect on the flat parts of the curve, so much of the work is wasted.  <em>Adaptive quadrature</em> works by measuring the approximations at various slices and narrowing the slices where the curve is changing rapidly, allowing us to control the approximation precisely.  Adaptive quadrature is a recursive process; if approximations with <em>n</em> and <em>n</em>/2 slices are close enough, recursion stops, otherwise the range is split in two and adaptive quadrature is applied to each of the two halves separately.</p>
+<p>Your task is to write functions that perform numerical integration by the rectangular, trapezoidal and Simpson&#8217;s methods, as well as a function that performs adaptive quadrature.  Use your functions to calculate the logarithmic integral <img src="http://s0.wp.com/latex.php?latex=%5Cmathrm%7Bli%7D%28x%29+%3D+%5Cint_2%5Ex+%5Cfrac%7Bdt%7D%7B%5Clog%7Bt%7D%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="\mathrm{li}(x) = \int_2^x \frac{dt}{\log{t}}" title="\mathrm{li}(x) = \int_2^x \frac{dt}{\log{t}}" class="latex" /> for <em>x</em> = 10<sup>21</sup>, where the logarithmic integral is an approximation of the number of primes less than its argument.  When you are finished, you are welcome to <a href="/2010/02/09/numerical-integration/2/">read</a> or <a href="http://programmingpraxis.codepad.org/EeqvRWXv">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "food");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/02/09/numerical-integration/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/02/09/numerical-integration/2/">2</a></p> </div></div>
+</body>
+</html>

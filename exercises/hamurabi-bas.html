@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>HAMURABI.BAS &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>HAMURABI.BAS</h2>
+<h3>July 27, 2010</h3>
+</div>
+<div class="entrybody">
+<p>Back in the 1970s, David Ahl wrote a new game program each month for <em>Creative Computing</em> magazine.  Those were the days of all-caps teletypes (if you were rich you could get a new-fangled &#8220;glass teletype&#8221;) and punched paper tapes (it was fun to play with the confetti they made). MS-BASIC permitted twenty-six single-letter variable names; later they also allowed a single letter followed by a single digit.  There were no user-defined functions and no recursion.  GOTO was common, resulting in a phenomenon called &#8220;spaghetti code.&#8221;  There was good news, however: it was acceptable programming practice to GOTO the middle of a FOR loop and run the code there, as long as you jumped back out of the loop before the corresponding NEXT &#8212; try to do <em>that</em> in your favorite functional language!</p>
+<p>One of Ahl&#8217;s most memorable games was Hamurabi, in which the player took the role of the administrator of the ancient city of Sumeria, managing the grain and land resources of the city and trying to keep the residents from starvation.  It is typical of the genre, with simple numeric input and scrolling text output.  Here is a <a href="http://atariarchives.org/basicgames/showpage.php?page=78">description and sample game</a>, and the <a href="http://atariarchives.org/basicgames/showpage.php?page=79">original BASIC source code</a> is reproduced on the <a href="/2010/07/27/hamurabi-bas/2/">next page</a>.  By my count, there are fourteen lines that are unreachable except by an IF&#8230;THEN, GOSUB or GOTO, forty-three lines that redirect control flow away from the line below, and four instances (line 555 to 215, bypassing line 210, 453 and 479 to 440, bypassing 430, 441 to 511, bypassing 510, and 880 and 885 to 565, bypassing 560) of jumping into the middle of a block of code; that&#8217;s a fine bowl of spaghetti, considering the entire program is only 120 lines.  Variable P represents the current population, S is the number of bushels in stores, and A is the number of acres of farmland owned by the city, but other variables are used inconsistently &#8212; for instance D sometimes represents the number of deaths in the current year, but other times it represents the current input value, and other times Q is used to represent the current input value.</p>
+<p>Your task is to reimplement HAMURABI.BAS in a more modern computer language.  Don&#8217;t peek at the solution unless you want to deprive yourself of the sheer joy of working out the spaghetti code and figuring out what the variables really stand for. When you are finished, you are welcome to <a href="/2010/07/27/hamurabi-bas/3/">read</a> or <a href="http://programmingpraxis.codepad.org/kx22J8TE">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "business");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/07/27/hamurabi-bas/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count"><span>3</span> bloggers like this post.</div><ul id="wpl-avatars" class="sd-like-gravatars"><li><a href="http://gravatar.com/sciencealli" title="sciencealli" class="wpl-liker"><img src="http://1.gravatar.com/avatar/f67b913e2814b9f047830a62ca79da50?s=30&amp;d=http%3A%2F%2Fs0.wp.com%2Fi%2Fmu.gif" class="avatar avatar-30" alt="sciencealli" width="30" height="30" /></a></li><li><a href="http://gravatar.com/daftspaniel" title="daftspaniel" class="wpl-liker"><img src="http://0.gravatar.com/avatar/0e187467c7398f025a46ba6f065c3ba9?s=30&amp;d=http%3A%2F%2Fs0.wp.com%2Fi%2Fmu.gif" class="avatar avatar-30" alt="daftspaniel" width="30" height="30" /></a></li><li><a href="http://gravatar.com/mmaruseacph2" title="Mithrandir" class="wpl-liker"><img src="http://1.gravatar.com/avatar/9a378ed2410bdabed82883f2615f6b61?s=30&amp;d=http%3A%2F%2Fs0.wp.com%2Fi%2Fmu.gif" class="avatar avatar-30" alt="Mithrandir" width="30" height="30" /></a></li></ul></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/07/27/hamurabi-bas/2/">2</a> <a href="http://programmingpraxis.com/2010/07/27/hamurabi-bas/3/">3</a> <a href="http://programmingpraxis.com/2010/07/27/hamurabi-bas/4/">4</a></p> </div></div>
+</body>
+</html>

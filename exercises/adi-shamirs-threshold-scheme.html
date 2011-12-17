@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Adi Shamir&#8217;s Threshold Scheme &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Adi Shamir&#8217;s Threshold&nbsp;Scheme</h2>
+<h3>June 17, 2011</h3>
+</div>
+<div class="entrybody">
+<p>[ Today's exercise was written by guest author Graham Enos, a PhD student in the Applied Mathematics program at UNC Charlotte, with solution in Python rather than Scheme. Suggestions for exercises are always welcome, or you may wish to contribute your own exercise; feel free to <a href="mailto://programmingpraxis@gmail.com">contact me</a> if you are interested. ]</p>
+<p>In his 1979 <a href="http://portal.acm.org/citation.cfm?ide=359176">paper</a> &#8220;How to Share A Secret,&#8221; Adi Shamir (the S in RSA) proposed a cryptographic scheme that allows <em>n</em> people to share a secret number <em>S</em> in such a way that it takes at least <em>k</em> of them pooling their resources to reconstruct <em>S</em>. This (<em>k</em>, <em>n</em>) threshold scheme uses modular arithmetic and polynomials to give each of the <em>n</em> participants <sup>1</sup>/<sub><em>k</em></sub> of the needed information. For our discussion, we&#8217;ll use a mix of Shamir&#8217;s notation and that found in chapter 12 of the <a href="http://www.cacr.math.uwaterloo.ca/hac/">book</a> <em>Handbook of Applied Cryptography</em> by Menezes, van Oorschot, and Vanstone.</p>
+<p>In his paper, Shamir describes how this scheme can be used to allow groups of <em>k</em> people to retrieve the secret number <em>S</em> even if the other <em>n</em>&minus;<em>k</em> pieces of information have been lost or destroyed. For another use case, suppose <em>S</em> is a 2048-bit private RSA key that&#8217;s been used to encrypt a message. Once <em>k</em> participants get together and pool their information, they can find <em>S</em> and decode the message. However, at least <em>k</em> of them must cooperate to retrieve <em>S</em>; no smaller number of participants will do. Note that <em>S</em> and <em>n</em> can be arbitrarily large integers with <em>k</em> &le; <em>n</em>. For instance, <em>S</em> could be the ASCII value of some secret letter, or a word encoded by taking letters as digits in base 36. Now for the details.</p>
+<p>Given a secret value <em>S</em>, the number of participants <em>n</em>, the threshold number <em>k</em>, and some prime number <em>p</em> &gt; max(<em>S</em>, <em>n</em>), we first construct in secret a polynomial <em>y</em> = <em>q</em>(<em>x</em>) of degree <em>k</em>&minus;1 (modulo our prime <em>p</em>) with constant term <em>S</em> by picking independent random integers between 1 and <em>p</em>&minus;1, inclusive, for the coefficients. Next we choose <em>n</em> unique random integers <em>x</em> between 1 and <em>p</em>&minus;1, inclusive, and evaluate the polynomial at those <em>n</em> points. Each of the <em>n</em> participants is given an (<em>x</em>, <em>y</em>) pair.</p>
+<p>To reconstruct <em>S</em> from <em>k</em> pairs (<em>x</em>, <em>y</em>), we use Lagrange Interpolation. In general this technique can rebuild the entire polynomial <em>y</em> = <em>q</em>(<em>x</em>), but since <em>S</em> = <em>q</em>(0), we only need to find <em>q</em>(0):</p>
+<p><img src="http://s0.wp.com/latex.php?latex=S+%3D++%5Csum_%7Bi+%3D+1%7D%5Ek+%5Cleft%5B+y_i+%5Cprod_%7B1+%5Cle+j+%5Cle+k%2C+j+%5Cne+i%7D+x_j+%28x_j+-+x_i%29%5E%7B-1%7D++++++%5Cright%5D+%5Cmod+p&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="S =  \sum_{i = 1}^k \left[ y_i \prod_{1 \le j \le k, j \ne i} x_j (x_j - x_i)^{-1}      \right] \mod p" title="S =  \sum_{i = 1}^k \left[ y_i \prod_{1 \le j \le k, j \ne i} x_j (x_j - x_i)^{-1}      \right] \mod p" class="latex" /></p>
+<p>Note: the exponent &minus;1 signifies taking the multiplicative inverse mod <em>p</em>, that is, the integer <em>z</em> such that <em>z</em> &middot; (<em>x<sub>j</sub></em> &#8211; <em>x<sub>i</sub></em>) &equiv; 1 (mod <em>p</em>).</p>
+<p>As an example, suppose <em>p</em> = 23, <em>S</em> = 17, and our polynomial <em>y</em> = <em>q</em>(<em>x</em>) is 17 + 4<em>x</em> + 13<em>x</em><sup>2</sup>. Since this polynomial has degree two, we need at least three points to reconstruct this polynomial. Suppose furthermore that to three of our <em>n</em> recipients we gave the points (14, 22), (2, 8), and (21, 5). Lagrange Interpolation could be used to recreate the whole polynomial, but we&#8217;re only interested in the constant term <img src="http://s0.wp.com/latex.php?latex=S+%3D+%5Csum_%7Bi+%3D+1%7D%5E3+%5Cleft%5B+y_i+%5Cprod_%7B1+%5Cle+j+%5Cle+k%2C+j+%5Cne+i%7D+x_j+%28x_j+-+x_i%29%5E%7B-1%7D+%5Cright%5D+%5Cpmod%7B23%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="S = \sum_{i = 1}^3 \left[ y_i \prod_{1 \le j \le k, j \ne i} x_j (x_j - x_i)^{-1} \right] \pmod{23}" title="S = \sum_{i = 1}^3 \left[ y_i \prod_{1 \le j \le k, j \ne i} x_j (x_j - x_i)^{-1} \right] \pmod{23}" class="latex" />:</p>
+<p>S = [22 &middot; 2(2&minus;14)<sup>&minus;1</sup> &middot; 21(21&minus;14)<sup>&minus;1</sup>] + [8 &middot; 14(14&minus;2)<sup>&minus;1</sup> &middot; 21(21&minus;2)<sup>&minus;1</sup>] + [5 &middot; 14(14&minus;21)<sup>&minus;1</sup> &middot; 2(2&minus;21)<sup>&minus;1</sup>] (mod 23)</p>
+<p>&nbsp;&nbsp;= [22 &middot; 2 &middot; 11<sup>&minus;1</sup> &middot; 21 &middot; 7<sup>&minus;1</sup>] + [8 &middot; 14 &middot; 12<sup>&minus;1</sup> &middot; 21 &middot; 19<sup>&minus;1</sup>] + [5 &middot; 14 &middot; 16<sup>&minus;1</sup> &middot; 21 &middot; 4<sup>&minus;1</sup>] (mod 23)</p>
+<p>&nbsp;&nbsp;= [22 &middot; 2 &middot; 21 &middot; 21 &middot; 10] + [8 &middot; 14 &middot; 2 &middot; 23 &middot; 17] + [5 &middot; 14 &middot; 13 &middot; 21 &middot; 6] (mod 23)</p>
+<p>&nbsp;&nbsp;= 194040 + 87584 + 114660 (mod 23)</p>
+<p>&nbsp;&nbsp;= 396284 (mod 23)</p>
+<p>&nbsp;&nbsp;= 17</p>
+<p>The beauty of this scheme is twofold. First, it is rather simple and elegant; the majority of the actual code used to implement the scheme takes less than 15 lines in Python. Second, it has information theoretic security. That is, the security of the scheme relies entirely upon the fact that at least <em>k</em> points are needed to reconstruct a degree <em>k</em>&minus;1 polynomial; nothing less than <em>k</em> points will do. This means its security is based on something being impossible, as opposed to something being believed to be difficult, but not yet proven to be so (e.g. factoring the product of two large primes). This scheme also enjoys other useful properties; see the above references for more.</p>
+<p>Your task is to write functions that perform both portions of Shamir&#8217;s (<em>k</em>, <em>n</em>) threshold scheme. When you are finished, you are welcome to <a href="/2011/06/17/adi-shamirs-threshold-scheme/2/">read</a> or <a href="http://codepad.org/NvYVdZFT">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/06/17/adi-shamirs-threshold-scheme/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/06/17/adi-shamirs-threshold-scheme/2/">2</a></p> </div></div>
+</body>
+</html>

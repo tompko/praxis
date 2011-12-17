@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Sums Of Powers &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Sums Of&nbsp;Powers</h2>
+<h3>February 11, 2011</h3>
+</div>
+<div class="entrybody">
+<p>We saw the calculation of the Bernoulli numbers in the <a href="/2011/02/08/the-first-computer-program/">previous exercise</a>.  In today&#8217;s exercise we will study the Bernoulli numbers in their original context in computing the sums of powers.  For instance, <em>S</em><sub>10</sub>(1000) = 1<sup>10</sup> + 2<sup>10</sup> + &hellip; + 1000<sup>10</sup> = 91409924241424243424241924242500, a result calculated by the Swiss mathematician Jakob Bernoulli in &#8220;less than half of a quarter of an hour&#8221; in the late seventeenth century.</p>
+<p>Any discussion of Bernoulli numbers is complicated by the fact that there are several similar sequences that go by that name.  The oldest is -1/2, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66, &hellip;; that&#8217;s the sequence we calculated previously.  The modern version of the sequence prepends a 1, so it&#8217;s 1, -1/2, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66, &hellip;.  And sometimes the -1/2 is given as +1/2, so the sequence is 1, 1/2, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66, &hellip;.  Even worse, sometimes the Bernoulli numbers are numbered counting from zero, though mostly they are numbered counting from one, so you have to be careful when you talk about the Bernoulli numbers.</p>
+<p>The particular sequence that we want to look at is the third sequence that starts with 1, 1/2, 1/6, 0, -1/30, &hellip;.  In 1999, S. Akiyama and Y. Tanigawa found a simple way to compute that sequence in linear time using a dynamic program represented in a triangular matrix:</p>
+<table align="center" cellpadding="5">
+<tr>
+<td>1</td>
+<td>1/2</td>
+<td>1/3</td>
+<td>1/4</td>
+<td>1/5</td>
+</tr>
+<tr>
+<td>1/2</td>
+<td>1/3</td>
+<td>1/4</td>
+<td>1/5</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>1/6</td>
+<td>1/6</td>
+<td>3/20</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1/30</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>-1/30</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</table>
+<p>In the first row, A<sub>0,<em>j</em></sub> is computed as 1 / (<em>j</em>+1).  In subsequent rows, A<sub><em>i</em>,<em>j</em></sub> is computed as (<em>j</em>+1) &times; (A<sub><em>i</em>&minus;1,<em>j</em></sub> &minus; A<sub><em>i</em>&minus;1,<em>j</em>+1</sub>).  The Bernoulli number B<sub><em>n</em></sub> is located in the first column at A<sub><em>n</em>,0</sub>.</p>
+<p>Given Bernoulli numbers, sums of powers can be computed by Bernoulli&#8217;s formula, where <img src="http://s0.wp.com/latex.php?latex=%5Cleft%28+%5Cbegin%7Barray%7D%7Bc%7D+n+%5C%5C+k+%5Cend%7Barray%7D+%5Cright%29+%3D+%5Cfrac%7Bn%21%7D%7B%28n-k%29%21k%21%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="\left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{(n-k)!k!}" title="\left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{(n-k)!k!}" class="latex" /> is the <a onclick="return mugicPopWin(this,event);" oncontextmenu="mugicRightClick(this);" href="http://mathworld.wolfram.com/BinomialCoefficient.html">binomial coefficient</a>:</p>
+<p align="center"><img src="http://s0.wp.com/latex.php?latex=S_m%28n%29+%3D+%5Cfrac%7B1%7D%7Bm%2B1%7D+%5Csum_%7Bk%3D1%7D%5En+%5Cleft%28+%5Cbegin%7Barray%7D%7Bc%7D+m%2B1+%5C%5C+k+%5Cend%7Barray%7D+%5Cright%29+B_k+n%5E%7Bm%2B1-k%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="S_m(n) = \frac{1}{m+1} \sum_{k=1}^n \left( \begin{array}{c} m+1 \\ k \end{array} \right) B_k n^{m+1-k}" title="S_m(n) = \frac{1}{m+1} \sum_{k=1}^n \left( \begin{array}{c} m+1 \\ k \end{array} \right) B_k n^{m+1-k}" class="latex" /></p>
+<p>Your task is to write functions that return a list of Bernoulli numbers up to a requested limit and that compute the sum of powers S<sub><em>m</em></sub>(<em>n</em>).  When you are finished, you are welcome to <a href="/2011/02/11/sums-of-powers/2/">read</a> or <a href="http://programmingpraxis.codepad.org/D2FTIMnB">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/02/11/sums-of-powers/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/02/11/sums-of-powers/2/">2</a></p> </div></div>
+</body>
+</html>

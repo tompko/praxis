@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Uncle Bob&#8217;s Bowling Game Kata &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Uncle Bob&#8217;s Bowling Game&nbsp;Kata</h2>
+<h3>August 11, 2009</h3>
+</div>
+<div class="entrybody">
+<p>Someone mentioned <a href="http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata">Uncle Bob&#8217;s Bowling Game Kata</a> to me a few days ago; it is apparently famous as a tutorial on object-oriented programming and test-driven development, though I had never heard of either Uncle Bob or his Bowling Game Kata.</p>
+<p>A game of tenpins bowling lasts ten frames, in each of which the bowler makes one or two attempts to knock down ten pins arranged in a triangle.  If the bowler knocks down all ten pins on the first attempt (that&#8217;s called a &#8220;strike&#8221;), he scores ten pins plus the number of pins knocked down on his next two rolls.  If the bowler knocks down all ten pins after two attempts (that&#8217;s called a &#8220;spare&#8221;), he scores ten pins plus the number of pins knocked down on his next roll.  If the bowler fails to knock down all ten pins (that&#8217;s called an &#8220;open frame&#8221;), he scores the number of pins he knocked down.  The scores accumulate through all ten frames.  At the last frame, if necessary, the pins are reset for one or two additional rolls to count the final bonus.  The sample scoresheet below shows how the calculations work:</p>
+<p align="center"><img src="http://programmingpraxis.files.wordpress.com/2009/08/tenpins.jpg?w=640" alt="Drawing by my daughter Kate" /></p>
+<p>For instance, the score in the second frame is 9, the sum of the two balls in the open frame.  The score in the third frame is 15, which is 10 for the spare plus 5 on the next ball.  The score in the ninth frame is 20, which is 10 for the strike plus 10 for the spare on the first two balls of the tenth frame.  The score in the tenth frame is 16, which is 10 for the spare plus 6 for the extra ball, which is a bonus ball not really part of any frame (the two balls of the tenth frame have already been rolled).</p>
+<p>Your task is to write a function that calculates the score of a tenpins bowling game.  When you are finished, you are welcome to <a href="/2009/08/11/uncle-bobs-bowling-game-kata/2/">read</a> or <a href="http://programmingpraxis.codepad.org/oissVw14">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Growable Arrays &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Growable&nbsp;Arrays</h2>
+<h3>October 16, 2009</h3>
+</div>
+<div class="entrybody">
+<p><img src="http://programmingpraxis.files.wordpress.com/2009/09/growable_arrays.jpg?w=640" align="right" />Most programming languages provide a data structure called an array that provides constant-time access and update to its elements, at the cost of fixing the size of the array in advance of its use; Scheme calls that data structure a vector.  In their book <em>The Practice of Programming</em>, Brian Kernighan and Rob Pike describe arrays that can grow during use, using the C language and its <code>realloc</code> function to double the size of an array when needed.  In this exercise we will create a tree-based data structure that provides logarithmic-time access and update to its elements without requiring periodic reallocations, based on the functional arrays in Lawrence Paulson&#8217;s book <em>ML for the Working Programmer</em>.</p>
+<p>A growable array has subscripts from 1 to <em>n</em>, where <em>n</em> is the current number of elements in the array.  The elements are stored in a binary tree.  To find the <em>k</em>&#8216;th element of the array, start at the root and repeatedly divide <em>k</em> by two until it becomes one, moving left if the remainder is zero and right if the remainder is one.  For instance, the 12th element of the array is found by moving left, left and right from the root, as shown in the diagram at right.  The operations on a growable array are <code>get</code>, which retrieves an element of the array, <code>put</code>, which returns a new array containing the element, and <code>hirem</code>, which shrinks the array by a single element.  The <code>put</code> operation can increase the upper bound of the array by one.</p>
+<p>Your task is to implement the growable array data structure.  When you are finished, you are welcome to <a href="/2009/10/16/growable-arrays/2/">read</a> or <a href="http://programmingpraxis.codepad.org/gFUCaHuY">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/10/16/growable-arrays/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/10/16/growable-arrays/2/">2</a></p> </div></div>
+</body>
+</html>

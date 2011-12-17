@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Modern Elliptic Curve Factorization, Part 2 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Modern Elliptic Curve Factorization, Part&nbsp;2</h2>
+<h3>April 27, 2010</h3>
+</div>
+<div class="entrybody">
+<p>The elliptic curve factorization algorithm is remarkably similar to Pollard&#8217;s <em>p</em>-1 algorithm:</p>
+<table>
+<tr>
+<td>
+<strong>define</strong> <code>p-1</code>(<em>n</em>, <em>B</em><sub>1</sub>, <em>B</em><sub>2</sub>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<strong>define</strong> <code>ecf</code>(<em>n</em>, <em>B</em><sub>1</sub>, <em>B</em><sub>2</sub>, <em>C</em>)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>q</em> = 2
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Q</em><sub><em>x</em>,<em>z</em></sub> &isin; <em>C</em> // random point
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>for</strong> <em>p</em> &isin; &pi;(2 &hellip; <em>B</em><sub>1</sub>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>for</strong> <em>p</em> &isin; &pi;(2 &hellip; <em>B</em><sub>1</sub>)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>a</em> = &lfloor;<code>log</code><sub><em>p</em></sub> <em>B</em><sub>1</sub>&rfloor;
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>a</em> = &lfloor;<code>log</code><sub><em>p</em></sub> <em>B</em><sub>1</sub>&rfloor;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>q</em> = <em>q<sup>p<sup>a</sup></sup></em> (<code>mod</code> <em>n</em>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Q</em> = <em>p<sup>a</sup></em> &otimes;<sub><em>C</em></sub> <em>Q</em>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>g</em> = <code>gcd</code>(<em>q</em>, <em>n</em>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>g</em> = <code>gcd</code>(<em>Q<sub>z</sub></em>, <em>n</em>)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> (1 &lt; <em>g</em> &lt; <em>n</em>) <strong>return</strong> <em>g</em>
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> (1 &lt; <em>g</em> &lt; <em>n</em>) <strong>return</strong> <em>g</em>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>for</strong> <em>p</em> &isin; &pi;(<em>B</em><sub>1</sub> &hellip; <em>B</em><sub>2</sub>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>for</strong> <em>p</em> &isin; &pi;(<em>B</em><sub>1</sub> &hellip; <em>B</em><sub>2</sub>)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>q</em> = <em>q<sup>p</sup></em> (<code>mod</code> <em>n</em>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Q</em> = <em>p</em> &otimes;<sub><em>C</em></sub> <em>Q</em>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>g</em> = <em>g</em> &times; <em>Q<sub>z</sub></em> (<code>mod</code> <em>n</em>)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>g</em> = <code>gcd</code>(<em>q</em>, <em>n</em>)
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>g</em> = <code>gcd</code>(<em>g</em>, <em>n</em>)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> (1 &lt; <em>g</em> &lt; <em>n</em>) <strong>return</strong> <em>g</em>
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> (1 &lt; <em>g</em> &lt; <em>n</em>) <strong>return</strong> <em>g</em>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>return</strong> <em>failure</em>
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>return</strong> <em>failure</em>
+</td>
+</tr>
+</table>
+<p>Lines 3 and 8 loop over the same lists of primes.  Line 4 computes the same maximum exponent.  Lines 6 and 7, and lines 11 and 12, compute the same greatest common divisor.  And line 13 returns the same failure.  The structures of the two algorithms are identical.  Also, note that both algorithms use variables that retain their meaning from the first stage (lines 2 to 7) to the second stage (lines 8 to 12).</p>
+<p>Lines 2, 5, 9 and 10 differ because <em>p</em>-1 is based on modular arithmetic and <code>ecf</code> is based on elliptic arithmetic (note that the &otimes;<sub><em>C</em></sub> operator, otimes-sub-C, indicates elliptic multiplication on curve C).  The most important difference is on the first line, where <code>ecf</code> has an extra argument <em>C</em> indicating the choice of elliptic curve.  If the <em>p</em>-1 method fails, there is nothing to do, but if the <code>ecf</code> method fails, you can try again with a different curve.</p>
+<p>Use of Montgomery&#8217;s elliptic curve parameterization from the previous <a href="/2010/04/23/modern-elliptic-curve-factorization-part-1">exercise</a> is a huge benefit.  Lenstra&#8217;s <a href="/2009/08/04/lenstras-algorithm">original</a> algorithm, which is the first stage of the modern algorithm, required that we check the greatest common divisor at each step, looking for a failure of the elliptic arithmetic.  With the modern algorithm, we compute the greatest common divisor only once, at the end, because Montgomery&#8217;s parameterization has the property that a failure of the elliptic arithmetic propagates through the calculation.  And without inversions, Montgomery&#8217;s parameterization is also much faster to calculate.  Brent&#8217;s parameterization of the randomly-selected curve is also important, as it guarantees that the order of the curve (the number of points) will be a multiple of 12, which has various good mathematical properties that we won&#8217;t enumerate here.</p>
+<p>There is a simple coding trick that can speed up the second stage.  Instead of multiplying each prime times <em>Q</em>, we iterate over <em>i</em> from <em>B</em><sub>1</sub> + 1 to <em>B</em><sub>2</sub>, adding 2<em>Q</em> at each step; when <em>i</em> is prime, the current <em>Q</em> can be accumulated into the running solution.  Again, we defer the calculation of the greatest common divisor until the end of the iteration.</p>
+<p>Your task is to write a function that performs elliptic curve factorization.  When you are finished, you are welcome to <a href="/2010/04/27/modern-elliptic-curve-factorization-part-2/2/">read</a> or <a href="http://programmingpraxis.codepad.org/dN59DMk0">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "health");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/04/27/modern-elliptic-curve-factorization-part-2/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/04/27/modern-elliptic-curve-factorization-part-2/2/">2</a></p> </div></div>
+</body>
+</html>

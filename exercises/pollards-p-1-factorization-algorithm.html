@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Pollard&#8217;s P-1 Factorization Algorithm &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Pollard&#8217;s P-1 Factorization&nbsp;Algorithm</h2>
+<h3>July 21, 2009</h3>
+</div>
+<div class="entrybody">
+<p>Fermat&#8217;s little theorem states that for any prime number <img src="http://s0.wp.com/latex.php?latex=p&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="p" title="p" class="latex" />, and any other number <img src="http://s0.wp.com/latex.php?latex=a&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a" title="a" class="latex" />, <img src="http://s0.wp.com/latex.php?latex=a%5E%7Bp-1%7D+%5Cequiv+1+%5Cpmod%7Bp%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a^{p-1} \equiv 1 \pmod{p}" title="a^{p-1} \equiv 1 \pmod{p}" class="latex" />. Rearranging terms, we have <img src="http://s0.wp.com/latex.php?latex=a%5E%7Bp-1%7D+-+1+%5Cequiv+0+%5Cpmod%7Bp%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a^{p-1} - 1 \equiv 0 \pmod{p}" title="a^{p-1} - 1 \equiv 0 \pmod{p}" class="latex" />, which means that <img src="http://s0.wp.com/latex.php?latex=p&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="p" title="p" class="latex" /> divides the left-hand side of the equation, thus <img src="http://s0.wp.com/latex.php?latex=p&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="p" title="p" class="latex" /> is a factor of the left-hand side.</p>
+<p>John Pollard used this idea to develop a factoring method in 1974.  His idea is to choose a very large number and see if it has any factors in common with <img src="http://s0.wp.com/latex.php?latex=a%5E%7Bp-1%7D+-+1&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a^{p-1} - 1" title="a^{p-1} - 1" class="latex" />, thus giving a factor of <img src="http://s0.wp.com/latex.php?latex=p&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="p" title="p" class="latex" />.  A systematic way to test many very large numbers is by taking large factorials, which have many small factors within them. Thus, Pollard&#8217;s <img src="http://s0.wp.com/latex.php?latex=p-1&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="p-1" title="p-1" class="latex" /> factorization algorithm is this:</p>
+<p>1) Choose <img src="http://s0.wp.com/latex.php?latex=b&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="b" title="b" class="latex" />, which is known as the <em>smoothness bound</em>, and calculate the product of the primes to <img src="http://s0.wp.com/latex.php?latex=b&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="b" title="b" class="latex" /> by <img src="http://s0.wp.com/latex.php?latex=k+%3D+%5Cmathrm%7Blcm%7D%281%2C2%2C3%2C%5Cldots%2Cb%29&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="k = \mathrm{lcm}(1,2,3,\ldots,b)" title="k = \mathrm{lcm}(1,2,3,\ldots,b)" class="latex" />.</p>
+<p>2) Choose a random integer <img src="http://s0.wp.com/latex.php?latex=a&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a" title="a" class="latex" /> such that <img src="http://s0.wp.com/latex.php?latex=1+%3C+a+%3C+n&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="1 &lt; a &lt; n" title="1 &lt; a &lt; n" class="latex" />.</p>
+<p>3) Calculate <img src="http://s0.wp.com/latex.php?latex=g%3D%5Cgcd%28a%2Cn%29&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="g=\gcd(a,n)" title="g=\gcd(a,n)" class="latex" />.  If <img src="http://s0.wp.com/latex.php?latex=g&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="g" title="g" class="latex" /> is strictly greater than 1, then it is a non-trivial factor of <img src="http://s0.wp.com/latex.php?latex=n&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="n" title="n" class="latex" />. Otherwise, continue to the next step.</p>
+<p>4) Calculate <img src="http://s0.wp.com/latex.php?latex=d+%3D+%5Cgcd%28a%5Ek+-+1%2C+n%29&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="d = \gcd(a^k - 1, n)" title="d = \gcd(a^k - 1, n)" class="latex" />.  If <img src="http://s0.wp.com/latex.php?latex=1+%3C+d+%3C+n&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="1 &lt; d &lt; n" title="1 &lt; d &lt; n" class="latex" />, then <img src="http://s0.wp.com/latex.php?latex=d&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="d" title="d" class="latex" /> is a non-trivial factor of <img src="http://s0.wp.com/latex.php?latex=n&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="n" title="n" class="latex" />.  If <img src="http://s0.wp.com/latex.php?latex=d%3D1&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="d=1" title="d=1" class="latex" />, go to Step 1 and choose a larger <img src="http://s0.wp.com/latex.php?latex=b&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="b" title="b" class="latex" />.  If <img src="http://s0.wp.com/latex.php?latex=d%3Dn&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="d=n" title="d=n" class="latex" />, go back to Step 2 and choose another <img src="http://s0.wp.com/latex.php?latex=a&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a" title="a" class="latex" />.</p>
+<p>In Step 4, you can quit with failure instead of returning to Step 1 if<img src="http://s0.wp.com/latex.php?latex=b&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="b" title="b" class="latex" /> becomes too large, where &#8220;too large&#8221; is probably somewhere around <img src="http://s0.wp.com/latex.php?latex=10%5E6&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="10^6" title="10^6" class="latex" />; in that case, you will need to continue with some other factoring algorithm.</p>
+<p>Your task is to write a function that factors integers by Pollard&#8217;s <img src="http://s0.wp.com/latex.php?latex=p-1&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="p-1" title="p-1" class="latex" /> method.  What are the factors of <img src="http://s0.wp.com/latex.php?latex=2%5E%7B98%7D-1&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="2^{98}-1" title="2^{98}-1" class="latex" />?  When you are finished, you are welcome to <a href="/2009/07/21/pollards-p-1-factorization-algorithm/2/">read</a> or <a href="http://programmingpraxis.codepad.org/dx55xB8V">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "health");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/07/21/pollards-p-1-factorization-algorithm/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/07/21/pollards-p-1-factorization-algorithm/2/">2</a></p> </div></div>
+</body>
+</html>

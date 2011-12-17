@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Blum Blum Shub &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Blum Blum&nbsp;Shub</h2>
+<h3>August 18, 2009</h3>
+</div>
+<div class="entrybody">
+<p>A stream cipher takes its input one plaintext character at a time, producing the corresponding ciphertext character before it moves on to the next plaintext character.  An easy way to do this is to seed a pseudo-random number generator and xor its output with the stream of plaintext characters; because of the xor, decryption is the exact same operation as encryption.  The pseudo-random number generator must be crypographically secure; such common pseudo-random number generators as linear congruential, lagged fibonacci, and mersenne twister all fail due to serial correlation between successive values.</p>
+<p>A simple pseudo-random number generator that is cryptographically secure is known as Blum Blum Shub, after its three inventors.  Successive values are computed as the least-significant bit (or bits) of the number <em>x<sub>k</sub></em> = <em>x</em><sub><em>k</em>-1</sub><sup>2</sup> (mod <em>n</em>).  The parameter <em>n</em> is the product of two large primes <em>p</em> and <em>q</em>, each congruent to 3 modulo 4.  The initial value <em>x</em><sub>0</sub> is calculated as <em>s</em><sup>2</sup> (mod <em>n</em>), where <em>s</em> is the seed, which must be coprime to <em>n</em>.</p>
+<p>Your task is to write a function that enciphers and deciphers a stream of characters as described above.  When you are finished, you are welcome to <a href="/2009/08/18/blum-blum-shub/2/">read</a> or <a href="http://programmingpraxis.codepad.org/CXQsxZ1f">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/08/18/blum-blum-shub/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/08/18/blum-blum-shub/2/">2</a></p> </div></div>
+</body>
+</html>

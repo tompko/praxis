@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Big Numbers: Addition, Subtraction, And Multiplication &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Big Numbers: Addition, Subtraction, And&nbsp;Multiplication</h2>
+<h3>May 31, 2011</h3>
+</div>
+<div class="entrybody">
+<p>In the previous exercise, we decided on a representation for big numbers and wrote some simple functions concerning them.  In today&#8217;s exercise we look at addition, subtraction, and multiplication.  We will use the standard grade-school algorithms; there are better ways to do multiplication, but it&#8217;s best to get something working first, and maybe later we can improve it.</p>
+<p>The trick with all of these functions is to handle the sign separately from the arithmetic.  Consider addition.  If you want to calculate <em>a</em> + <em>b</em> = <em>c</em>, you must first figure out which of |<em>a</em>| + |<em>b</em>|, |<em>a</em>| &minus; |<em>b</em>|, or |<em>b</em>| &minus; |<em>a</em>| is equal to |<em>c</em>|, perform the appropriate arithmetic, then attach the appropriate sign.  Likewise subtraction, except that the result may have fewer big-digits than either input, so you have to be careful to remove redundant leading zeros from the result.  Multiplication is simpler; the result is positive if the signs are the same, otherwise negative.</p>
+<p>For addition, the arithmetic is done by iterating over the big-digits from least to most significant, adding the two big-digits in each position and carrying to the next position any excess over the digit base.  Since the carry is always either 0 or 1, it is not possible for a single carry to propagate beyond the next big-digit (though several big-digit sums may incur carries in succession).  In those cases where the addition is done by subtraction, the carry (in grade-school they called it borrow) is either 0 or -1, and it may indeed propagate to multiple big-digits (think of decimal 1000 &minus; 1, where the borrow propagates three positions).</p>
+<p>Subtraction is done by changing the sign and calling the function for addition, in order to eliminate the need for duplicating code.</p>
+<p>Multiplication is only a little bit harder.  The grade-school method forms partial products for each big-digit, and adds all the partial products at the end, but it is easier to add the partial products at each big-digit.  The carry may be greater than 1, but it is still true that a single carry cannot propagate beyond the next big-digit.</p>
+<p>Your task is to write functions that perform big number addition, subtraction and multiplication.  When you are finished, you are welcome to <a href="/2011/05/31/big-numbers-addition-subtraction-and-multiplication/2/">read</a> or <a href="http://programmingpraxis.codepad.org/gAbRGnwD">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

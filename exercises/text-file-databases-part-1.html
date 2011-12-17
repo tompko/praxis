@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Text File Databases: Part 1 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Text File Databases: Part&nbsp;1</h2>
+<h3>October 19, 2010</h3>
+</div>
+<div class="entrybody">
+<p>There is a lot of data stored in plain-ascii text files consisting of records separated by newlines, each record consisting of multiple fields, and it is useful to have a function library for dealing with them.  This exercise looks at some functions for reading the data; the next exercise will look at some functions for processing the data.</p>
+<p>We will consider four common types of text file databases.  A file with fixed-length data fields has records of a fixed number of characters, each record containing fields that are similarly in fixed positions; the data may be preceded by a fixed-length header.  A file with character-delimited fields has variable-length records, each with fields separated by a single-character delimiter; the delimiter is often a tab or vertical bar. A particular type of variable-length delimited text database is known as comma-separated values, where the delimiter is a comma and fields may be surrounded by double-quote characters so that a comma within a quoted field loses its meaning as a field separator; in that case, a literal double-quote character may appear within a quoted field as two double-quote characters in succession.  The fourth type that we will consider is a name-value record, where each record consists of multiple fields, one field per line, separated by blank lines, each field consisting of a type-name and a value separated by a delimiter; this format is often used for databases that have many optional fields, such as bibliographic databases.</p>
+<p>We want reader functions for each of these file formats that all return a single record each time they are called, or an end-of-file marker when the input is exhausted, and advance the file pointer to the beginning of the next record.  The return value should be a list or array, whichever is convenient, containing the value of one field in each element, except for the name-value record, which should return a list of name/value pairs.</p>
+<p>Different operating systems have different methods of signalling the end of a line.  For maximum portability, your functions should accept the end of a line indicated by a carriage return, a line feed, or both characters in either order.  You should be prepared to accept any type of line marker because the data may come from any source; for instance, your computer running MS Windows with a CRLF line marker may fetch data from a Linux computer with a bare LF for the line marker.  You should also accept the final line in the file whether or not it has a trailing line marker.</p>
+<p>Your task is to write functions to read one record from each of the four file types described above.  When you are finished, you are welcome to <a href="/2010/10/19/text-file-databases-part-1/2/">read</a> or <a href="http://programmingpraxis.codepad.org/h3ENphv5">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

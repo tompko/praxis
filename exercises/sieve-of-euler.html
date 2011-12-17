@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Sieve Of Euler &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Sieve Of&nbsp;Euler</h2>
+<h3>February 25, 2011</h3>
+</div>
+<div class="entrybody">
+<p>The ancient <a href="http://programmingpraxis.com/2009/02/19/sieve-of-eratosthenes/">Sieve of Eratosthenes</a> that computes the list of prime numbers is inefficient in the sense that some composite numbers are struck out more than once; for instance, 21 is struck out by both 3 and 7.  The great Swiss mathematician Leonhard Euler invented a sieve that strikes out each composite number exactly once, at the cost of some additional bookkeeping.  It works like this:</p>
+<blockquote><p>First, make a list of numbers from 2, as large as you wish; call the maximum number <em>n</em>.</p>
+<p>Second, extract the first number from the list, make a new list in which each element of the original list, including the first, is multiplied by the extracted first number.</p>
+<p>Third, &#8220;subtract&#8221; the new list from the original, keeping in an output list only those numbers in the original list that do not appear in the new list.</p>
+<p>Fourth, output the first number from the list, which is prime, and repeat the second, third and fourth steps on the reduced list excluding its first element, continuing until the input list is exhausted.</p></blockquote>
+<p>For example, start with the list 2 3 4 5 &hellip; 30.  Then the new list is 4 6 8 10 &hellip; 60.  Subtracting gives the list 2 3 5 7 9 &hellip; 29.  Now 2 is prime and the process repeats on the list 3 5 7 9 &hellip; 29.  At the next step, the new list is 9 15 21 27 &hellip; 87, subtracting gives the list 3 5 7 11 13 &hellip; 29, now 2 and 3 are prime and the process repeats on the list 5 7 11 13 &hellip; 29.  Likewise for the primes 5 and 7, and since 7 &middot; 7 &gt; 30, the process stops, with the remaining list 11 13 17 19 23 29, so the complete list of primes less than 30 is 2 3 5 7 11 13 17 19 23 29.</p>
+<p>Just as in the Sieve of Eratosthenes, you can speed up the Sieve of Euler by considering only odd numbers, by stopping once the first item in the list is greater than the square root of <em>n</em>, and by computing the new list in the second step only as far as <em>n</em>.</p>
+<p>Your task is to write a program that implements the Sieve of Euler, then compare its performance to the Sieve of Eratosthenes.  When you are finished, you are welcome to <a href="/2011/02/25/sieve-of-euler/2/">read</a> or <a href="http://programmingpraxis.codepad.org/dcEnoKkS">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/02/25/sieve-of-euler/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/02/25/sieve-of-euler/2/">2</a></p> </div></div>
+</body>
+</html>

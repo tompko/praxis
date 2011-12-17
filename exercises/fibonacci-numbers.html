@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Fibonacci Numbers &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Fibonacci&nbsp;Numbers</h2>
+<h3>July 30, 2010</h3>
+</div>
+<div class="entrybody">
+<p>One of the first functions taught to programmers who are just learning about recursion is the function to compute the fibonacci numbers.  The naive function takes exponential time, as each recursive call must compute the values of smaller fibonacci numbers, so programmers are next taught how to remove the recursion by explicitly storing state information, giving a linear-time iterative algorithm.  The upshot is that programming students are left with the impression that recursion is bad and iteration is good.</p>
+<p>It is actually possible to improve the performance with a logarithmic-time algorithm.  Consider the matrices</p>
+<p><img src="http://s0.wp.com/latex.php?latex=m+%3D+%5Cbegin%7Bpmatrix%7D+1+%26+1+%5C%5C+1+%26+0+%5Cend%7Bpmatrix%7D%2C+m%5E2+%3D+%5Cbegin%7Bpmatrix%7D+2+%26+1+%5C%5C+1+%26+1+%5Cend%7Bpmatrix%7D%2C+m%5E3+%3D+%5Cbegin%7Bpmatrix%7D+3+%26+2+%5C%5C+2+%26+1+%5Cend%7Bpmatrix%7D%2C+m%5E4+%3D+%5Cbegin%7Bpmatrix%7D+5+%26+3+%5C%5C+3+%26+2+%5Cend%7Bpmatrix%7D%2C+m%5E5+%3D+%5Cbegin%7Bpmatrix%7D+8+%26+5+%5C%5C+5+%26+3+%5Cend%7Bpmatrix%7D.&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="m = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}, m^2 = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}, m^3 = \begin{pmatrix} 3 &amp; 2 \\ 2 &amp; 1 \end{pmatrix}, m^4 = \begin{pmatrix} 5 &amp; 3 \\ 3 &amp; 2 \end{pmatrix}, m^5 = \begin{pmatrix} 8 &amp; 5 \\ 5 &amp; 3 \end{pmatrix}." title="m = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}, m^2 = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}, m^3 = \begin{pmatrix} 3 &amp; 2 \\ 2 &amp; 1 \end{pmatrix}, m^4 = \begin{pmatrix} 5 &amp; 3 \\ 3 &amp; 2 \end{pmatrix}, m^5 = \begin{pmatrix} 8 &amp; 5 \\ 5 &amp; 3 \end{pmatrix}." class="latex" /></p>
+<p>Each time the matrix is multiplied by itself, the number in the lower left-hand corner is the next fibonacci number; for instance, <em>F</em><sub>4</sub>=3 (<em>F</em><sub>0</sub>=0 is a special case).  Of course, powering can be done using a binary square-and-multiply algorithm, as in the <a href="standard-prelude/#ipow"><code>ipow</code></a> and <a href="standard-prelude/#expm"><code>expm</code></a> functions of the <a href="standard-prelude">Standard Prelude</a>, giving a logarithmic algorithm for computing the <em>n</em>th fibonacci number.</p>
+<p>Your task is to write the three fibonacci functions &mdash; exponential, linear, and logarithmic &mdash; described above.  When you are finished, you are welcome to <a href="/2010/07/30/fibonacci-numbers/2/">read</a> or <a href="http://programmingpraxis.codepad.org/YpIgShGQ">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/07/30/fibonacci-numbers/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/07/30/fibonacci-numbers/2/">2</a></p> </div></div>
+</body>
+</html>

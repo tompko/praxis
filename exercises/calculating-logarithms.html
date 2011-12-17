@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Calculating Logarithms &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Calculating&nbsp;Logarithms</h2>
+<h3>December 18, 2009</h3>
+</div>
+<div class="entrybody">
+<p>Before computers, arithmetic was done by hand, and one of the primary tools of the practicing arithmetician was a table of logarithms, which was printed in a large book and used to perform multiplication, division and exponentiation.  But how to calculate the logarithms?</p>
+<p>Leonhard Euler, the Swiss mathematician, explained the algorithm in his 1748 book <em>Introductio in analysin infinitorum</em>.  The basic idea is that, given two numbers <em>a</em> and <em>b</em>, <em>a</em> &lt; <em>n</em> &lt; <em>b</em>, the geometric mean of <em>a</em> and <em>b</em> is equal to the arithmetic mean of their logarithms.  Thus, to calculate the logarithm of a given number <em>n</em>, find two powers of the logarithmic base that bound <em>n</em>, calculate the geometric mean (square root of the product) of the two numbers and the arithmetic mean (half of the sum) of the two numbers, and recur on the the smaller interval between one of the two numbers and the geometric mean that bounds <em>n</em>, continuing until the desired accuracy is reached.</p>
+<p>But how did Euler calculate the square roots?  Sir Isaac Newton, the English physicist, described a method based on derivatives.  Given an initial estimate <em>x</em> of the square root of <em>n</em>, a better estimate is given by <img src="http://s0.wp.com/latex.php?latex=x+-+%5Cfrac%7Bx%5E2+-+n%7D%7B2x%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="x - \frac{x^2 - n}{2x}" title="x - \frac{x^2 - n}{2x}" class="latex" />.  Again, this calculation is iterated until the desired accuracy is reached.</p>
+<p>Your task is to write a function to compute square roots using Newton&#8217;s method, then use that function to compute logarithms using Euler&#8217;s method.  When you are finished, you are welcome to <a href="/2009/12/18/calculating-logarithms/2/">read</a> or <a href="http://programmingpraxis.codepad.org/oOdXhS7g">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/12/18/calculating-logarithms/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/12/18/calculating-logarithms/2/">2</a></p> </div></div>
+</body>
+</html>

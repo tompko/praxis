@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Permuted Index &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Permuted&nbsp;Index</h2>
+<h3>December 22, 2009</h3>
+</div>
+<div class="entrybody">
+<p>In 1972, David Parnas <a href="http://www.cs.ubc.ca/~kdvolder/CPSC511/downloads/parnas.12.72.pdf">proposed</a> the construction of a permuted index, also known as a keyword-in-context or kwic index, as an exercise in program design.  For example, the three sentences</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;All's well that ends well.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Nature abhors a vacuum.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Every man has a price.</code></p>
+<p>produce the permuted index:</p>
+<pre>
+                          Nature     abhors a vacuum.
+                                     All's well that ends well.
+                 All's well that     ends well.
+                                     Every man has a price.
+                       Every man     has a price.
+                           Every     man has a price.
+                                     Nature abhors a vacuum.
+                 Every man has a     price.
+                      All's well     that ends well.
+                 Nature abhors a     vacuum.
+                           All's     well that ends well.
+            All's well that ends     well.</pre>
+<p>Parnas proposed a three-step algorithm: rotate, sort, unrotate.  The rotate step takes a sentence and produces all its rotations.  The sort step sorts the rotations by their back half.  The unrotate step produces neatly-formatted output.  Somewhere, in one of the three steps, rotations that produce back halves starting with words on a <em>stop list</em> are discarded; note that there is no output for &#8220;a vacuum&#8221; or &#8220;a price.&#8221;</p>
+<p>Your task is to implement a program that produces permuted indexes using Parnas&#8217; three-step algorithm.  When you are finished, you are welcome to <a href="/2009/12/22/permuted-index/2/">read</a> or <a href="http://programmingpraxis.codepad.org/ay27GbL9">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/12/22/permuted-index/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/12/22/permuted-index/2/">2</a></p> </div></div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Porter Stemming &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Porter&nbsp;Stemming</h2>
+<h3>September 8, 2009</h3>
+</div>
+<div class="entrybody">
+<p>Stemming, in the parlance of searching and information retrieval, is the operation of stripping the suffices from a word, leaving its stem.  Google, for instance, uses stemming to search for web pages containing the words <em>connected</em>, <em>connecting</em>, <em>connection</em> and <em>connections</em> when you ask for a web page that contains the word <em>connect</em>.</p>
+<p>There are basically two ways to implement stemming. The first approach is to create a big dictionary that maps words to their stems.  The advantage of this approach is that it works perfectly (insofar as the stem of a word can be defined perfectly); the disadvantages are the space required by the dictionary and the investment required to maintain the dictionary as new words appear.  The second approach is to use a set of rules that extract stems from words.  The advantages of this approach are that the code is typically small, and it can gracefully handle new words; the disadvantage is that it occasionally makes mistakes.  But, since stemming is imperfectly defined, anyway, occasional mistakes are tolerable, and the rule-based approach is the one that is generally chosen.</p>
+<p>In 1979, Martin Porter developed a stemming algorithm that, with minor modifications, is still in use today; it uses a set of rules to extract stems from words, and though it makes some mistakes, most common words seem to work out right.  Porter describes his algorithm and provides a reference implementation in C at <a href="http://tartarus.org/~martin/PorterStemmer/index.html">http://tartarus.org/~martin/PorterStemmer/index.html</a>; the description of the algorithm is repeated on the <a href="/2009/09/08/porter-stemming/2/">next page</a>.</p>
+<p>Your task is to write a function that stems words according to Porter&#8217;s algorithm; you should be aware that this exercise requires rather more code than we usually write, though it&#8217;s no harder than usual. When you are finished, you are welcome to <a href="/2009/09/08/porter-stemming/3/">read</a> or <a href="http://programmingpraxis.codepad.org/Wyj6sW6N">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

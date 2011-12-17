@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Cellular Automata &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Cellular&nbsp;Automata</h2>
+<h3>May 15, 2009</h3>
+</div>
+<div class="entrybody">
+<p>A cellular automaton is a collection of cells arranged in an infinite grid, controlled by a clock, with each cell coloring itself at each tick of the clock based on the state of its neighboring cells.  A linear cellular automaton has all the cells of the grid arranged in a single line.  A time-lapse picture of a linear cellular automaton shows a two-dimensional grid with the automaton as a horizontal line, the state of the automaton at each clock tick flowing down the page.</p>
+<p>For the elementary cellular automata that we will study, each cell may be either of two colors, black or white, and a cell&#8217;s neighborhood consists of itself and the two cells on either side.  With two colors and three neighbors, there are 2<sup>3</sup>=8 states and 2<sup>8</sup>=256 possible rules for advancing from one state to the next.</p>
+<p>Rules are specified using a kind of binary notation; for each of the eight states 111, 110, 101, 100, 011, 010, 001, and 000, where 1 is black and 0 is white and the neighbors are arranged left-to-right on the line.  Then the rule is specified by the binary number corresponding to the eight successor states of each of the eight neighbors, so for instance rule 30 = 00011110<sub>2</sub> maps 111 to 0, 110 to 0, 101 to 0, 100 to 1, 011 to 1, 010 to 1, 001 to 1, and 000 to 0.</p>
+<p>For example, the first 12 rows of the rule 158 automaton applied to a row containing a single black cell are shown below:</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X<br />
+&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X<br />
+&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;X<br />
+X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X&nbsp;X&nbsp;X&nbsp;&nbsp;&nbsp;X</code></p>
+<p>You can see more examples at <a onclick="return mugicPopWin(this,event);" oncontextmenu="mugicRightClick(this);" href="http://mathworld.wolfram.com/ElementaryCellularAutomaton.html">http://mathworld.wolfram.com/ElementaryCellularAutomaton.html</a>.</p>
+<p>Your task is to write a function that draws the result of applying a given rule to a given number of rows, starting from a row with a single black cell.  When you are finished, you are welcome to <a href="/2009/05/15/cellular-automata/2/">read</a> or <a href="http://codepad.org/H7akaoDD">run</a> a suggested solution, or post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

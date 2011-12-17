@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Two Factoring Games &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Two Factoring&nbsp;Games</h2>
+<h3>February 18, 2011</h3>
+</div>
+<div class="entrybody">
+<p>Over at <a href="http://mersenneforum.org">mersenneforum.org</a>, a small community of people interested in factoring large integers talk about their craft, share tips and accomplishments, and sometimes play factoring games.  Today&#8217;s exercise is about two of those games.</p>
+<p>The <a onclick="return mugicPopWin(this,event);" oncontextmenu="mugicRightClick(this);" href="http://mathworld.wolfram.com/HomePrime.html"><em>home prime</em></a> of a number <em>n</em> is computed by factoring the number into its prime factors, concatenating the digits of the prime factors (which have been sorted into ascending order), and repeating until the result is prime; this prime number is known as the home prime.  For instance, 99 factors as 3 &middot; 3 &middot; 11; 3311 factors as 7 &middot; 11 &middot; 43, and 71143 is prime, so HP(99) = 71143, computed in three steps.  Sloane has the list of home primes at <a href="http://oeis.org/A037274">A037274</a>.  Note that the home prime of a prime number is the number itself.  Many numbers resolve to their home prime in just a few steps, as above, but others take longer, and it not known if all numbers eventually resolve to a home prime.  At <a href="http://mersenneforum.org/showthread.php?t=3238">mersenneforum</a>, and at the <a href="http://www.worldofnumbers.com/topic1.htm">World of Numbers</a>, Alex Gruppa, Paul Leyland, and Nicolas Daminelli have been working on the calculation of HP49 for ten years, and are currently stalled, after 105 steps, by a 210-digit composite.</p>
+<p>Another factoring game involves the <a onclick="return mugicPopWin(this,event);" oncontextmenu="mugicRightClick(this);" href="http://mathworld.wolfram.com/Euclid-MullinSequence.html">Euclid-Mullin sequence</a>, which starts with <em>a</em><sub>1</sub> = 2 and continues <img src="http://s0.wp.com/latex.php?latex=a_n+%3D+%5Cmathrm%7Blpf%7D+%5Cleft%28+1+%2B+%5Cprod_%7Bk%3D1%7D%5E%7Bn-1%7D+a_k+%5Cright%29&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="a_n = \mathrm{lpf} \left( 1 + \prod_{k=1}^{n-1} a_k \right)" title="a_n = \mathrm{lpf} \left( 1 + \prod_{k=1}^{n-1} a_k \right)" class="latex" />; the first few  terms are 2, 3, 7, 43, 13, 53, 5, 6221671, 38709183810571, 139, &hellip; (<a href="http://oeis.org/A000945">A000945</a>).  Currently, only the first 47 terms are known, with calculations <a href="http://mersenneforum.org/showthread.php?t=15228">stalled</a> by a 256-digit composite; the 43rd term was only found last year after a <a href="http://mersenneforum.org/showthread.php?t=3619">lengthy effort</a>.  It is conjectured but not known that the sequence includes all the prime numbers, as it is closely related to Euclid&#8217;s <a href="http://primes.utm.edu/notes/proofs/infinite/euclids.html">original proof</a> of the infinitude of primes.</p>
+<p>Your task is to write two functions to compute the home prime of a given number and to compute the Euclid-Mullin sequence.  When you are finished, you are welcome to <a href="/2011/02/18/two-factoring-games/2/">read</a> or <a href="http://programmingpraxis.codepad.org/TULr3faG">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/02/18/two-factoring-games/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/02/18/two-factoring-games/2/">2</a></p> </div></div>
+</body>
+</html>

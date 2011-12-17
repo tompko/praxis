@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Comma-Separated Values &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Comma-Separated&nbsp;Values</h2>
+<h3>March 17, 2009</h3>
+</div>
+<div class="entrybody">
+<p>The comma-separated values file format is commonly used to exchange tabular information, such as spreadsheets, between different programs and operating systems.  Though common, the csv format has never been formally defined, and there are variations.  One definition is at <a href="http://www.rfc-editor.org/rfc/rfc4180.txt">http://www.rfc-editor.org/rfc/rfc4180.txt</a>.</p>
+<p>We will define a csv file as containing ascii text, with records terminated by a line-termination sequence and fields containing zero or more characters separated by commas; a line-termination sequence is a carriage-return character, or a line-feed character, or both characters in either order.  Leading and trailing space in unquoted fields is preserved.  Fields may be surrounded by double-quote characters (ascii &#92;042) may contain any characters; such fields may contain newlines, literal commas (ascii &#92;054), and double-quote characters represented as two successive double-quotes.  The field separator is normally a comma, but may be changed to an arbitrary character (often a semi-colon) in those European countries that use a comma instead of a decimal point.</p>
+<p>The examples below show some of the kinky situations that may arise; for readability, the three-character sequence TAB represents a single tab character (ascii &#92;011):</p>
+<p><code>1,abc,def ghi,jkl,unquoted character strings<br />
+2,&quot;abc&quot;,&quot;def ghi&quot;,&quot;jkl&quot;,quoted character strings<br />
+3,123,456,789,numbers<br />
+4,   abc,def   ,   ghi   ,strings with whitespace<br />
+5,   &quot;abc&quot;,&quot;def&quot;   ,   &quot;ghi&quot;   ,quoted strings with whitespace<br />
+6,   123,456   ,   789   ,numbers with whitespace<br />
+7,TAB123,456TAB,TAB789TAB,numbers with tabs for whitespace<br />
+8,   -123,   +456,   1E3,more numbers with whitespace<br />
+9,123 456,123&quot;456,  123 456   ,strange numbers<br />
+10,abc&quot;,de&quot;f,g&quot;hi,embedded quotes<br />
+11,&quot;abc&quot;&quot;&quot;,&quot;de&quot;&quot;f&quot;,&quot;g&quot;&quot;hi&quot;,quoted embedded quotes<br />
+12,&quot;&quot;,&quot;&quot; &quot;&quot;,&quot;&quot;x&quot;&quot;,doubled quotes<br />
+13,&quot;abc&quot;def,abc&quot;def&quot;,&quot;abc&quot; &quot;def&quot;,strange quotes<br />
+14,,&quot;&quot;,   ,empty fields<br />
+15,abc,&quot;def<br />
+ghi&quot;,jkl,embedded newline<br />
+16,abc,&quot;def&quot;,789,multiple types of fields</code></p>
+<p>Each of those records has five fields, shown below with the vertical bar character as a field separator:</p>
+<p><code>1|abc|def ghi|jkl|unquoted character strings<br />
+2|abc|def ghi|jkl|quoted character strings<br />
+3|123|456|789|numbers<br />
+4|   abc|def   |   ghi   |strings with whitespace<br />
+5|   &quot;abc&quot;|def   |   &quot;ghi&quot;   |quoted strings with whitespace<br />
+6|   123|456   |   789   |numbers with whitespace<br />
+7|TAB123|456TAB|TAB789TAB|numbers with tabs for whitespace<br />
+8|   -123|   +456|   1E3|more numbers with whitespace<br />
+9|123 456|123&quot;456|  123 456   |strange numbers<br />
+10|abc&quot;|de&quot;f|g&quot;hi|embedded quotes<br />
+11|abc&quot;|de&quot;f|g&quot;hi|quoted embedded quotes<br />
+12|| &quot;&quot;|x&quot;&quot;|doubled quotes<br />
+13|abcdef|abc&quot;def&quot;|abc &quot;def&quot;|strange quotes<br />
+14|||   |empty fields<br />
+15|abc|def<br />
+ghi|jkl|embedded newline<br />
+16|abc|def|789|multiple types of fields</code></p>
+<p>Write a function that retrieves records from a csv file.  Be sure to provide a way to handle user-specified field-separators.</p>
+</div>
+</body>
+</html>

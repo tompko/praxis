@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>The Factorization Of F7: Part 2 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>The Factorization Of F7: Part&nbsp;2</h2>
+<h3>September 17, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In the <a href="/2010/09/14/the-factorization-of-f7-part-1/">previous exercise</a>, we wrote RESIDUE, which implements the first half of Morrison and Brillhart&#8217;s <a href="http://www.ams.org/journals/mcom/1975-29-129/S0025-5718-1975-0371800-5/S0025-5718-1975-0371800-5.pdf">factorization algorithm</a> based on continued fractions.  In today&#8217;s exercise, we complete the factorization of F<sub>7</sub> by writing the ANSWER program, which takes the factored <em>Q<sub>n</sub></em> and computes a factorization of <em>N</em>.</p>
+<p>The math underlying the continued fraction factorization algorithm, which we skipped in the previous exercise, is that we are searching for <em>x</em> and <em>y</em> such that <em>x</em><sup>2</sup> &equiv; <em>y</em><sup>2</sup> (mod <em>N</em>) with <em>x</em> &#8802; <em>y</em> (mod <em>N</em>).  The convergents of the continued fraction expansion of &radic;<em>N</em> have the property that <em>A</em><sub><em>n</em>&minus;1</sub> and <em>Q<sub>n</sub></em>, as defined in the previous exercise, will indicate a factor of <em>N</em> whenever <em>Q<sub>n</sub></em> is a perfect square, as we saw in the example of <em>Q</em><sub>52</sub> in the expansion of &radic;13290059.  But such <em>Q<sub>n</sub></em> are rare, which is why the method of Lehmer and Powers never found favor.  Much more common is the case that two or more <em>Q<sub>n</sub></em> multiply to a perfect square, as they share some odd-power prime factors that, when multiplied together, become an even power.</p>
+<p>Consider the example of the previous exercise.  The product of <em>Q</em><sub>5</sub>, <em>Q</em><sub>22</sub> and <em>Q</em><sub>23</sub> is the perfect square 2050 &middot; 4633 &middot; 226 = 2146468900 = 46330<sup>2</sup> = (2 &middot; 5 &middot; 41 &middot; 113)<sup>2</sup>.  The product of the corresponding <em>A</em><sub><em>n</em>&minus;1</sub> is 171341 &middot; 5235158 &middot; 1914221 = 1717050890347212038 &equiv; 1469504 (mod 13290059), and we have the congruence (171341 &middot; 5235158 &middot; 1914221)<sup>2</sup> &equiv; (2 &middot; 5 &middot; 41 &middot; 113)<sup>2</sup> (mod 13290059) or 1469504<sup>2</sup> &equiv; 46330<sup>2</sup> (mod 13290059).  Thus a factor of <em>N</em> = 13290059 is GCD(1469504 &minus; 46330, 13290059) = 4261 and <em>N</em> = 3119 &middot; 4261.</p>
+<p>ANSWER uses the Gaussian elimination algorithm of linear algebra to find a set of <em>Q<sub>n</sub></em> (Morrison and Brillhart call it an S-set) with product a perfect square.  The primes in the factorizations of the <em>Q<sub>n</sub></em> are 2, 31, 41, 43, 53 and 113, and we also need &minus;1, as there is an implied factor of &minus;1 attached to each <em>Q<sub>n</sub></em> with odd <em>n</em>.  Thus, any <em>Q<sub>n</sub></em> can be represented as a vector of the powers of the exponents of its factors, modulo 2; for instance, <em>Q</em><sub>5</sub>, with odd-power factors 2 and 41, is represented by the vector [1 1 0 1 0 0 0].  Associated with each exponent vector is a history vector that records our work, which initially has 0 everywhere except 1 in the ordinal position corresponding to the row with which it is associated.  Here are the exponent matrix, on the left, and history matrix, on the right, corresponding to the seven <em>Q<sub>n</sub></em> of our example problem; the columns of the exponent matrix are factors, left to right from low to high, starting with -1, the columns of the history matrix are <em>Q<sub>n</sub></em>, left to right from low to high, and the rows of both matrices are <em>Q<sub>n</sub></em>, top to bottom from low to high:</p>
+<p>1 1 0 1 0 0 0&nbsp;&nbsp;&nbsp;&nbsp;1 0 0 0 0 0 0<br />
+0 0 1 0 1 0 0&nbsp;&nbsp;&nbsp;&nbsp;0 1 0 0 0 0 0<br />
+0 0 0 1 0 0 1&nbsp;&nbsp;&nbsp;&nbsp;0 0 1 0 0 0 0<br />
+1 1 0 0 0 0 1&nbsp;&nbsp;&nbsp;&nbsp;0 0 0 1 0 0 0<br />
+0 1 1 0 0 1 0&nbsp;&nbsp;&nbsp;&nbsp;0 0 0 0 1 0 0<br />
+1 1 0 0 0 0 1&nbsp;&nbsp;&nbsp;&nbsp;0 0 0 0 0 1 0<br />
+0 1 0 0 1 1 0&nbsp;&nbsp;&nbsp;&nbsp;0 0 0 0 0 0 1</p>
+<p>Once the exponent matrix and history matrix are established, the reduction procedure, which performs the forward step of Gaussian elimination, is done as follows:</p>
+<blockquote><p>For each column in the exponent matrix, working from right to left:</p>
+<blockquote><p>Find the &#8220;pivot&#8221; vector of smallest subscript (nearest the top) whose rightmost 1 is in the current column.  If none exists, continue working on the next column to the left.</p>
+<p>For each other vector with rightmost 1 in the current column:</p>
+<blockquote><p>Replace the exponent vector with the element-wise sum, modulo 2, of the pivot vector and the current vector.</p>
+<p>Replace the associated history vector with the element-wise sum, modulo 2, of the pivot vector and the current vector.</p></blockquote>
+</blockquote>
+</blockquote>
+<p>The reduction of the initial matrices given above is shown below:</p>
+<p>1 1 0 1 0 0 0&nbsp;&nbsp;&nbsp;&nbsp;1 0 0 0 0 0 0<br />
+0 0 1 0 1 0 0&nbsp;&nbsp;&nbsp;&nbsp;0 1 0 0 0 0 0<br />
+0 0 0 1 0 0 1&nbsp;&nbsp;&nbsp;&nbsp;0 0 1 0 0 0 0<br />
+0 0 0 0 0 0 0&nbsp;&nbsp;&nbsp;&nbsp;1 0 1 1 0 0 0<br />
+0 1 1 0 0 1 0&nbsp;&nbsp;&nbsp;&nbsp;0 0 0 0 1 0 0<br />
+0 0 0 0 0 0 0&nbsp;&nbsp;&nbsp;&nbsp;1 0 1 0 0 1 0<br />
+0 0 0 0 0 0 0&nbsp;&nbsp;&nbsp;&nbsp;0 1 0 0 1 0 1</p>
+<p>Each of the three rows with zero exponent vectors represents an S-set.  Some of those S-sets lead to factorizations, but others fail.  For instance, the S-set in the seventh row of the reduced matrix gives the congruence (6700527 &middot; 11455708 &middot; 3213960)<sup>2</sup> &equiv; (2 &middot; 31 &middot; 43 &middot; 53)<sup>2</sup> (mod 13290059), or 141298<sup>2</sup> &equiv; 141298<sup>2</sup> (mod 13290059), which is useless.  The S-set in the sixth row gives the congruence (171341 &middot; 5235158 &middot; 1895246)<sup>2</sup> &equiv; (2 &middot; 5<sup>2</sup> &middot; 41 &middot; 113)<sup>2</sup> (mod 13290059), or 13058409<sup>2</sup> &equiv; 231650<sup>2</sup> (mod 13290059); however, GCD(13058409 &minus; 231650, 13290059) = 1 and the factorization fails.  However, the S-set in the fourth row gives a completed factorization, as shown above.</p>
+<p>Your task is to write the ANSWER program described above, and then to find the factors of F<sub>7</sub> using the factor base and residues from the <a href="/2010/09/14/the-factorization-of-f7-part-1/">previous exercise</a>.  When you are finished, you are welcome to <a href="/2010/09/17/the-factorization-of-f7-part-2/2/">read</a>, <a href="http://programmingpraxis.codepad.org/JGMHnA0v">run</a> or <a href="http://programmingpraxis.files.wordpress.com/2010/09/the-factorization-of-f7-v2.pdf">print</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/09/17/the-factorization-of-f7-part-2/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/09/17/the-factorization-of-f7-part-2/2/">2</a> <a href="http://programmingpraxis.com/2010/09/17/the-factorization-of-f7-part-2/3/">3</a></p> </div></div>
+</body>
+</html>

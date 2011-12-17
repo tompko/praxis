@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>ADFGX &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>ADFGX</h2>
+<h3>August 7, 2009</h3>
+</div>
+<div class="entrybody">
+<p>The ADFGX cipher, and its later sibling the ADFGVX cipher, were field ciphers used by the German Army during the First World War.  It is called ADFGX because those are the only letters that appear in the ciphertext, chosen to reduce operator error during Morse code transmission because they sound so different.</p>
+<p>ADFGX is a fractionating transposition cipher invented by German Army Colonel Fritz Nebel in March 1918, and famously cryptanalyzed by French Army Lieutenant Georges Painvin in April 1918.  The French version of the story is that Painvin broke the cipher in a single, sustained forty-eight hour session, reading a message that suggested where Ludendorff intended to attack, allowing the French to foil the attack and win the war; the German version differs, but the winners write the history.</p>
+<p>ADFGX works in two phases.  The first uses a 5&#215;5 polybius square to represent the alphabet, with I and J combined:</p>
+<p><code>&nbsp;&nbsp;A D F G X<br />
+A b t a l p<br />
+D d h o z k<br />
+F q f v s n<br />
+G g j c u x<br />
+X m r e w y</code></p>
+<p>The plaintext message is converted to ciphertext by noting the row and column headers where each character is located; for instance:</p>
+<p><code>P&nbsp;&nbsp;R&nbsp;&nbsp;O&nbsp;&nbsp;G&nbsp;&nbsp;R&nbsp;&nbsp;A&nbsp;&nbsp;M&nbsp;&nbsp;M&nbsp;&nbsp;I&nbsp;&nbsp;N&nbsp;&nbsp;G&nbsp;&nbsp;P&nbsp;&nbsp;R&nbsp;&nbsp;A&nbsp;&nbsp;X&nbsp;&nbsp;I&nbsp;&nbsp;S<br />
+AX XD DF GA XD AF XA XA GD FX GA AX XD AF GX GD FG</code><code></code></p>
+<p>Then, the partially-enciphered message is subject to columnar transposition; the original German version of the cipher added nulls at the end of short columns, but we will eschew this method in favor of the normal columnar transposition.  Cryptographically, this is a rather strong method, especially in the days when cryptanalysis was done without aid of computers, because the two ciphertext characters that represent a single plaintext character are split, or <em>fractionated</em>, from one another.  Using the transposition keyword TULIP, the transposition worked like this:</p>
+<p><code>T U L I P<br />
+3 4 1 0 2<br />
+A X X D D<br />
+F G A X D<br />
+A F X A X<br />
+A G D F X<br />
+G A A X X<br />
+D A F G X<br />
+G D F G</code></p>
+<p>Then the columns are read off in order:  DXAFXGGXAXDAFFDDXXXXAFAAGDGXGFGAAD.</p>
+<p>Decipherment is the inverse operation.</p>
+<p>There are two keys, the polybius square and the transposition.  German doctrine called for the square to be changed weekly and the transposition key to be changed daily, and use of the ADFGX cipher was restricted to high-level communications only.  Painvin attacked the cipher by comparing multiple messages with identical beginnings, from which he was able to work out the transposition matrix (he kept swapping columns until a frequency count of digrams had the same shape as German-army plain-text), then he solved the remaining monoalphabetic substitution cipher on digrams by frequency analysis.  Though the cipher is no longer secure, the combination of fractionated substitution and transposition is still used as the basis of some modern ciphers, including DES.</p>
+<p>Your task is to implement encryption and decryption of the ADFGX cipher.  When you are finished, you are welcome to <a href="/2009/08/07/adfgx/2/">read</a> or <a href="http://programmingpraxis.codepad.org/VwKUjLzk">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<p>With this exercise, we return to the original arrangement in which the solution appears on the same day as the exercise.  Delaying the solution makes the blog harder to maintain, and confuses readers who don't know where to write their comments.  Solutions that appeared in the last few weeks have been merged with their corresponding exercises; in particular, the solution to Lenstra's Algorithm that was promised for today has been <a href="/2009/08/04/lenstras-algorithm/2/">posted</a> along with the original exercise.</p>
+</div>
+</body>
+</html>

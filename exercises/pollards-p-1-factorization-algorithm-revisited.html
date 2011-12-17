@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Pollard&#8217;s P-1 Factorization Algorithm, Revisited &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Pollard&#8217;s P-1 Factorization Algorithm,&nbsp;Revisited</h2>
+<h3>September 16, 2011</h3>
+</div>
+<div class="entrybody">
+<p>We have studied John Pollard&#8217;s <em>p</em>&minus;1 algorithm for integer factorization on two <a href="http://programmingpraxis.com/2009/07/21/pollards-p-1-factorization-algorithm/">previous</a> <a href="http://programmingpraxis.com/2010/03/19/extending-pollards-p-1-factorization-algorithm/">occasions</a>, giving first the basic single-stage algorithm and later adding a second stage. In today&#8217;s exercise we look at a somewhat different version of the second stage, known as the <em>improved standard continuation</em>, that greatly improves the speed of the algorithm. The trick is to remove the modular exponentiations in the second stage, replacing them with modular multiplications, which are obviously much faster. Let&#8217;s begin with an example, computing the factorization of 16309 with <em>B</em><sub>1</sub>=10 and <em>B</em><sub>2</sub>=50:</p>
+<p>For the first stage we will need the primes less than <em>B</em><sub>1</sub>, which are 2, 3, 5 and 7. We will also need to know the integer logarithms of <em>B</em><sub>1</sub> with respect to each of those primes, which are 3, 2, 1, 1; that is, 2<sup>3</sup>=8 is the largest power of 2 less than 10, 3<sup>2</sup>=9 is the largest power of 3 less than 10, 5<sup>1</sup>=5 is the largest power of 5 less than 10, and 7<sup>1</sup>=7 is the largest power of 7 less than 10. <em>Q</em> is initially 2. For each prime we calculate <em>q</em> = <em>q<sup>p<sup>a</sup></sup></em> where <em>p</em> is the prime and <em>a</em> is the integer logarithm. Thus, <em>q</em> = 2<sup>8</sup> mod 16309 = 256 after prime 2, <em>q</em> = 256<sup>9</sup> mod 16309 = 7011 after prime 3, <em>q</em> = 7011<sup>5</sup> mod 16309 = 4239 after prime 5, and <em>q</em> = 4239<sup>7</sup> mod 16309 = 9884 after prime 7. We calculated the greatest common divisor of <em>q</em>&minus;1 and <em>n</em> at each step, and in each case the gcd was 1 (for instance, at the last step gcd(9883, 16309) = 1) and the first stage failed to split a factor.</p>
+<p>For the second stage we will need the next prime larger than <em>B</em><sub>1</sub>, which is 11, and the differences between the primes from there to <em>B</em><sub>2</sub>, which are 2, 4, 2, 4, 6, 2, 6, 4, 2 and 4, representing the primes 13, 17, 19, 23, 29, 31, 37, 41, 43 and 47. We also need the ending <em>q</em> from the first stage and the modular exponentiation <em>q<sup>d</sup></em> mod <em>n</em> for each of the differences 2, 4 and 6, which are 9884<sup>2</sup> mod 16309 = 2546, 9884<sup>4</sup> mod 16309 = 7443 and 9884<sup>6</sup> mod 16309 = 15129, respectively.</p>
+<p>With this setup, the second stage is very fast. <em>Q</em> is initialized with the next prime, 11, so <em>q</em> = 9884<sup>11</sup> mod 16309 = 13427, and <em>p</em> = 1. Now we iterate over the differences. The first difference is 2, representing the prime 13, and the modular multiplication is <em>q</em> = 13427 &times; 2546 mod 16309 = 1478 with <em>p</em> = 1 &times; 147 mod 16309 = 1477. The second difference is 4, representing the prime 17, and <em>q</em> = 1478 &times; 7443 mod 16309 = 8488 with <em>p</em> = 1477 &times; 8487 mod 16309 = 9987. The third difference is 2, representing the prime 19, and <em>q</em> = 8488 &times; 2546 mod 16309 = 1023 with <em>p</em> = 9987 &times; 1022 mod 16309 = 13589. The fourth difference is 4, representing the prime 23, and <em>q</em> = 1023 &times; 7443 mod 16309 = 14195 with <em>p</em> = 13589 &times; 14194 mod 16309 = 12032. We&#8217;ve been taking the gcd(<em>p</em>, <em>n</em>) at each step, and they have all been 1, but here gcd(12032, 16309) = 47, which is a factor of 16309. The complete factorization is 16309 = 47 &times; 347. We can summarize the calculations like this:</p>
+<p><code>B1=10, B2=50<br />
+ps = 2, 3, 5, 7, 11<br />
+as = 3, 2, 1, 1<br />
+ds = 2, 4, 2, 4, 6, 2, 6, 4, 2, 4</code></p>
+<p>First Stage<br />
+init: q=2<br />
+2^3: 2^8 mod 16309 = 256<br />
+3^2: 256^9 mod 16309 = 7011<br />
+5^1; 7011^5 mod 16309 = 4239<br />
+7^1; 4239^7 mod 16309 = 9884<br />
+gcd(9883, 16309) = 1</p>
+<p>Second Stage<br />
+9884^2 mod 16309 = 2546<br />
+9884^4 mod 16309 = 7443<br />
+9884^6 mod 16309 = 15129</p>
+<p>init: q = 9884^11 mod 16309 = 13427, p = 1<br />
+2(13): q = 13427 * 2546 mod 16309 = 1478, p = 1 * 1477 mod 16309 = 1477<br />
+4(17): q = 1478 * 7443 mod 16309 = 8488, p = 1477 * 8487 mod 16309 = 9987<br />
+2(19): q = 8488 * 2546 mod 16309 = 1023, p = 9987 * 1022 mod 16309 = 13589<br />
+4(23): q = 1023 * 7443 mod 16309 = 14195, p = 13589 * 14194 mod 16309 = 12032<br />
+gcd(12032, 16309) = 47</p>
+<p>You may recall from the earlier exercises that Pollard&#8217;s <em>p</em>&minus;1 method is based on Fermat&#8217;s little theorem <em>a<sup>p</sup></em> &equiv; <em>a</em> (mod <em>p</em>), which can equivalently be stated <em>a</em><sup><em>p</em>&minus;1</sup> &equiv; 1 (mod <em>p</em>). As a consequence, if <em>p</em>&minus;1 divides <em>M</em>, then <em>p</em> divides gcd(2<sup><em>M</em></sup>&minus;1, <em>n</em>). Pollard&#8217;s <em>p</em>&minus;1 method computes <em>M</em> as the least common multiple of a bound <em>B</em>; thus, if all the factors of <em>p</em>&minus;1 are less than <em>B</em>, then gcd(2<sup>lcm[1..<em>B</em>]</sup> &minus; 1, <em>n</em>) is a factor of <em>n</em>.</p>
+<p>In the two-stage version of Pollard&#8217;s <em>p</em>&minus;1 method, also called the large-prime version, there are two bounds, <em>B</em><sub>1</sub> and <em>B</em><sub>2</sub>. The first stage calculates the gcd as described above. The second stage then computes gcd(2<sup><em>k</em> &middot; lcm[1..<em>B</em><sub>1</sub>]</sup> &minus; 1, <em>n</em>) for each prime <em>k</em> such that <em>B</em><sub>1</sub> &lt; <em>k</em> &lt; <em>B</em><sub>2</sub>. This is useful because most numbers factor as the product of several small factors and a large factor; numbers that factor as the product of two large primes are relatively rare.</p>
+<p>We saw in the example how the least common multiple of the integers less than a bound <em>B</em> can be computed economically using powers of the prime numbers less than the bound. The large-prime variant can be computed economically by a trick. At the end of the first stage we have computed <em>q</em> = 2<sup>lcm[1..<em>B</em><sub>1</sub>]</sup> mod <em>n</em>; that was 9884 in the example above. Then we store a table of the <em>differences</em> of the primes from <em>B</em><sub>1</sub> to <em>B</em><sub>2</sub>, and for each difference <em>d</em> compute <em>q<sup>d</sup></em>; since these differences are small and few in number, the table is small and quick to compute. Then we can compute each 2<sup><em>k</em> &middot; lcm[1..<em>B</em><sub>1</sub>]</sup> by successively multiplying each <em>q</em> by the successive differences in the primes, thus converting a costly modular exponentiation to a much simpler modular multiplication. Finally, at each step we subtract 1 and compute the gcd, stopping when we find a factor.</p>
+<p>In addition to the modular expontiations, the other large time cost of the algorithm is the computation of the greatest common divisor, and there is another trick that reduces that cost. Instead of taking the greatest common divisor after each step in either stage, take it only periodically, say after every hundred steps. If the gcd at that point is between 1 and <em>n</em>, then you have your factor and you are finished. If the gcd at that point is 1, then all of the intermediate gcds would also have been 1, but none of them needed to be calculated. Finally, if the gcd at that point is <em>n</em>, there are two factors since the last gcd calculation, so backtrack to the prior gcd and recompute the steps, taking the gcd at each step.</p>
+<p>Your task is to write a function that finds factors using the <em>p</em>&minus;1 algorithm, using both tricks described above. When you are finished, you are welcome to <a href="/2011/09/16/pollards-p-1-factorization-algorithm-revisited/2/">read</a> or <a href="http://programmingpraxis.codepad.org/qFzbCxzp">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "videogames");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/09/16/pollards-p-1-factorization-algorithm-revisited/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/09/16/pollards-p-1-factorization-algorithm-revisited/2/">2</a></p> </div></div>
+</body>
+</html>

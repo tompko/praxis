@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Probabilistic Spell Checking &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Probabilistic Spell&nbsp;Checking</h2>
+<h3>April 21, 2009</h3>
+</div>
+<div class="entrybody">
+<p>In a previous <a href="/2009/04/17/spell-checking">exercise</a> we built a spell checker based on storing words in a trie.  That spell checker was exact: the spell checker reported success if and only if the checked word was in the dictionary.  Today we will build a spell checker that is probabilistic: it correctly reports failure if the checked word is not in the dictionary, and correctly reports success if the checked word is in the dictionary, but may also incorrectly report success even if the checked word is not in the dictionary.  The probability of error can be made arbitrarily small, as determined by the programmer.</p>
+<p>We will use a bloom filter, a data structure invented by Burton Bloom in 1970 to test membership is a set.  A bloom filter consists of an array of <em>m</em> bits, plus <em>k</em> different hash functions that map set elements to the range 0 to <em>m</em>-1.  All the bits are initially 0.  To add an element, calculate the <em>k</em> hash values of the element, and set each <em>k</em><sup>th</sup> bit to 1.  To test if an element is in the set, calculate the <em>k</em> hash values of the element, return true if all of the <em>k</em><sup>th</sup> bits are 1, and false if any is 0.  In this way, it is certain that the element is not in the set if any hash returns 0, but it is possible that an element not in the set may be incorrectly reported as being in the set if all of the hashes return 1, but one of the hashes was set by some other element.</p>
+<p>The easiest way to build a large number of hash functions is to use a single hash function and &#8220;salt&#8221; the dictionary words with an additional letter.  For instance, to hash the word &#8220;hello&#8221; three times, use &#8220;ahelloa&#8221;, &#8220;bhellob&#8221;, and &#8220;chelloc&#8221; and hash with a standard string-hashing function.</p>
+<p>There is some considerable math involved in determining the appropriate values of <em>m</em> and <em>k</em>.  For a set of <em>n</em> elements, the probability <em>p</em> of a false positive is given by the formula:</p>
+<p><img src="http://s0.wp.com/latex.php?latex=%5Cbigg%28+1+-+%5CBig%28+1+-+%5Cfrac+1+m+%5CBig%29+%5E+%7B+kn+%7D+%5Cbigg%29+%5E+k+%5Capprox+%5CBig%28+1+-+e+%5E+%7B+kn%2Fm+%7D+%5CBig%29+%5E+k&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="\bigg( 1 - \Big( 1 - \frac 1 m \Big) ^ { kn } \bigg) ^ k \approx \Big( 1 - e ^ { kn/m } \Big) ^ k" title="\bigg( 1 - \Big( 1 - \frac 1 m \Big) ^ { kn } \bigg) ^ k \approx \Big( 1 - e ^ { kn/m } \Big) ^ k" class="latex" /></p>
+<p>To give this a sense of scale, storing a fifty thousand word dictionary in a bloom filter of a million bits using seven hash functions will result in a false positive every 5102 words, on average.</p>
+<p>Your task is to build a probabilistic spell checker as described above.  When you are finished, you can <a href="/2009/04/21/probabilistic-spell-checking/2/">read</a> or <a href="http://codepad.org/zUt3Ezz1">run</a> a suggested solution, or post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "books");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/04/21/probabilistic-spell-checking/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/04/21/probabilistic-spell-checking/2/">2</a></p> </div></div>
+</body>
+</html>

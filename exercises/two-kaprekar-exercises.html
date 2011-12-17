@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Two Kaprekar Exercises &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Two Kaprekar&nbsp;Exercises</h2>
+<h3>March 22, 2011</h3>
+</div>
+<div class="entrybody">
+<p>For today&#8217;s exercise we return to the world of recreational mathematics with two exercises due to the Indian mathematician Dattaraya Ramchandra Kaprekar.  First we compute <a onclick="return mugicPopWin(this,event);" oncontextmenu="mugicRightClick(this);" href="http://mathworld.wolfram.com/KaprekarRoutine.html">Kaprekar chains</a>:</p>
+<blockquote><p>1. Choose any four-digit number, with at least two different digits.  Leading zeros are permitted.</p>
+<p>2. Arrange the digits into two numbers, one with the digits sorted into ascending order, the other with the digits sorted into descending order.</p>
+<p>3. Subtract the smaller number from the larger number.</p>
+<p>4. Repeat until the number is 6174.  At that point, the process will cycle with 7641 &minus; 1467 = 6174.</p></blockquote>
+<p>For instance, starting with 2011, the chain is 2110 &minus; 112 = 1998, 9981 &minus; 1899 = 8082, 8820 &minus; 288 = 8532, and 8532 &minus; 2358 = 6174.</p>
+<p>The second exercise determines if a number is a <a onclick="return mugicPopWin(this,event);" oncontextmenu="mugicRightClick(this);" href="http://mathworld.wolfram.com/KaprekarNumber.html">Kaprekar number</a>, defined as an <em>n</em>-digit number such that, when it is squared, the sum of the first <em>n</em> or <em>n</em>&minus;1 digits and the last <em>n</em> digits is the original number.  For instance, 703 is a Kaprekar number because 703<sup>2</sup> = 494209 and 494 + 209 = 703.  Sloane gives the list of Kaprekar numbers at <a href="http://oeis.org/A053816">A053816</a>.</p>
+<p>Your task is twofold: first, write a program that computes the Kaprekar chain for a given starting number, and compute the longest possible Kaprekar chain; second, write a program to determine if a particular number is a Kaprekar number, and compute the list of all the Kaprekar numbers less than a thousand.  When you are finished, you are welcome to <a href="/2011/03/22/two-kaprekar-exercises/2/">read</a> or <a href="http://programmingpraxis.codepad.org/jUEoq05B">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Sliding Window Minimum &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Sliding Window&nbsp;Minimum</h2>
+<h3>February 22, 2011</h3>
+</div>
+<div class="entrybody">
+<p>The sliding window minimum problem takes a list of <em>n</em> numbers and a window size <em>k</em> and returns a list of the minimum values in each of the <em>n</em>&minus;<em>k</em>+1 successive windows.  For instance, given the list {4, 3, 2, 1, 5, 7, 6, 8, 9} and a window of size 3, the desired output is the list {2, 1, 1, 1, 5, 6, 6}.  Richard Harter discusses this <a href="http://home.tiac.net/~cri/2001/slidingmin.html">problem</a> at his blog, along with several different solutions.</p>
+<p>The obvious solution is to report the minimum of the first k elements of the list, slide one position down the list, take the minimum of the first k elements starting at the new position, and so on, until there are less than k elements remaining.</p>
+<p>Harter presents a better solution that he calls the <em>ascending minima</em> algorithm that requires <em>O</em>(<em>n</em>) time and <em>O</em>(<em>k</em>) space.  He uses an auxiliary data structure, a queue, that is initialized as the minimum value of the initial window, followed by the minimum value of those items in the initial window that follow the right-most occurrence of the minimum value, followed by the minimum value of those items in the initial window that follow the right-most occurrence of the second value, and so on, up to a maximum of <em>k</em> ascending minimums; each minimum is paired with the index of the position where the minimum disappears from the window.  For instance, with <em>k</em>=6 and the first six items of the input list {5, 2, 8, 6, 4, 7}, the queue will have three pairs (2 7), (4 10), and (7 11), indicating that 2 is the minimum value up to and including the 7<sup>th</sup> list element, then 4 is the minimum value for the 8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup> elements, and so on, unless a smaller item appears.</p>
+<p>Once the queue of ascending minimums is initialized, output is produced by emitting the first value in the queue then updating the queue with the next item beyond the end of the current sliding window using the following three-step process:</p>
+<ol>
+<li>remove from the queue all items with value greater than the incoming item,</li>
+<li>append the incoming item to the end of the queue, along with its &#8220;death index,&#8221; and</li>
+<li>remove the head of the queue if it is beyond its death index.</li>
+</ol>
+<p>Let&#8217;s look again at the list {4, 3, 2, 1, 5, 7, 6, 8, 9} with a window of size 3.  The initial queue has the single entry (2 5), because the minimum item is the last element of the initial window (the largest possible queue arises when the window has monotonically increasing values); the queue entry indicates that the minimum value will be 2 until after the 5<sup>th</sup> item in the input, when that minimum value &#8220;dies.&#8221;  The initial minimum 2 is output and the new item 1 is added to the queue; since 2 is greater than 1, the (2 5) entry is removed from the queue, a new (1 6) entry is added to the end of the queue, and since the current index 4 is less than the death index 6, we proceed to the next item.  Now we output the current minimum 1, add an entry (5 7) to the queue, and move on.  Again we output the current minimum 1, add an entry (6 8) to the queue, and move on.  One more time we output the current minimum 1, and an entry (8 9) to the queue, and delete (1 6) from the head of the queue since the current index has reached its death index; the queue currently contains the items (5 7) (6 8) and (8 9).  Going forward, we output 5 and delete the head of the queue, output 6, and output 6 again, at which point we stop because the current index has reached the end of the input.</p>
+<p>Your task is to write two functions that solve the sliding window minimum problem, using the two algorithms described above.  When you are finished, you are welcome to <a href="/2011/02/22/sliding-window-minimum/2/">read</a> or <a href="http://programmingpraxis.codepad.org/zr59LnZk">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "business");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/02/22/sliding-window-minimum/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/02/22/sliding-window-minimum/2/">2</a></p> </div></div>
+</body>
+</html>

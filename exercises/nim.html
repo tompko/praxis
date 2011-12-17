@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Nim &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Nim</h2>
+<h3>January 8, 2010</h3>
+</div>
+<div class="entrybody">
+<p>This exercise marks the one-hundredth exercise since the beginning of Programming Praxis.  Thanks to all my readers, who give me the energy to continue writing these exercises.  To celebrate, we ought to have a party, and parties need games, so in this exercise we implement a program to play the game of nim.</p>
+<p>Nim is played by placing stones in piles; there may be any number of piles, and any number of stones in each pile.  Two players alternate turns in which each player removes as many stones as desired from any pile desired; all the stones removed must come from the same pile, it is not permitted to take stones from multiple piles.  The player who removes the last stone from the last non-empty pile is the winner.  (In some variants of the game the player who removes the last stone is the loser, but we will not consider those variants.)</p>
+<p>The winning strategy was devised by Charles Bouton in 1901 and revolves around a mathematical calculation called the <em>nim-sum</em>, which is the exclusive-or of the number of stones in each pile; for instance, with piles of 25, 32, 19, 4, and 17 stones, and representing the exclusive-or operation as &oplus;, the nim-sum is calculated as 25 &oplus; 32 &oplus; 19 &oplus; 4 &oplus; 17 = 63.  If a player can remove stones from a pile in such a way that he reduces the nim-sum to zero, he can always force a win.  Such a move can be computed by exclusive-or&#8217;ing the nim-sum with the number of stones in each pile in turn, choosing a pile for which the result of that exclusive-or is less than the number of stones in the pile, and removing from that pile sufficient stones to reduce the pile to the result of that exclusive-or; for instance, removing one stone from the second pile in the example above reduces the nim-sum of the piles to zero, forcing a win.  However, if the nim-sum is already zero at the beginning of a player&#8217;s turn, he will lose against proper play, so any move may be chosen at random.</p>
+<p>Your task is to write a program that plays nim against a human player.  When you are finished, you are welcome to <a href="/2010/01/08/nim/2/">read</a> or <a href="http://programmingpraxis.codepad.org/aNviDpKG">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Autotag", "cars");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/01/08/nim/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/01/08/nim/2/">2</a></p> </div></div>
+</body>
+</html>

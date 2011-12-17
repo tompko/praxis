@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>The Factorization Of F7: Part 1 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>The Factorization Of F7: Part&nbsp;1</h2>
+<h3>September 14, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In the seventeenth century, the French jurist and amateur mathematician Pierre de Fermat investigated numbers of the form 2<sup>2<sup>n</sup></sup>+1, now known as Fermat numbers: 3, 5, 17, 257, 65537, 4294967297, 18446744073709551617, 340282366920938463463374607431768211457, &hellip; (Sloane&#8217;s <a href="http://www.research.att.com/~njas/sequences/A000215">A000215</a>).  Fermat noted that the first five numbers in the sequence, F<sub>0</sub> to F<sub>4</sub>, were prime, and conjectured that all the remaining numbers in the sequence were prime.  He was wrong, as Leonhard Euler proved in 1732 with the factorization of F<sub>5</sub> = 641 &middot; 6700417; then Thomas Clausen factored F<sub>6</sub> = 274177 &middot; 67280421310721 in 1855.  Those first five numbers are the only members of the sequence that are known to be prime, and it now conjectured that all the remaining Fermat numbers are composite.  There is something of a cottage industry among mathematicians and programmers to find new factors of Fermat numbers; you can find the current status of that friendly competition at <a href="http://www.prothsearch.net/fermat.html">http://www.prothsearch.net/fermat.html</a>.</p>
+<p>On September 13th, 1970, Michael A. Morrison and John Brillhart factored the seventh Fermat number: F<sub>7</sub> = 2<sup>2<sup>7</sup></sup>+1 = 2<sup>128</sup>+1 = 340282366920938463463374607431768211457 = 59649589127497217 &middot; 5704689200685129054721.  Their feat inaugurated the modern culture of factorization by computer, and their now-deprecated method was the direct predecessor of the quadratic sieve that is today the most powerful factorization method available for personal computers, able to factor numbers up to about a hundred digits (the most powerful factoring algorithm known is the number field sieve, which can factor numbers up to about 150 digits, but requires a large cluster of computers).  On the fortieth anniversary of their achievement we recreate their computation in this exercise and the next.  We are following their description of their work in &#8220;A Method of Factoring and the Factorization of F<sub>7</sub>&#8221; in <em>Mathematics of Computation</em>, Volume 29, Number 129, January 1975, Pages 183-205, available on-line at <a href="http://www.ams.org/journals/mcom/1975-29-129/S0025-5718-1975-0371800-5/S0025-5718-1975-0371800-5.pdf">http://www.ams.org/journals/mcom/1975-29-129/S0025-5718-1975-0371800-5/S0025-5718-1975-0371800-5.pdf</a>.</p>
+<p>The math behind the method dates to Fermat, who noted that a factor of <em>N</em> could be found when <em>x</em><sup>2</sup> &#8211; <em>N</em> was a perfect square; thus, Fermat&#8217;s factorization method started at the square root of N and worked <em>x</em> backwards until it reached a solution, as we did in a <a href="/2009/05/19/fermats-method/">previous exercise</a>.  Early in the twentieth century, Maurice Kraitchik, a Ukrainian emigr&eacute; and recreational mathematician living in Paris, observed that Fermat&#8217;s formula could be written as <em>x</em><sup>2</sup> &equiv; <em>y</em><sup>2</sup> (mod <em>N</em>).  Then, in 1931, D. H. Lehmer and R. E. Powers discovered that the convergents of the continued fraction representation of the square root of <em>N</em> provided a suitable <em>x</em> and <em>y</em>, but their method was considered unusable because the calculations were too tedious and time-consuming for manual calculation, and the method frequently failed to find a factorization.  In 1965, Brillhart realized that the tedious calculations were fit for computer calculation, and he and Morrison spent the summer of 1970 developing their method.</p>
+<p>The continued fraction method works in two stages, a first stage that computes successive convergents of the continued fraction representing the square root of the number being factored, and a second stage that performs linear algebra on the factors of the convergents and computes a factor of the original number.  Morrison and Brillhart, using an IBM 360/91 mainframe computer at UCLA, coding in PL/1 with assembly-language libraries for large-integer processing, divided the work into programs RESIDUE and ANSWER to make it fit into the machine.  We will likewise divide the work into two exercises, looking at RESIDUE today and ANSWER in the next exercise.</p>
+<p>We saw continued fractions previously, in the <a href="/2009/07/10/the-golden-ratio/">exercise</a> on the golden ratio.  Square roots can be computed by continued fractions, and are always periodic; we&#8217;ll refer to the <a href="http://www.ams.org/journals/mcom/1975-29-129/S0025-5718-1975-0371800-5/S0025-5718-1975-0371800-5.pdf">article</a> by Morrison and Brillhart for the math and skip directly to their algorithm to expand &radic;<em>N</em>, or &radic;<em>kN</em> for some suitable multiplier <em>k</em> &ge; 1, into a simple continued fraction:</p>
+<blockquote><p>Initialize <em>A</em><sub>&minus;2</sub> = 0, <em>A</em><sub>&minus;1</sub> = 1,  <em>Q</em><sub>&minus;1</sub> = <em>kN</em>, <em>r</em><sub>&minus;1</sub> = <em>g</em>, <em>P</em><sub>0</sub> = 0, <em>Q</em><sub>0</sub> = 1, and <em>g</em> = &lfloor;&radic;<em>kN</em>&rfloor;.</p>
+<p>For each <em>n</em> from 0 to a user-specified limit:</p>
+<ul>
+<li>Compute <em>q<sub>n</sub></em> and <em>r<sub>n</sub></em> using the formula <em>g</em> + <em>P<sub>n</sub></em> = <em>q<sub>n</sub>Q<sub>n</sub></em> + <em>r<sub>n</sub></em>, where 0 &le; <em>r<sub>n</sub></em> &lt; <em>Q<sub>n</sub></em>.</li>
+<li>Compute <em>A<sub>n</sub></em> (mod <em>N</em>) using the formula <em>A<sub>n</sub></em> &equiv; <em>q<sub>n</sub>A</em><sub><em>n</em>&minus;1</sub> + <em>A</em><sub><em>n</em>&minus;2</sub> (mod <em>N</em>).</li>
+<li>Compute <em>g</em> + <em>P</em><sub><em>n</em>+1</sub> using the formula <em>g</em> + <em>P</em><sub><em>n</em>+1</sub> = 2<em>g</em> &minus; <em>r<sub>n</sub></em>.</li>
+<li>Compute <em>Q</em><sub><em>n</em>+1</sub> using the formula <em>Q</em><sub><em>n</em>+1</sub> = <em>Q</em><sub><em>n</em>&minus;1</sub> + <em>q<sub>n</sub></em>(<em>r<sub>n</sub></em> &minus;<em>r</em><sub><em>n&minus;1</em></sub>).</li>
+</ul>
+</blockquote>
+<p>Some of the <em>Q<sub>n</sub></em> must be factored.  That &#8220;some&#8221; sounds odd.  The idea is to factor those <em>Q<sub>n</sub></em> that have all their prime factors less than some pre-specified limit, said primes having a Jacobi symbol of 0 or 1 indicating that they are quadratic residues of <em>kN</em> and thus potential factors; we saw the Jacobi symbol in the <a href="/2009/07/07/modular-arithmetic/">exercise</a> on modular arithmetic.  The procedure is to choose a limit, compute a <em>factor base</em> of those primes that are potential factors, then use trial division to determine if the <em>Q<sub>n</sub></em> should be added to the out-going list; Morrison and Brillhart call such a <em>Q<sub>n</sub></em> an <em>A</em> &minus; <em>Q</em> pair.</p>
+<p>Morrison and Brillhart, based on Lehmer and Powers before them, give this example: let <em>N</em> = 13290059 and <em>k</em> = 1; then <em>g</em> = 3645.  Then selected results from the expansion of &radic;<em>kN</em> are given below:</p>
+<table border="1">
+<tr style="text-align:center;">
+<td><em>n</em></td>
+<td><em>g</em>+<em>P<sub>n</sub></em></td>
+<td><em>Q<sub>n</sub></em></td>
+<td><em>q<sub>n</sub></em></td>
+<td><em>r<sub>n</sub></em></td>
+<td><em>A</em><sub><em>n</em>&minus;1</sub> (mod <em>N</em>)</td>
+<td><em>Q<sub>n</sub></em> factored</td>
+
+</tr><tr style="text-align:right;">
+<td>&minus;1</td>
+<td>&hellip;</td>
+<td>13290059</td>
+<td>&hellip;</td>
+<td>3645</td>
+<td>0</td>
+<td>&hellip;</td>
+</tr>
+<tr style="text-align:right;">
+<td>0</td>
+<td>3645</td>
+<td>1</td>
+<td>3645</td>
+<td>0</td>
+<td>1</td>
+<td>&hellip;</td>
+</tr>
+<tr style="text-align:right;">
+<td>1</td>
+<td>7290</td>
+<td>4034</td>
+<td>1</td>
+<td>3256</td>
+<td>3645</td>
+<td>2 &middot; 2017</td>
+</tr>
+<tr style="text-align:right;">
+<td>2</td>
+<td>4034</td>
+<td>3257</td>
+<td>1</td>
+<td>777</td>
+<td>3646</td>
+<td>3257</td>
+</tr>
+<tr style="text-align:right;">
+<td>3</td>
+<td>6513</td>
+<td>1555</td>
+<td>4</td>
+<td>293</td>
+<td>7291</td>
+<td>5 &middot; 311</td>
+</tr>
+<tr style="text-align:right;">
+<td>4</td>
+<td>6997</td>
+<td>1321</td>
+<td>5</td>
+<td>392</td>
+<td>32810</td>
+<td>1321</td>
+</tr>
+<tr style="text-align:right;">
+<td>5</td>
+<td>6898</td>
+<td>2050</td>
+<td>3</td>
+<td>748</td>
+<td>171341</td>
+<td>2 &middot; 5<sup>2</sup> &middot; 41</td>
+</tr>
+<tr style="text-align:right;">
+<td>10</td>
+<td>6318</td>
+<td>1333</td>
+<td>4</td>
+<td>986</td>
+<td>6700527</td>
+<td>31 &middot; 43</td>
+</tr>
+<tr style="text-align:right;">
+<td>22</td>
+<td>4779</td>
+<td>4633</td>
+<td>1</td>
+<td>146</td>
+<td>5235158</td>
+<td>41 &middot; 113</td>
+</tr>
+<tr style="text-align:right;">
+<td>23</td>
+<td>7144</td>
+<td>226</td>
+<td>31</td>
+<td>138</td>
+<td>1914221</td>
+<td>2 &middot; 113</td>
+</tr>
+<tr style="text-align:right;">
+<td>26</td>
+<td>5622</td>
+<td>3286</td>
+<td>1</td>
+<td>2336</td>
+<td>11455708</td>
+<td>2 &middot; 31 &middot; 53</td>
+</tr>
+<tr style="text-align:right;">
+<td>31</td>
+<td>6248</td>
+<td>5650</td>
+<td>1</td>
+<td>598</td>
+<td>1895246</td>
+<td>2 &middot; 5<sup>2</sup> &middot; 53</td>
+</tr>
+<tr style="text-align:right;">
+<td>40</td>
+<td>6576</td>
+<td>4558</td>
+<td>1</td>
+<td>2018</td>
+<td>3213960</td>
+<td>2 &middot; 43 &middot; 53</td>
+</tr>
+<tr style="text-align:right;">
+<td>52</td>
+<td>7273</td>
+<td>25</td>
+<td>290</td>
+<td>23</td>
+<td>2467124</td>
+<td>5<sup>2</sup></td>
+</tr>
+</table>
+<p>The output from RESIDUE is a list of the following items for each <em>Q<sub>n</sub></em> that could be factored over the factor base: <em>n</em>, <em>A</em><sub><em>n</em>&minus;1</sub>, <em>Q<sub>n</sub></em>, and a list of the odd-power primes dividing <em>Q<sub>n</sub></em> (thus, factors like 5<sup>2</sup> of <em>Q</em><sub>31</sub> are omitted); forty years ago, the output was given on punched cards!  In the example above, the rows for <em>Q</em><sub>5</sub>, <em>Q</em><sub>10</sub>, <em>Q</em><sub>22</sub>, <em>Q</em><sub>23</sub>, <em>Q</em><sub>26</sub>, <em>Q</em><sub>31</sub>, and <em>Q</em><sub>40</sub> should appear in the output, based on a factor base containing 2, 5, 31, 41, 43, 53, and 113.  Note that 5 is part of the factor base even though it doesn&#8217;t appear as an odd power in any of the <em>Q<sub>n</sub></em>.</p>
+<p>Your task is to write the RESIDUE function that computes a factor base and returns a list of factored <em>Q<sub>n</sub></em>; we will complete the factorization of F<sub>7</sub> in the <a href="/2010/09/17/the-factorization-of-f7-part-2/">next exercise</a>.  Apply your function to F<sub>7</sub> using a factor base of the first 2700 suitable primes less than 60000 and a multiplier of 257.  When you are finished, you are welcome to <a href="/2010/09/14/the-factorization-of-f7-part-1/2/">read</a> or <a href="http://programmingpraxis.codepad.org/xbOhfe1M">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/09/14/the-factorization-of-f7-part-1/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/09/14/the-factorization-of-f7-part-1/2/">2</a></p> </div></div>
+</body>
+</html>

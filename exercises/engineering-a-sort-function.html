@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Engineering A Sort Function &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Engineering A Sort&nbsp;Function</h2>
+<h3>February 23, 2010</h3>
+</div>
+<div class="entrybody">
+<p>We examined quicksort in a previous <a href="/2009/11/03/quick-sort">exercise</a>.  Today we examine a version of quicksort that Jon Bentley <a href="http://www.youtube.com/watch?v=aMnn0Jq0J-E">spoke</a> about at Google, reprising the quicksort function that he and Doug McIlroy explained in their <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.8162&amp;rep=rep1&amp;type=pdf">article</a> &#8220;Engineering a Sort Function&#8221; in <em>Software&mdash;Practice and Experience</em> (Volume 23, Number 11, Pages 1249&ndash;1265, November 1993).</p>
+<p>The Bentley/McIlroy quicksort is characterized by an adaptive pivot selection, a fast approaching-pointers partition, use of ternary comparison operator (less-than, equal-to, greater-than) to enable a &#8220;fat pivot,&#8221; and insertion sort for small sub-arrays.  The quicksort also uses a fast swap that adapts to the size of the data elements.  The adaptive pivot selection uses the middle element for small arrays, the median of the first, middle and last elements for medium-sized arrays, and the median of nine equally-spaced elements for larger arrays.  This description doesn&#8217;t really do justice to the code; you should read the <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.8162&amp;rep=rep1&amp;type=pdf">article</a> for details.</p>
+<p>Your task is to write a quicksort function using the same algorithm as Bentley and McIlroy.  When you are finished, you are welcome to <a href="/2010/02/23/engineering-a-sort-function/2/">read</a> or <a href="http://programmingpraxis.codepad.org/WrCRgnp4">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/02/23/engineering-a-sort-function/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/02/23/engineering-a-sort-function/2/">2</a></p> </div></div>
+</body>
+</html>

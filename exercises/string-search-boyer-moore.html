@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>String Search: Boyer-Moore &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>String Search:&nbsp;Boyer-Moore</h2>
+<h3>August 28, 2009</h3>
+</div>
+<div class="entrybody">
+<p>The two <a href="/2009/08/21/string-search-brute-force">previous</a> <a href="/2009/08/25/string-search-knuth-morris-pratt">exercises</a> discussed the brute-force and Knuth-Morris-Pratt algoritms for searching strings.  Today we discuss the Boyer-Moore string search algorithm, invented by Bob Boyer and J Strother Moore in 1977, in a variant devised by Nigel Horspool.</p>
+<p>The Boyer-Moore algorithm is a &#8220;backwards&#8221; version of the Knuth-Morris-Pratt algorithm.  It looks at the last character of the pattern first, working its way right-to-left until it finds a mis-match, when it slides the pattern right along the search string for a skip size based on the current character.</p>
+<p>Consider the pattern ABABAC, the same pattern used in the prior exercise.  The skip array is:</p>
+<p><code>A&nbsp;&nbsp;&nbsp; 1<br />
+B&nbsp;&nbsp;&nbsp; 2<br />
+C&nbsp;&nbsp;&nbsp; 0<br />
+else 6</code><code></code></p>
+<p>If the current character of the search string isn't in the pattern, you can skip all the way past the current pattern.  If the current character of the search string is C, the last character of the pattern, the pattern doesn't move, and the comparison shifts to the next character to the left.  If the current character of the search string is A, the next-to-last character of the pattern, slide the pattern one character to the right and restart at the end of the pattern.  And if the current character of the search string is B, the second-to-last character of the pattern, slide the pattern two characters to the right and restart at the end of the pattern.</p>
+<p>Your task is to write a function that performs string searching using the Horspool variant of the Boyer-Moore algorithm.  When you are finished, you are welcome to <a href="/2009/08/28/string-search-boyer-moore/2/">read</a> or <a href="http://programmingpraxis.codepad.org/CjKUK0jC">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Two Sub-Quadratic Sorts &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Two Sub-Quadratic&nbsp;Sorts</h2>
+<h3>October 30, 2009</h3>
+</div>
+<div class="entrybody">
+<p>In the previous <a href="/2009/10/27/three-quadratic-sorts/">exercise</a> we looked at three sorting algorithms that work in quadratic time.  Today we look at two sorting algorithms, each a minor variant on one of the previous algorithms, that work much more quickly.</p>
+<p>Comb sort is a variant of bubble sort popularized by Stephen Lacey and Richard Box in an article in the April 1991 edition of <em>Byte Magazine</em>.  The basic idea is to quickly eliminate <em>turtles</em>, small values near the end of the array, since they greatly hamper the speed of the sort.  In bubble sort, the elements being compared are always adjacent; the gap between them is 1.  In comb sort, the gap is initially the length of the list being sorted; the array is sorted using that gap size, then the gap is reduced and the array is sorted again, and so on until the gap is reduced to 1, when the sort reduces to ordinary bubble sort.  Since early stages with large gaps quickly move turtles near the front of the array, later stages with smaller gaps have less work to do, and the sorting algorithm becomes relatively efficient.  Most often, the gap is reduced by a factor of 1.3 at each step, though other shrink factors are sometimes used.</p>
+<p>In the same way that comb sort is a variant of bubble sort, shell sort, invented by Donald Shell in 1959, is a variant of insertion sort that attempts to eliminate large disorder in early stages so that later stages have less work to do.  Shell sort performs multiple stages of insertion sort, using a diminishing sequence of gaps that eventually reaches 1; a popular gap sequence is &hellip;, 364, 121, 40, 13, 4, 1.</p>
+<p>Your task is to write functions that perform comb sort and shell sort, in the same manner as the previous <a href="/2009/10/27/three-quadratic-sorts/">exercise</a>.  When you are finished, you are welcome to <a href="/2009/10/30/two-sub-quadratic-sorts/2/">read</a> or <a href="http://programmingpraxis.codepad.org/XysypyUa">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "health");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/10/30/two-sub-quadratic-sorts/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/10/30/two-sub-quadratic-sorts/2/">2</a></p> </div></div>
+</body>
+</html>

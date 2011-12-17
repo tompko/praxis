@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Data Encryption Standard: Part 2 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Data Encryption Standard: Part&nbsp;2</h2>
+<h3>September 3, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In the previous <a href="/2010/08/31/data-encryption-standard-part-1/">exercise</a> we examined the working of the DES block cipher for a single 64-bit block.  In today&#8217;s exercise we extend encryption to an entire file, following the procedures of <a href="http://www.itl.nist.gov/fipspubs/fip81.htm">FIPS 81</a>.</p>
+<p>In the descriptions that follow, <em>P<sub>i</sub></em> is the <em>i</em>th plain-text block, <em>C<sub>i</sub></em> is the <em>i</em>th cipher-text block, <em>E<sub>k</sub></em> is the encryption function with key <em>k</em>, <em>D<sub>k</sub></em> is the decryption function with key <em>k</em>, <em>IV</em> is the initialization vector, and &oplus; is the xor operation.  There are four block modes:</p>
+<ul>
+<li>Electronic Codebook (ECB) treats each block separately, padding the final block.  The encryption algorithm is <em>C<sub>i</sub></em> = <em>E<sub>k</sub></em>(<em>P<sub>i</sub></em>) and the decryption algorithm is <em>P<sub>i</sub></em> = <em>D<sub>k</sub></em>(<em>C<sub>i</sub></em>).</li>
+<li>Cipher Block Chaining (CBC) links each block to the previous one, starting from an initialization vector, padding the final block.  The encryption algorithm is <em>C<sub>i</sub></em> = <em>E<sub>k</sub></em>(<em>P<sub>i</sub></em> &oplus; <em>C</em><sub><em>i</em>-1</sub>) with <em>C</em><sub>0</sub> = <em>IV</em> and the decryption algorithm is <em>P<sub>i</sub></em> = <em>D<sub>k</sub></em>(<em>C<sub>i</sub></em>) &oplus; <em>C</em><sub><em>i</em>-1</sub> with <em>C</em><sub>0</sub> = <em>IV</em>.</li>
+<li>Cipher Feedback (CFB) is similar to CBC.  The encryption algorithm is <em>C<sub>i</sub></em> = <em>E<sub>k</sub></em>(<em>C</em><sub><em>i</em>-1</sub>) &oplus; <em>P<sub>i</sub></em> with <em>C</em><sub>0</sub> = <em>IV</em> and the decryption algorithm is <em>P<sub>i</sub></em> = <em>E<sub>k</sub></em>(Ci-1) &oplus; <em>C<sub>i</sub></em> with <em>C</em><sub>0</sub> = <em>IV</em>; note that both encryption and decryption use <em>E<sub>k</sub></em>.  The final block is not padded; instead, the leading bits of <em>E<sub>k</sub></em>(<em>C</em><sub><em>i</em>-1</sub>) are xor&#8217;ed with the partial block.</li>
+<li>Output Feedback (OFB) is symmetric for encryption and decryption.  The encryption algorithm is <em>C<sub>i</sub></em> = <em>P<sub>i</sub></em> &oplus; <em>O<sub>i</sub></em> and the decryption algorithm is <em>P<sub>i</sub></em> = <em>C<sub>i</sub></em> &oplus; <em>O<sub>i</sub></em>.  For both encryption and decryption, <em>O<sub>i</sub></em> = <em>E<sub>k</sub></em>(<em>O</em><sub><em>i</em>-1</sub>) with <em>O</em><sub>0</sub> = <em>IV</em>.  The final block is not padded; instead, the leading bits of <em>E<sub>k</sub></em>(<em>O</em><sub><em>i</em>-1</sub>) are xor&#8217;ed with the partial block.</li>
+</ul>
+<p>The initialization vector is a 64-bit block given by the user as a &#8220;salt&#8221; to the cryptographic process.  Padding gives the final block a length of eight bytes and can be accomplished in many ways, all of which must be reversible for either ascii or binary files.  FIPS 81 specifies a method that never increases the number of blocks in the file, but requires an out-of-band indicator (say, in the message header) to specify whether or not padding was applied; that method is generally no longer used.  Our padding method adds a byte of x80 followed by sufficient bytes of x00 to fill the final 64-bit block, so the message length always increases; in particular, a final block that is exactly eight bytes long causes another full 8-byte block to be added.  It is simple to remove the padding; just remove all trailing x00 bytes and the immediately preceding x80 byte.</p>
+<p>Of the four methods, ECB is probably the most-frequently used but also the least secure, since repeated blocks will be encrypted identically.  Of the others, OFB is most resistant to bit-errors during transmission.  If in doubt, CBC is always a good choice.  Since there is no particular need for secrecy, the IV can be prepended as the first 64-bit block in the encrypted message (or the last block, or the <em>n</em>th block for some <em>n</em> agreed between sender and receiver), as long as care is taken that no IV is reused with the same key; thus, a common IV embeds the current date and time.</p>
+<p>Your task is to write functions that encrypt and decrypt files using the four block modes described above.  In the next exercise we will continue our examination of the Data Encryption Standard by looking at Triple DES, cryptographic hashing, and keying procedures.  When you are finished, you are welcome to <a href="/2010/09/03/data-encryption-standard-part-2/2/">read</a> or <a href="http://programmingpraxis.codepad.org/lNLCu1vS">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "gadgets");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/09/03/data-encryption-standard-part-2/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/09/03/data-encryption-standard-part-2/2/">2</a></p> </div></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Data Encryption Standard: Part 3 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Data Encryption Standard: Part&nbsp;3</h2>
+<h3>September 7, 2010</h3>
+</div>
+<div class="entrybody">
+<p>Our third exercise related to the Data Encryption Standard is simpler than the two <a href="/2010/08/28/data-encryption-standard-part-1/">previous</a> <a href="/2010/09/01/data-encryption-standard-part-2/">exercises</a>.  We will look at Triple DES, cryptographic hashing, and password management.</p>
+<p>Triple DES is defined in <a href="http://csrc.nist.gov/publications/fips/fips46-3/fips46-3.pdf">FIPS 46-3</a>, along with regular DES.  Triple DES uses three keys and the formulas <em>CT</em> = <em>E</em><sub><em>K</em>3</sub>(<em>D</em><sub><em>K</em>2</sub>(<em>E</em><sub><em>K</em>1</sub> <em>PT</em>)) for encryption and <em>PT</em> = <em>D</em><sub><em>K</em>1</sub>(<em>E</em><sub><em>K</em>2</sub>(<em>D</em><sub><em>K</em>3</sub> <em>CT</em>) for decryption.  Triple DES is strongest when all three keys are unique, but is often used with <em>K</em>1 = <em>K</em>3, which is simpler to manage and only somewhat less secure.  If <em>K</em>1 = <em>K</em>2 = <em>K</em>3, Triple DES is just the same as regular DES.</p>
+<p><a href="http://www.itl.nist.gov/fipspubs/fip113.htm">FIPS 113</a> defines cryptographic hashing using DES in CBC block mode.  With the input encrypted using an initialization vector of 64 zero-bits, the hash is just the leading <em>n</em> bits of the final block, where 16 &le; <em>n</em> &le; 64 and <em>n</em> &equiv; 0 (mod 8).</p>
+<p>One application of cryptographic hashing converts an ascii plaintext password to a 64-bit key.  The hash initializes using the normal zero-vector and is calculated using a single key specific to the application.  Then 56 bits are taken from the hash and parity bits are inserted to form a 64-bit key.</p>
+<p>Your task is to write Triple DES enciphering and deciphering functions, a cryptographic hash function, and a password-to-key converter.  When you are finished, you are welcome to <a href="/2010/09/07/data-encryption-standard-part-3/2/">read</a> or <a href="http://programmingpraxis.codepad.org/hI295Aff">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/09/07/data-encryption-standard-part-3/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/09/07/data-encryption-standard-part-3/2/">2</a></p> </div></div>
+</body>
+</html>

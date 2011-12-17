@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Expression Evaluation &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Expression&nbsp;Evaluation</h2>
+<h3>April 16, 2010</h3>
+</div>
+<div class="entrybody">
+<p>The very first <a href="/2009/02/19/rpn-calculator/">exercise</a> at Programming Praxis evaluated expressions given in reverse-polish notation.  In today&#8217;s exercise, we write a function to evaluate expressions given as strings in the normal infix notation; for instance, given the string &#8220;12 * (34 + 56)&#8221;, the function returns the number 1080.  We do this by writing a parser for the following grammar:</p>
+<table>
+<tr>
+<td><em>expr</em></td>
+<td>&rarr;</td>
+<td><em>term</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>expr</em> + <em>term</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>expr</em> &#8211; <em>term</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><em>term</em></td>
+<td>&rarr;</td>
+<td><em>fact</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>term</em> * <em>fact</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>term</em> / <em>fact</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><em>fact</em></td>
+<td>&rarr;</td>
+<td><em>numb</em></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>( <em>expr</em> )</td>
+</tr>
+</table>
+<p>The grammar specifies the syntax of the language; it is up to the program to provide the semantics.  Note that the grammar handles the precedences and associativities of the operators. For example, since <em>expressions</em> are made up from <em>terms</em>, multiplication and division are processed before addition and subtraction.</p>
+<p>The normal algorithm used to parse expressions is called <em>recursive-descent parsing</em> because a series of mutually-recursive functions, one per grammar element, call each other, starting from the top-level grammar element (in our case, <em>expr</em>) and descending until the beginning of the string being parsed can be identified, whereupon the recursion goes back up the chain of mutually-recursive functions until the next part of the string can be parsed, and so on, up and down the chain until the end of the string is reached, all the time accumulating the value of the expression.</p>
+<p>Your task is to write a function that evaluates expressions according to the grammar given above.  When you are finished, you are welcome to <a href="/2010/04/16/expression-evaluation/2/">read</a> or <a href="http://programmingpraxis.codepad.org/tAAtFW6d">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

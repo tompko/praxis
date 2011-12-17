@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Monte Carlo Factorization &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Monte Carlo&nbsp;Factorization</h2>
+<h3>June 19, 2009</h3>
+</div>
+<div class="entrybody">
+<p>We have previously examined two methods of integer factorization, trial division using <a href="/2009/05/08/wheel-factorization/">wheels</a> and Fermat&#8217;s <a href="/2009/05/19/fermats-method/">method</a> of the differences of squares.  In this exercise we examine a probabilistic method of integer factorization that takes only a small, fixed amount of memory and tends to be very fast.  This method was developed by John Pollard in 1975 and is commonly called the Pollard rho algorithm.</p>
+<p>The algorithm is based on the observation that, for any two random integers <em>x</em> and <em>y</em> that are congruent modulo <em>p</em>, the greatest common divisor of their difference and <em>n</em>, the integer being factored, will be 1 if <em>p</em> and <em>n</em> are coprime (have no factors in common) but will be between 1 and <em>n</em> if <em>p</em> is a factor of <em>n</em>.  By the birthday paradox, <em>p</em> will be found with reasonably large probability after trying about <img src="http://s0.wp.com/latex.php?latex=%5Csqrt%7Bp%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="\sqrt{p}" title="\sqrt{p}" class="latex" /> random pairs.</p>
+<p>Pollard&#8217;s algorithm uses a function modulo <em>n</em> to generate a pseudo-random sequence.  Two copies of the sequence are run, one twice as fast as the other, and their values are saved as <em>x</em> and <em>y</em>.  At each step, we calculate <em>gcd</em>(<em>x</em>-<em>y</em>,<em>n</em>).  If the greatest common divisor is one, we loop, since the two values are coprime.  If the greatest common divisor is <em>n</em>, then the values of the two sequences have become equal and Pollard&#8217;s algorithm fails, since the sequences have fallen into a cycle, which is detected by Floyd&#8217;s tortoise-and-hare cycle-finding <a href="http://en.wikipedia.org/wiki/Floyd_cycle-finding_algorithm">algorithm</a>; that&#8217;s why we have two copies of the sequence, one (the &#8220;hare&#8221;) running twice as fast as the other (the &#8220;tortoise&#8221;).  But if the greatest common divisor is between 1 and <em>n</em>, we have found a factor of <em>n</em>.</p>
+<p>Failure doesn&#8217;t mean failure.  It just means that the particular pseudo-random sequence that we chose doesn&#8217;t lead to success.  Our response to failure is to try another sequence.  We use the function <em>x</em>² + <em>c</em> (mod <em>n</em>), where <em>c</em> is initially 1.  If Pollard&#8217;s algorithm fails, we increase <em>c</em> to 2, then 3, and so on.  If we keep increasing <em>c</em>, we will eventually find a factor, though it may take a long time if <em>n</em> is large.</p>
+<p>Your task is to implement Pollard&#8217;s factorization algorithm.  You can test it by calculating the factors of the 98th Mersenne number, 2<sup>98</sup> &#8211; 1.  When you are finished, you are welcome to <a href="/2009/06/19/monte-carlo-factorization/2/">read</a> or <a href="http://programmingpraxis.codepad.org/4mQExWYY">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/06/19/monte-carlo-factorization/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/06/19/monte-carlo-factorization/2/">2</a></p> </div></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Regular Expressions, Part 1 &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Regular Expressions, Part&nbsp;1</h2>
+<h3>September 15, 2009</h3>
+</div>
+<div class="entrybody">
+<p>In the previous <a href="/2009/09/11/beautiful-code/">exercise</a> we studied a simple regular-expression matcher.  In this exercise, and the <a href="/2009/09/18/regular-expressions-part-2/">one</a> that follows, we will write our own matcher for a somewhat larger set of regular expressions, based on those provided in the books <em>Software Tools</em> and <em>Software Tools in Pascal</em> by Brian W. Kernighan and P. J. Plauger:</p>
+<ul>
+<li><em>c</em> &mdash; the literal character <em>c</em></li>
+<li>. &mdash; any character</li>
+<li>^ and $ &mdash; the beginning or end of the search text</li>
+<li>[...] and [^...] &mdash; the set (or the negation of the set) of characters between brackets</li>
+<li><em>x</em>* &mdash; zero or more repetitions of the regular expression element <em>x</em>, which may be a literal character <em>c</em>, the unspecified character <em>dot</em>, or a character class</li>
+</ul>
+<p>Anywhere a single character may appear, an escaped character may appear.  An escape sequence consists of a backslash followed by a single character.  If the character is <em>n</em>, the escape sequence represents a newline.  If the character is <em>t</em>, the escape sequence represents a horizontal tab.  If the character is anything else, it represents itself literally.</p>
+<p>A character class consists of characters, escaped characters, or character ranges.  A character range consists of a lower-case letter followed by a hyphen followed by a larger lower-case letter, or the same sequence using upper-case letters, or a digit followed by a hyphen followed by a larger digit.</p>
+<p>Here are some sample regular expressions:</p>
+<ul>
+<li>[0-9][0-9]* &mdash; matches an integer</li>
+<li>^..*$ &mdash; matches a non-empty line of text</li>
+<li>hello &mdash; matches the string <em>hello</em> anywhere in the search text</li>
+<li>^ *hello *$ &mdash; matches a search text containing the string <em>hello</em>, possibly surrounded by space characters, but nothing else</li>
+<li>^[^x].*[0-9] *x$ &mdash; matches a string that starts with any character except a literal <em>x</em>, followed by any number (including zero) of characters, followed by a single digit, followed by any number (including zero) of space characters, and ends with a literal <em>x</em></li>
+</ul>
+<p>Pike&#8217;s matcher works by interpreting the regular expression directly from its input.  That simple method won&#8217;t work for the more complicated regular expressions we are considering here, because it is too time-consuming to re-interpret each regular expression element each time it appears.  Instead, we will pre-compile the regular expression into an intermediate form, using a parser, then match the input text using the pre-compiled intermediate form.  The intermediate form consists of the following elements, arranged in an array or linked list: the beginning-of-line and end-of-line markers, the <em>any</em> character and literal characters, character classes and negated character classes, and closures of the <em>any</em> character, a literal character, or either of the two types of character classes.</p>
+<p>Your task today is to determine a suitable intermediate form, then write a parser that takes a regular expression and outputs the corresponding intermediate form; in the next <a href="/2009/09/18/regular-expressions-part-2/">exercise</a>, you will write the corresponding matcher.  When you are finished, you are welcome to <a href="/2009/09/15/regular-expressions-part-1/2/">read</a> or <a href="http://programmingpraxis.codepad.org/A4XmTLTu">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

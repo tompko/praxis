@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Rule 30 RNG &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Rule 30&nbsp;RNG</h2>
+<h3>April 29, 2011</h3>
+</div>
+<div class="entrybody">
+<p><img src="http://programmingpraxis.files.wordpress.com/2011/04/rule30.png?w=640" align="right" />We have examined several different random number generators in past <a href="http://programmingpraxis.com/2010/10/05/george-marsaglias-random-number-generators/">exercises</a>, including Donald Knuth&#8217;s lagged-fibonacci <a href="http://programmingpraxis.com/2010/05/25/gb_flip/">generator</a> that is used in the <a href="standard-prelude">Standard Prelude</a>.  We also looked at cellular automata in a previous <a href="http://programmingpraxis.com/2009/05/15/cellular-automata/">exercise</a>.  In today&#8217;s exercise we combine random number generators and cellular automata by looking at a random number generator developed by Stephen Wolfram, based on the Rule 30 cellular automaton of his book <em>A New Kind of Science</em>.  Our random number generator will be similar to that in <em>Mathematica</em>; it is not cryptographically secure, but is suitable for simulation, as long as you avoid the occasional <a href="http://www.iwriteiam.nl/Rule30.html">bad seed</a>, like 0.</p>
+<p>The cellular automata we are discussing have a state consisting of a row of cells; each cell can be in either of two states, 0 or 1.  Unlike the cellular automata of the previous exercise, the row contains a finite number of cells and is considered to &#8220;wrap around&#8221; at the ends.  A new state is generated based on the current state by assigning to each cell in the new state a value determined by the same-indexed cell in the previous state as well as the two cells immediately adjacent to it.  The chart below shows the rule that determines the cell value in the new state:</p>
+<table cellspacing="10" align="center">
+<tr>
+<td align="center">&nbsp;&nbsp;&#9632; &#9632; &#9632;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9632; &#9632; &#9633;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9632; &#9633; &#9632;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9632; &#9633; &#9633;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9633; &#9632; &#9632;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9633; &#9632; &#9633;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9633; &#9633; &#9632;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&#9633; &#9633; &#9633;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td align="center">&#9633;</td>
+<td align="center">&#9633;</td>
+<td align="center">&#9633;</td>
+<td align="center">&#9632;</td>
+<td align="center">&#9632;</td>
+<td align="center">&#9632;</td>
+<td align="center">&#9632;</td>
+<td align="center">&#9633;</td>
+</tr></table>
+<p>The name Rule 30 comes from the binary-to-decimal conversion of the new values in each of the cells.  Taking the same-indexed cell in each successive state gives a sequence of random bits; collect enough of them and you can convert them to a number.</p>
+<p>In Wolfram&#8217;s book, the various cellular automata are studied based on an infinite row that starts with a single 1-cell, with all remaining cells having a value of 0; the successive states of that cellular automaton are shown in the image above-right.  In a random-number generator, the initial state is seeded with 1s and 0s in some user-defined pattern.</p>
+<p>Your task is to write a random-number generator based on the Rule 30 cellular automaton.  When you are finished, you are welcome to <a href="/2099/12/31/rule-30-rng/2/">read</a> or <a href="http://programmingpraxis.codepad.org/zoGntTfu">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

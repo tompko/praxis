@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Two Powering Predicates &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Two Powering&nbsp;Predicates</h2>
+<h3>August 6, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In our study of prime numbers, we have sometimes been lax in specifying the limitations of particular factoring methods; for instance, elliptic curve factorization only works where the number being factored is co-prime to six.  Two conditions that arise from time to time are that the number must not be a perfect square and that the number may not be an integer power of a prime number.  In today&#8217;s exercise we will write predicates to identify such numbers.</p>
+<p>The usual test for whether a number is a perfect square is to find the integer square root by Newton&#8217;s method and then test if the square of that number is the original number.  A better algorithm exploits a theorem of number theory which states that a number is a square if and only if it is a quadratic residue modulo every prime not dividing it.  Henri Cohen, in his book <em>A Course in Computational Algebraic Number Theory</em>, describes the algorithm:</p>
+<blockquote><p>The following computations are to be done and stored once and for all.</p>
+<p>1. [Fill 11] For <em>k</em> = 0 to 10 set <em>q</em>11[<em>k</em>] &larr; 0.  Then for <em>k</em> = 0 to 5 set <em>q</em>11[<em>k</em><sup>2</sup> mod 11] &larr; 1.</p>
+<p>2. [Fill 63] For <em>k</em> = 0 to 62 set <em>q</em>63[<em>k</em>] &larr; 0.  Then for <em>k</em> = 0 to 31 set <em>q</em>63[<em>k</em><sup>2</sup> mod 63] &larr; 1.</p>
+<p>3. [Fill 64] For <em>k</em> = 0 to 63 set <em>q</em>64[<em>k</em>] &larr; 0.  Then for <em>k</em> = 0 to 31 set <em>q</em>63[<em>k</em><sup>2</sup> mod 64] &larr; 1.</p>
+<p>4. [Fill 65] For <em>k</em> = 0 to 64 set <em>q</em>65[<em>k</em>] &larr; 0.  Then for <em>k</em> = 0 to 32 set <em>q</em>63[<em>k</em><sup>2</sup> mod 65] &larr; 1.</p></blockquote>
+<p>Then the algorithm is:</p>
+<blockquote><p>Given a positive integer <em>n</em>, this algorithm determines whether <em>n</em> is a square or not, and if it is, outputs the square root of <em>n</em>.</p>
+<p>1. [Test 64] Set <em>t</em> &larr; <em>n</em> mod 64 (using if possible only an <code>and</code> statement).  If <em>q</em>64[<em>t</em>] = 0, <em>n</em> is not a square and terminate the algorithm.  Otherwise, set <em>r</em> = <em>n</em> mod 45045.</p>
+<p>2. [Test 63] If <em>q</em>63[<em>r</em> mod 63] = 0, <em>n</em> is not a square and terminate the algorithm.</p>
+<p>3. [Test 65] If <em>q</em>65[<em>r</em> mod 65] = 0, <em>n</em> is not a square and terminate the algorithm.</p>
+<p>4. [Test 11] If <em>q</em>11[<em>r</em> mod 11] = 0, <em>n</em> is not a square and terminate the algorithm.</p>
+<p>5. [Compute square root] Compute <em>q</em> &larr; &lfloor; &radic; <em>n</em> &rfloor; using Newton&#8217;s method.  If <em>n</em> &ne; <em>q</em><sup>2</sup>, <em>n</em> is not a square and terminate the algorithm.  Otherwise, <em>n</em> is a square, output <em>q</em> and terminate the algorithm.</p></blockquote>
+<p>Our second predicate is the prime-power test, which determines, for a given <em>n</em>, if there exist two numbers <em>p</em> and <em>k</em> such that <em>p<sup>k</sup></em> = <em>n</em>, with <em>p</em> prime.  Stephen Wolfram&#8217;s <em>Mathematica</em> program implements the prime-power test as <code>PrimePowerQ</code>, which returns either <code>True</code> or <code>False</code>.  According to the manual,</p>
+<blockquote><p>The algorithm for <code>PrimePowerQ</code> involves first computing the least prime factor <em>p</em> of <em>n</em> and then attempting division by <em>n</em> until either 1 is obtained, in which case <em>n</em> is a prime power, or until division is no longer possible, in which case <em>n</em> is not a prime power.</p></blockquote>
+<p>(Note: they probably meant &#8220;attempting division by <em>p</em>.&#8221;)  Wolfram gives the example <code>PrimePowerQ[12167]</code>, which is <code>True</code>, since 23<sup>3</sup> = 12167.  That algorithm will take a while, as factoring is a non-trivial problem.</p>
+<p>Cohen determines if <em>n</em> is a prime power by first assuming that <em>n</em> = <em>p<sup>k</sup></em>, where <em>p</em> is prime.  Then Fermat&#8217;s Little Theorem gives <em>p</em> | gcd(<em>a<sup>n</sup></em> &minus; <em>a</em>, <em>n</em>).  If that fails, <em>n</em> is not a prime power.  Here is Cohen&#8217;s algorithm:</p>
+<blockquote><p>Given a positive integer <em>n</em> &gt; 1, this algorithm tests whether or not <em>n</em> is of the form <em>p<sup>k</sup></em> with <em>p</em> prime, and if it is, outputs the prime <em>p</em>.</p>
+<p>1. [Case <em>n</em> even] If <em>n</em> is even, set <em>p</em> &larr; 2 and go to Step 4.  Otherwise, set <em>q</em> &larr; <em>n</em>.</p>
+<p>2. [Apply Rabin-Miller] By using Algorithm 8.2.2 show that either <em>q</em> is a probable prime or exhibit a witness <em>a</em> to the compositeness of <em>q</em>.  If <em>q</em> is a probable prime, set <em>p</em> &larr; <em>q</em> and go to Step 4.</p>
+<p>3. [Compute GCD] Set <em>d</em> &larr; (<em>a<sup>q</sup></em> &minus; <em>a</em>, <em>q</em>).  If <em>d</em> = 1 or <em>d</em> = <em>q</em>, then <em>n</em> is not a prime power and terminate the algorithm.  Otherwise set <em>q</em> &larr; <em>d</em> and go to Step 2.</p>
+<p>4. [Final test] (Here <em>p</em> is a divisor of <em>n</em> which is almost certainly prime.) Using a primality test prove that <em>p</em> is prime.  If it is not (an exceedingly rare occurrence), set <em>q</em> &larr; <em>p</em> and go to Step 2.  Otherwise, by dividing <em>n</em> by <em>p</em> repeatedly, check whether <em>n</em> is a power of <em>p</em> or not.  If it is not, <em>n</em> is not a prime power, otherwise output <em>p</em>. Terminate the algorithm.</p>
+<p>We have been a little sloppy in this algorithm.  For example in Step 4, instead of repeatedly dividing by <em>p</em> we could use a binary search analogous to the binary powering algorithm.  We leave this as an exercise for the reader.</p></blockquote>
+<p>Cohen&#8217;s Algorithm 8.2.2 refers to the search for a witness to the compositeness of a number which we used in the <a href="/2009/05/01/primality-checking/">exercise</a> on the Miller-Rabin primality checker.</p>
+<p>These two beautiful algorithms show the power and elegance of number theory.  Cohen&#8217;s book is a fine example of the blend of mathematics and programming, and does an excellent job of explaining algorithms in a way that makes them easy to implement; most math textbooks aren&#8217;t so good.</p>
+<p>Your task is to implement Cohen&#8217;s two powering predicates.  When you are finished, you are welcome to <a href="/2010/08/06/two-powering-predicates/2/">read</a> or <a href="http://programmingpraxis.codepad.org/hcMUSvP6">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/08/06/two-powering-predicates/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/08/06/two-powering-predicates/2/">2</a></p> </div></div>
+</body>
+</html>

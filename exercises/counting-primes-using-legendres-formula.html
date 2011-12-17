@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Counting Primes Using Legendre&#8217;s Formula &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Counting Primes Using Legendre&#8217;s&nbsp;Formula</h2>
+<h3>July 22, 2011</h3>
+</div>
+<div class="entrybody">
+<p>The prime-counting function &pi;(<em>n</em>) computes the number of primes not greater than <em>n</em>, and has been a matter of fascination to mathematicians for centuries. The Prime Number Theorem tells us that &pi;(<em>n</em>) is approximately <em>n</em> / log(<em>n</em>); Carl Fredrich Gauss proposed the prime number theorem in 1792 when he was only fifteen years old, and Jacques Hadamard and Charles-Jean de la Valle Poussin both proved it, independently, in 1896. The first person to make a serious attempt at the calculation, except for trivial attempts that simply enumerated the primes and counted them, was the French mathematician Adrien-Marie Legendre at the end of the eighteenth century; his formula was correct, but he erroneously reported that &pi;(10<sup>6</sup>) = 78526, whereas the correct value is 78498.  We will recreate Legendre&#8217;s calculation in today&#8217;s exercise.</p>
+<p>Legendre&#8217;s formula works in two parts.  First, he defined a function &phi;(<em>x</em>, <em>a</em>) that counts all the numbers from 1 to <em>x</em> inclusive that are not stricken by sieving with the first <em>a</em> primes.  For instance &phi;(50, 3) = 14, because the numbers 1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 and 49 less than or equal to 50 are not divisible by the first three primes 2, 3, or 5.  The &phi; function can be computed by the recurrence equation &phi;(<em>x</em>, <em>a</em>) = &phi;(<em>x</em>, <em>a</em>&minus;1) &minus; &phi;(<em>x</em>/<em>p<sub>a</sub></em>, <em>a</em>&minus;1), where &phi;(<em>x</em>, 1) is the number of odd integers less than or equal to <em>x</em> and <em>p<sub>a</sub></em> is the <em>a</em>th prime number.  The second part of Legendre&#8217;s formula uses the &phi; function to compute the value of &pi; recursively: &pi;(<em>x</em>) = &phi;(<em>x</em>, <em>a</em>) + <em>a</em> &minus; 1, where <em>a</em> = &pi;(&lfloor;&radic;<em>x</em>&rfloor;).</p>
+<p>Your task is to write &phi; and &pi; functions and recreate Legendre&#8217;s calculation of &pi;(1000000).  When you are finished, you are welcome to <a href="/2011/07/22/counting-primes-using-legendres-formula/2/">read</a> or <a href="http://programmingpraxis.codepad.org/sNCV5Y0d">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/07/22/counting-primes-using-legendres-formula/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/07/22/counting-primes-using-legendres-formula/2/">2</a></p> </div></div>
+</body>
+</html>

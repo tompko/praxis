@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Spectacular Seven &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Spectacular&nbsp;Seven</h2>
+<h3>May 4, 2010</h3>
+</div>
+<div class="entrybody">
+<p>Steven Skiena has written a book, <em>The Algorithm Design Manual</em>, that is justly a favorite of Programming Praxis; it is an encyclopedia of common algorithms and data structures, with many pointers to original sources.  Recently, I have been reading Skiena&#8217;s book, <em>Calculated Bets</em>, which describes a computer program, developed by Skiena and his students, for betting on the game <a href="http://www.jai-alai.info">jai alai</a>.</p>
+<p>Jai alai is similar to handball, played by teams of one or two players who alternately catch the ball in a basket worn on their wrist and throw it back to the front wall; a point is won when one team is unable to catch the ball and throw it back before it bounces twice, or for various other technical infractions.  Although only two teams compete for each point, there are eight teams playing in a game; the first two teams start the game, with the remaining six teams forming a queue, and after each point the winner of the point scores, the loser goes to the back of the queue, and the first team in the queue competes against the previous winner.  Each point has a value of 1 until each team has played once (that is, for the first eight points of a game), when the value of winning a point increases to 2.  The team that first reaches seven points is the winner.</p>
+<p>The purpose of the rule that increases the value of a point from 1 to 2 is to reduce the bias in favor of teams that start early in the queue (have a low &#8220;post position&#8221;).  But, as Skiena points out, the rule isn&#8217;t perfect.</p>
+<p>Your task is to write a program that simulates a large number of jai alai games and calculates the average winning percentage for each post position.  When you are finished, you are welcome to <a href="/2010/05/04/spectacular-seven/2/">read</a> or <a href="http://programmingpraxis.codepad.org/6bcXRB4Z">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

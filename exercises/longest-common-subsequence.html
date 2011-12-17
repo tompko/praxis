@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Longest Common Subsequence &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Longest Common&nbsp;Subsequence</h2>
+<h3>June 9, 2009</h3>
+</div>
+<div class="entrybody">
+<p>Finding the longest common subsequence of two sequences is a classic computer science problem with an equally classic solution that dates to the folklore of computing.  The longest common subsequence is the longest set of elements that appear in order (not necessarily contiguous) in two sequences; for instance, the longest common subsequence of PROGRAMMING and PRAXIS is PRAI:</p>
+<p><code>P R   O G R   A   M M   I   N G<br />
+| |           |         |<br />
+P R           A    X    I    S</code></p>
+<p>The classic solution uses dynamic programming.  A matrix is prepared with one sequence in the rows and the other sequence in the columns, giving in each cell the minimum <em>edit distance</em> between the two, where the edit distance is the least number of adds, deletes and changes that can convert one sequence to the other.  For instance:</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;P R O G R A M M I N G<br />
+&nbsp;&nbsp;0 0 0 0 0 0 0 0 0 0 0 0<br />
+P 0 1 1 1 1 1 1 1 1 1 1 1<br />
+R 0 1 2 2 2 2 2 2 2 2 2 2<br />
+A 0 1 2 2 2 2 3 3 3 3 3 3<br />
+X 0 1 2 2 2 2 3 3 3 3 3 3<br />
+I 0 1 2 2 2 2 3 3 3 4 4 4<br />
+S 0 1 2 2 2 2 3 3 3 4 4 4</code></p>
+<p>If we represent the rows as <em>X<sub>i</sub></em> and the columns as <em>Y<sub>j</sub></em>, the matrix can be filled top-to-bottom, left-to-right using the formula:</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;i=0&nbsp;or&nbsp;j=0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+LCS(i,j)&nbsp;=&nbsp;{&nbsp;LCS(i-1,j-1)&nbsp;+&nbsp;1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;X(i)&nbsp;=&nbsp;Y(j)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;max(LCS(i-1,j),&nbsp;LCS(i,j-1)),&nbsp;otherwise</code></p>
+<p>Intuitively, the two sequences are scanned in parallel.  If the current two cells are identical, the length of the longest common subsequence increases by one; otherwise, there are two possibilities to consider recursively, after deleting the current cell from either one input sequence or the other, and the length of the longest common subsequence is simply the greater of the two possibilities.</p>
+<p>Once the matrix of longest common subsequence lengths has been calculated, the longest common subsequence itself can be recovered by noting each point where the length &#8220;bumps&#8221; to the next lower value along the diagonal, starting at the lower right-hand corner: from 4 to 3 when both sequences are at I, from 3 to 2 when both sequences are at A, from 2 to 1 when both sequences are at R, and from 1 to 0 when both sequences are at P.</p>
+<p>Note that the longest common sequence is not necessarily unique.  For instance, given the two sequences ABC and BAC, there are two longest common subsequences, AC and BC.  Either answer is correct.</p>
+<p>Your task is to write a function that takes two sequences and returns their longest common subsequence.  When you are finished, you are welcome to <a href="/2009/06/09/longest-common-subsequence/2/">read</a> or <a href="http://programmingpraxis.codepad.org/MQK6CN9q">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "movies");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/06/09/longest-common-subsequence/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/06/09/longest-common-subsequence/2/">2</a></p> </div></div>
+</body>
+</html>

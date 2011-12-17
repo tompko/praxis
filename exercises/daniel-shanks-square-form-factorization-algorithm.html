@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Daniel Shanks&#8217; Square Form Factorization Algorithm &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Daniel Shanks&#8217; Square Form Factorization&nbsp;Algorithm</h2>
+<h3>August 24, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In the mid-1970s, Daniel Shanks exploited the binary quadratic forms introduced by Legendre in the late eighteenth century and perfected by Gauss in the early nineteenth century to create a method of factoring integers.  Binary quadratic forms are expressions of the form <em>Ax</em><sup>2</sup> + <em>Bxy</em> + <em>Cy</em><sup>2</sup> with <em>A</em>, <em>B</em> and <em>C</em> integers, normally represented as the triple (<em>A</em>, <em>B</em>, <em>C</em>).  Binary quadratic forms are often called square forms.</p>
+<p>We won&#8217;t discuss the mathematics of square forms, but we do need to know how to reduce a square form.  A discriminant delta is calculated as &Delta; = <em>b</em><sup>2</sup> &minus; 4<em>ac</em>.  A single reduction step is called a rho reduction, and is given by &rho;(<em>a</em>, <em>b</em>, <em>c</em>) = (<em>c</em>, <em>r</em>, (<em>r</em><sup>2</sup>&minus;&Delta;)/4<em>c</em>) where <em>r</em> is that unique integer <em>b</em> mod 2<em>c</em> such that &minus;|<em>c</em>| &lt; <em>r</em> &lt;= |<em>c</em>|, if &radic;&Delta; &lt; |<em>c</em>|, or &radic;&Delta; &minus; 2|<em>c</em>| &lt; <em>r</em> &lt; &radic;&Delta;, if |<em>c</em>| &lt; &radic;&Delta;.</p>
+<p>A square form is in <em>reduced</em> form if |&radic;&Delta;&minus;2|<em>a</em>|| &lt; <em>b</em> &lt; &radic;&Delta;; this reduction is accomplished by continually applying &rho; until the reduced form is achieved.</p>
+<p>Shanks&#8217; method uses two loops.  First, an initial square form is calculated, based on the number to be factored, which must be odd, composite, and not a perfect square; the details of that initialization are tedious, and appear in the solution on the next page.  Then the square form is repeatedly reduced (this is the &#8220;forward&#8221; loop) until it is in <em>proper</em> form, which is described below.  Then the reduced inverse square root of the square form calculated in the forward loop is reduced in a &#8220;backward&#8221; loop until a factor is identified when two successive square forms (<em>A</em>, <em>B</em>, <em>C</em>=<em>c</em><sup>2</sup>) have the same <em>B</em>; the factor is then <em>c</em>, if <em>c</em> is odd, or <em>c</em>/2, if <em>c</em> is even.  The reduced inverse square root of (<em>A</em>, <em>B</em>, <em>C</em>=<em>c</em><sup>2</sup>) is initially (&minus;<em>c</em>, <em>B</em>, &minus;<em>cA</em>), which is then put into reduced form as described above.</p>
+<p>Shanks defined a square form as proper using a queue of values derived in a rather complicated way.  We will use a simpler method known as a <em>sufficient list</em>. Let <em>L</em> be the integer square root of the square root of the discriminant.  If a square form (<em>A</em>, <em>B</em>, <em>C</em>) is encountered with |<em>C</em>| &lt; <em>L</em> with <em>C</em> even, or |<em>C</em>| &lt; <em>L</em>/2 with <em>C</em> odd, then <em>C</em> is placed on the sufficient list.  Then a square form (<em>A</em>, <em>B</em>, <em>C</em>=<em>c</em><sup>2</sup>) is proper if <em>c</em> is not on the sufficient list.</p>
+<p>Your task is to write a function to factor integers using Shanks&#8217; square form algorithm.  When you are finished, you are welcome to <a href="/2010/08/24/daniel-shanks-square-form-factorization-algorithm/2/">read</a> or <a href="http://programmingpraxis.codepad.org/jc1aCpdB">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "food");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/08/24/daniel-shanks-square-form-factorization-algorithm/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/08/24/daniel-shanks-square-form-factorization-algorithm/2/">2</a></p> </div></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Chaocipher &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Chaocipher</h2>
+<h3>July 6, 2010</h3>
+</div>
+<div class="entrybody">
+<p>In 1918, John Byrne invented a two-disk cryptographic machine, which he called a chaocipher; he drew up blueprints, but was unsuccessful in his efforts to sell the machine to the US Signal Corps and Navy.  He left several challenge messages in his 1954 autobiography, but no one successfully deciphered the messages.  Recently, following the death of Byrne&#8217;s son, the son&#8217;s widow donated Byrne&#8217;s complete archives, including a mock-up of the machine, to the National Cryptologic Museum at Fort Meade, Maryland.  Last Friday, Moshe Rubin published the first public <a href="http://www.mountainvistasoft.com/chaocipher/chaocipher-017.htm">description</a> of the chaocipher algorithm.</p>
+<p>The algorithm uses two key sequences, one for cipher-text and one for plain-text.  Encryption and decryption look up the desired character on one sequence and report the corresponding character on the other sequence, working from plain-text to cipher-text for encryption and from cipher-text to plain-text for decryption.</p>
+<p>After each character, both sequences are permuted, each by a different method.  Thus, the chaocipher is similar to an autokey cipher, because the key is modified according to the plain-text.</p>
+<p>The left disk, which normally represents the cipher-text, is permuted in two steps.  First, the entire alphabet is shifted left as far as cipher-text of the current character (so the current cipher-text character becomes the first character in the sequence), with the shifted-off portion of the sequence reattached at the end.  Second, the second through fourteenth characters are shifted left one character, and cycled; the third character becomes the second, the fourth character becomes the third, and so on, until the fourteenth character becomes the thirteenth and the second character becomes the fourteenth.  For instance, given the sequence HXUCZVAMDSLKPEFJRIGTWOBNYQ and the current character P, the entire sequence is shifted to bring P to the front, giving PEFJRIGTWOBNYQHXUCZVAMDSLK, then the second through fourteenth characters are shifted to move E after Q, giving PFJRIGTWOBNYQEHXUCZVAMDSLK.  Byrne invented the terms zenith and nadir to represent the first and fourteenth characters, Rubin refers to zenith and zenith+13, but we&#8217;ll just call them by their ordinal positions in the sequence.</p>
+<p>The right disk, which normally represents the plain-text, is permuted in three steps.  First, the entire alphabet is shifted left as far as the plain-text of the current character (so the current plain-text character becomes the first character in the sequence), with the shifted-off portion of the sequence reattached at the end.  Second, the first character is shifted to the end (so the current plain-text character becomes the last character in the sequence).  Third, the third through fourteenth characters are shifted left one character, and cycled, similar to the left disk except for the different starting position.  For instance, given the sequence PTLNBQDEOYSFAVZKGJRIHWXUMC and the current character A, the final sequence is VZGJRIHWXUMCPKTLNBQDEOYSFA.</p>
+<p>Thus, the encryption of WELLDONEISBETTERTHANWELLSAID, given the above cipher-text and plain-text sequences, is OAHQHCNYNXTSZJRRHJBYHQKSOUJY.</p>
+<p>Your task is to write functions that perform encryption and decryption according to the algorithm given above.  When you are finished, you are welcome to <a href="/2010/07/06/chaocipher/2/">read</a> or <a href="http://programmingpraxis.codepad.org/W6om4hgd">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

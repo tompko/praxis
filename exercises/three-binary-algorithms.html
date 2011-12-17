@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Three Binary Algorithms &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Three Binary&nbsp;Algorithms</h2>
+<h3>January 15, 2010</h3>
+</div>
+<div class="entrybody">
+<p>Today&#8217;s exercise examines three binary algorithms, for basic arithmetic: multiplication, division, and greatest common divisor.</p>
+<p>Four millenia ago, when the ancient Egyptians were building the pyramids, they invented a method for multiplying positive integers that works like this:  They start by writing the two numbers to be multiplied at the head of two columns.  Then they repeatedly divide the number in the left column by two (right-shift), dropping any remainder, and double the number in the right column (left-shift), writing the two new numbers immediately below their predecessors, until the number in the left column is one.  Then they cross out all rows where the number in the left column is even, and add the remaining numbers in the right column, which is the desired product.  For instance, the product fourteen times twelve is found like this:</p>
+<p><code>14&nbsp;&nbsp;<del>12</del><br />
+&nbsp;7&nbsp;&nbsp;24<br />
+&nbsp;3&nbsp;&nbsp;48<br />
+&nbsp;1&nbsp;&nbsp;96<br />
+&nbsp;&nbsp;&nbsp;168</code></p>
+<p>It is easy to see why this method works if you use the grade-school method of multiplication, but with binary numbers instead of decimal numbers:</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;x&nbsp;1&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;x&nbsp;1&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;x&nbsp;1&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;8<br />
+&nbsp;&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;x&nbsp;1&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;6<br />
+&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-<br />
+1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;4&nbsp;x&nbsp;1&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;6&nbsp;8</code></p>
+<p>In binary, 14 is 1 &middot; 2<sup>3</sup> + 1 &middot; 2<sup>2</sup> + 1 &middot; 2<sup>1</sup> + 0 &middot; 2<sup>0</sup>.  The odd numbers in the left column correspond to the 1 bits in the binary representation of the multiplicand.</p>
+<p>Binary division is the inverse operation to binary multiplication, and is also done by a series of doubling and halving operations.  We&#8217;ll begin with the grade-school algorithm, in binary:</p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-<br />
+1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;)&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;3&nbsp;7<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;8&nbsp;8&nbsp;/&nbsp;4&nbsp;3&nbsp;=&nbsp;1&nbsp;6<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;4&nbsp;9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;6&nbsp;/&nbsp;4&nbsp;3&nbsp;=&nbsp;&nbsp;&nbsp;2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;3&nbsp;/&nbsp;4&nbsp;3&nbsp;=&nbsp;&nbsp;&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;0</code></p>
+<p>The quotient has a 1 wherever the divisor is less than the current portion of the dividend, and a 0 where the next digit is &#8220;brought down&#8221; from the dividend.  The algorithmic version of <em>n</em> &divide; <em>d</em> is based on a quantity <em>d</em> &middot; 2<sup><em>k</em></sup>, which we call <em>t</em>, which is initialized with the largest <em>k</em> that leaves <em>t</em> less than <em>n</em>; this can be done by repeated left shifts.  Then the quotient <em>q</em> is initialized to zero, the remainder <em>r</em> is initialized to <em>n</em>, and an iteration continues halving <em>t</em> until <em>t</em> is less than the original <em>d</em>; at each stage of the iteration, the quotient is doubled (left-shift) if the current remainder is less than <em>t</em>, otherwise the quotient is doubled (left-shift), then one is added, and the current remainder is reduced by the current value of <em>t</em>.  An example is shown below:</p>
+<p><code>t&nbsp;&nbsp;&nbsp;&nbsp;q&nbsp;&nbsp;r<br />
+43<br />
+86<br />
+172<br />
+344<br />
+688<br />
+1376<br />
+688&nbsp;&nbsp;0&nbsp;&nbsp;837<br />
+344&nbsp;&nbsp;1&nbsp;&nbsp;149<br />
+172&nbsp;&nbsp;2&nbsp;&nbsp;149<br />
+86&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;149<br />
+43&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;63<br />
+43/2&nbsp;19&nbsp;20</code></p>
+<p>Josef Stein described a binary algorithm for greatest common divisor in 1967 that was devised by Chinese mathematicians in the first century.  The greatest common divisor of two numbers is calculated by a recursive algorithm with four rules:</p>
+<ul>
+<li>If either number is zero, their greatest common divisor is the other number.</li>
+<li>If both numbers are even, the two numbers share a factor of two, so their greatest common divisor is double (left-shift) the greatest common divisor of the halves (right-shift) of the two numbers.</li>
+<li>If one number is even and the other is odd, they have no factor of two in common, so their greatest common divisor is the greatest common divisor of the odd number and half (right-shift) the even number.</li>
+<li>Otherwise, both numbers are odd, and a normal Euclidean step is performed, replacing the larger of the two numbers with their difference.</li>
+</ul>
+<p>Binary algorithms such as these are quite common; see for instance the <a href="standard-prelude/#ipow"><code>ipow</code></a> and <a href="standard-prelude/#expm"><code>expm</code></a> functions in the <a href="standard-prelude">Standard Prelude</a>.  They are especially useful for hardware implementations in the microcode of the processor, since bit-shifting operations are extremely fast.</p>
+<p>Your task is to write functions that perform the three operations given above, simulating how they are performed in hardware.  When you are finished, you are welcome to <a href="/2010/01/15/three-binary-algorithms/2/">read</a> or <a href="http://programmingpraxis.codepad.org/P9bxsjXo">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2010/01/15/three-binary-algorithms/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2010/01/15/three-binary-algorithms/2/">2</a></p> </div></div>
+</body>
+</html>

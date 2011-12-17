@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Lenstra&#8217;s Algorithm &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Lenstra&#8217;s&nbsp;Algorithm</h2>
+<h3>August 4, 2009</h3>
+</div>
+<div class="entrybody">
+<p>Hendrik Lenstra devised the elliptic curve factorization algorithm in 1987, an algorithm that is simultaneously elegant and of immense practical importance. This exercise describes his original algorithm.  With some algorithmic tweaks that we won&#8217;t discuss here, Lenstra&#8217;s algorithm is generally quick to find factors in the 20- to 25-digit range, slower to find factors in the 40-digit range, and ineffective if the factors are much larger than about 50 digits; at this writing, the largest factor found by the elliptic curve algorithm has 67 digits.</p>
+<p>Lenstra&#8217;s elliptic curve factorization algorithm works by searching for a point on the elliptic pseudo-curve <em>E</em><sub><em>a</em>,<em>b</em></sub> (mod <em>n</em>), where <em>n</em> =<em>pq</em>, that exists modulo <em>p</em> but not modulo <em>q</em>, or vice versa.  In the previous exercise, we searched for that point by picking an initial point and repeatedly adding it to multiples of itself until the elliptic algebra failed.</p>
+<p>Instead of repeated addition, Lenstra speeds the search by borrowing from Pollard&#8217;s <em>p</em>-1 method the idea of searching over a large product of small integers.  Pollard&#8217;s method uses the least common multiple of numerous small integers, but Lenstra instead uses a large factorial.  For instance, if you multiply 10000! by a point on an elliptic pseudo-curve, you are likely to find a factor of a 50-digit number somewhere in the middle of the computation.  But Lenstra&#8217;s method admits a continuation that Pollard&#8217;s lacks; if one elliptic curve fails, you can choose another and try again.  Or you can also increase the multiplier; if you don&#8217;t find a factor with a limit of 10000! and 1000 curves, you can try again with a limit of 1000000! and 1000000 curves.</p>
+<p>Of course, there are some details to fill in, and instead of computing 10000! and then performing the elliptic multiplication, the work is done in small steps, checking the elliptic algebra after each.  Here is Lenstra&#8217;s original algorithm, searching a single curve to a given limit:</p>
+<blockquote><p>To get started, choose a parameter for the limit, choose a random pseudo-elliptic curve <em>E</em><sub><em>a</em>,<em>b</em></sub> (mod <em>n</em>) and choose a random point (<em>x</em>,<em>y</em>) on the curve.  Calculate the discriminant <em>d</em> = 4<em>a</em><sup>3</sup> + 27<em>b</em><sup>2</sup> of the curve; if <em>d</em> = 0, the curve has a cusp or is self-intersecting, so choose a different curve.  Then you can check if you were lucky; if gcd(<em>d</em>,<em>n</em>) &gt; 1, <em>d</em> is a factor, so report it and quit.  But most often <em>d</em> and <em>n</em> are co-prime, and you must continue.</p>
+<p>The main body of Lenstra&#8217;s algorithm is a double-nested loop starting with random point (<em>x</em>,<em>y</em>):</p>
+<blockquote><p><code>for each prime p less than the limit<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for as many times as the base-p integer logarithm of the limit<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;calculate a new (x,y) on Ea,b (mod n) as p times the old (x,y)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the calculation fails, report the finding of a factor</code></p></blockquote>
+<p>If you find a factor, the loop exits early; if the loop finishes, you can either choose a different curve, or increase the limit, or quit and report failure.</p></blockquote>
+<p>The elliptic addition, doubling and multiplication functions from the prior exercise need to be modified to recognize an error of the elliptic algebra before it occurs.  For instance, when adding two points, first compute the denominator of the slope <em>x</em><sub>1</sub> &minus; <em>x</em><sub>2</sub>, and check that it has an inverse by calculating gcd(<em>x</em><sub>1</sub> &minus; <em>x</em><sub>2</sub>,<em>n</em>) before computing the slope and determining the sum of the two points; if the gcd is 1, you can proceed to calculate the inverse, if it is <em>n</em> you have been horribly unlucky (the point you are calculating isn&#8217;t on either of the two true sub-curves of the pseudo-curve) and you must exit the loop with failure, but if the gcd is strictly between 1 and <em>n</em>, it is a factor of <em>n</em>, so you can report it and quit.  You may wish to calculate the integer logarithm in the inner loop by multiplying an accumulating product times the base <em>p</em> during the loop, stopping the loop when the accumulator exceeds the limit.  The calculation of the large factorial is implicit in the two loops.</p>
+<p>It is hard to choose the limit and the number of curves.  In his original paper, Lenstra gives a formula for calculating exactly the limit and the number of curves, but unfortunately, the formula relies on the factorization, which of course is not yet known; his formula does give him a good way to prove the time-complexity bound, however.  There are several papers that examine the question, but specific advice must be based on the specific implementation.  The only general advice we can give is that the limit and number of curves must increase as the number to be factored increases, using too big or too small a limit and number of curves will cost you time rather than save it, and you will have to experiment with your implementation to know what works for you.  Be aware that there can be considerable variance in the time it takes to perform a factorization, depending on how the random number generator chooses the parameters of the search.</p>
+<p>Lenstra&#8217;s algorithm, as given above, searches a single curve to a given limit.  To make a complete factorization, you must arrange to call it repeatedly in the event of failure, and then check the result, which may itself be composite, calling Lenstra&#8217;s algorithm recursively until the factorization is complete.  And any real implementation of Lenstra&#8217;s algorithm first uses some light-weight method, such as trial division by small primes or Pollard&#8217;s rho algorithm, to quickly reduce the scope of a factorization.</p>
+<p>Your task is to write a function that factors integers using Lenstra&#8217;s algorithm.  Use your function to find the factors of (10<sup>81</sup>-1)/9; you may wish to do a timing comparison with Pollard&#8217;s rho factorization function.  When you are finished, you are welcome to <a href="/2009/08/04/lenstras-algorithm/2/">read</a> or <a href="http://programmingpraxis.codepad.org/S6l8kId7">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/08/04/lenstras-algorithm/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/08/04/lenstras-algorithm/2/">2</a></p> </div></div>
+</body>
+</html>

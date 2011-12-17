@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Straddling Checkerboard &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Straddling&nbsp;Checkerboard</h2>
+<h3>January 29, 2010</h3>
+</div>
+<div class="entrybody">
+<p>We examined the bifid cipher, which uses a polybius square to convert letters to digits and back again, in a previous <a href="/209/10/13/bifid-cipher">exercise</a>.  Today we will look at another tool for converting between letters and digits known as a straddling checkerboard.  A sample straddling checkerboard, based on the key SHARPEN YOUR SAW with spaces at 2, 5, and 9, is shown below (the three underscores in the first row make the space character visible):</p>
+<p><code>&nbsp;&nbsp;0 1 2 3 4 5 6 7 8 9<br />
+&nbsp;&nbsp;S H _ 8 A _ 1 R P _<br />
+2 E 5 N * Y O U W B 2<br />
+5 C 3 D 4 F 6 G 7 I 9<br />
+9 J 0 K L M Q T V X Z</code></p>
+<p>The checkerboard has four rows and ten columns.  Three of the positions in the first row are spaces, leaving twenty-six letters, ten digits, and an asterisk to represent the space character.  The row numbers correspond to the positions of the three first-row spaces.  Our method is traditional: the pass phrase followed by the alphabet, with duplicates removed and digits paired with the first ten letters of the alphabet (A=1, B=2, &hellip;, J=0).  But any other method of filling out the key may be used.</p>
+<p>To use the checkerboard, simply write one digit for letters that appear in the first row and two digits for letters in the subsequent rows, row digit first then column digit.  For instance, the plain-text PROGRAMMING PRAXIS is converted to digits like this:</p>
+<p><code>P R O&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;R A M&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;P R A X&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;S<br />
+8 7 2 5 5 6 7 4 9 4 9 4 5 8 2 2 5 6 2 3 8 7 4 9 8 5 8 0</code></p>
+<p>Then the digits are processed in some way.  A traditional method is double transposition, but we will use non-carrying (modulo 10) addition with key 2641:</p>
+<p><code>8 7 2 5 5 6 7 4 9 4 9 4 5 8 2 2 5 6 2 3 8 7 4 9 8 5 8 0<br />
+2 6 4 1 2 6 4 1 2 6 4 1 2 6 4 1 2 6 4 1 2 6 4 1 2 6 4 1<br />
+0 3 6 6 7 2 1 5 1 0 3 5 7 4 6 3 7 2 6 4 0 3 8 0 0 1 2 1</code></p>
+<p>Then the sums are converted back to letters and digits using the checkerboard in reverse.  Although some letters are represented by one digit and other letters are represented by two digits, there is no ambiguity since the leading digits are known:</p>
+<p><code>0 3 6 6 7 2 1 5 1 0 3 5 7 4 6 3 7 2 6 4 0 3 8 0 0 1 2 1<br />
+S 8 1 1 R 5&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;S 8 7&nbsp;&nbsp;&nbsp;A 1 8 R U&nbsp;&nbsp;&nbsp;A S 8 P S S H 5</code></p>
+<p>Thus, the completed cipher-text is S811RS3S87A18RUAS8PSSH5.  Decryption is the inverse operation.</p>
+<p>Your task is to write functions that perform encryption and decryption using the straddling checkerboard as shown above.  When you are finished, you are welcome to <a href="/2010/01/29/straddling-checkerboard/2/">read</a> or <a href="http://programmingpraxis.codepad.org/jB1PVtjv">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

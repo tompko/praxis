@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Credit Card Validation &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Credit Card&nbsp;Validation</h2>
+<h3>April 8, 2011</h3>
+</div>
+<div class="entrybody">
+<p>Most credit card numbers, and many other identification numbers including the Canadian Social Insurance Number, can be validated by an algorithm developed by Hans Peter Luhn of IBM, described in U. S. Patent 2950048 in 1954 (software patents are nothing new!), and now in the public domain.  The Luhn algorithm will detect almost any single-digit error, almost all transpositions of adjacent digits except <em>09</em> and <em>90</em>, and many other errors.</p>
+<p>The Luhn algorithm works from right-to-left, with the right-most digit being the check digit.  Alternate digits, starting with the first digit to left of the check digit, are doubled.  Then the digit-sums of all the numbers, both undoubled and doubled, are added.  The number is valid if the sum is divisible by ten.</p>
+<p>For example, the number 49927398716 is valid according to the Luhn algorithm.  Starting from the right, the sum is 6 + (2) + 7 + (1 + 6) + 9 + (6) + 7 + (4) + 9 + (1 + 8) + 4 = 70, which is divisible by 10; the digit-sums of the doubled digits have been shown in parentheses.</p>
+<p>Your task is to write two functions, one that adds a check digit to a identifying number and one that tests if an identifying number is valid.  When you are finished, you are welcome to <a href="/2011/04/08/credit-card-validation/2/">read</a> or <a href="http://programmingpraxis.codepad.org/io514WKh">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

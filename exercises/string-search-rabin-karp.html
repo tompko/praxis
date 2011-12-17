@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>String Search: Rabin-Karp &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>String Search:&nbsp;Rabin-Karp</h2>
+<h3>September 1, 2009</h3>
+</div>
+<div class="entrybody">
+<p>We examined the brute-force, Knuth-Morris-Pratt and Boyer-Moore methods of searching for a pattern in a string in <a href="/2009/08/21/string-search-brute-force/">three</a> <a href="/2009/08/25/string-search-knuth-morris-pratt/">previous</a> <a href="/2009/08/28/string-search-boyer-moore/">exercises</a>.  Today, we conclude this series of string-searching exercises with a look at a method devised by Michael Rabin (the same Michael Rabin we saw earlier in the <a href="/2009/05/01/primality-checking/">exercise</a> on primality checking) and Richard Karp in 1987 that uses hashing to find a substring in a text.</p>
+<p>The basic idea of the Rabin-Karp algorithm is to take every pattern-length substring of the string being searched, hash the characters to a number, and compare that number to the hash number of the pattern.  When a substring hash is equal to the pattern hash, a final check must be made to confirm the match.</p>
+<p>It is useful to use a hash function that considers the characters in order; that way, considering each substring in sequence makes it easy to compute the various hashes.  One approach is to add the integer values corresponding to each character; to compute the next hash, drop off the integer value of the first character and add the integer value of the current character to the running hash value.</p>
+<p>The hash function that we will adopt treats each substring as a base-256 number.  Thus, <em>cat</em>, with ascii values of 99, 97 and 116 for its three letters, hashes to 99 &middot; 256<sup>2</sup> + 97 &middot; 256<sup>1</sup> + 116 &middot; 256<sup>0</sup> = 6513012.  Since hash values can grow large quickly, it is customary to take them modulo some convenient prime number.</p>
+<p>Given this hash function, it is easy to roll the hash sequentially through the search string.  If the search string is <em>catch</em>, the next hash after <em>cat</em> will be 6386787, which can be computed as 6513012 &#8211; 97 &middot; 256<sup>2</sup> = 24948, multipled by 256, thus 24948 &times; 256 = 6386688, then add 99, thus 6386688 + 99 = 6386787.</p>
+<p>Your task is to write a function that searches for a pattern in a string using the Rabin-Karp algorithm. When you are finished, you are welcome to <a href="/2009/09/01/string-search-rabin-karp/2/">read</a> or <a href="http://programmingpraxis.codepad.org/ybaO1twV">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+</div>
+</body>
+</html>

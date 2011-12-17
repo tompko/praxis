@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Bifid Cipher &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Bifid&nbsp;Cipher</h2>
+<h3>October 13, 2009</h3>
+</div>
+<div class="entrybody">
+<p>The bifid cipher was invented by the French cryptographer Felix Delastelle in 1901.  Though never used militarily, it is popular among classical cryptographers because it is simple to operate manually yet reasonably secure. Bifid uses a Polybius square to substitute a digit-pair for each plain-text letter, then transposition causes fractionation of the digit pairs, creating diffusion, and finally the transposed digits are reformed into cipher-text letters.  An example is shown below:</p>
+<p><code>&nbsp;&nbsp;1 2 3 4 5<br />
+1 A B C D E<br />
+2 F G H I K<br />
+3 L M N O P<br />
+4 Q R S T U<br />
+5 V W X Y Z</code></p>
+<p>Our &#8220;key&#8221; is just the letters of the alphabet, in order, with J omitted; other methods of building a Polybius square have been discussed in <a href="/2009/07/03/the-playfair-cipher/">previous</a> <a href="/2009/07/14/the-daily-cryptogram/">exercises</a>.  To encipher a message, write the row and column numbers of the letters in two rows below the message:</p>
+<p><code>P R O G R A M M I N G P R A X I S<br />
+3 4 3 2 4 1 3 3 2 3 2 3 4 1 5 2 4<br />
+5 2 4 2 2 1 2 2 4 3 2 5 2 1 3 4 3</code></p>
+<p>Then the digits are read off by rows, in pairs, and converted back to letters:</p>
+<p><code>34 32 41 33 23 23 41 52 45 24 22 12 24 32 52 13 43<br />
+O&nbsp;&nbsp;M&nbsp;&nbsp;Q&nbsp;&nbsp;N&nbsp;&nbsp;H&nbsp;&nbsp;H&nbsp;&nbsp;Q&nbsp;&nbsp;W&nbsp;&nbsp;U&nbsp;&nbsp;I&nbsp;&nbsp;G&nbsp;&nbsp;B&nbsp;&nbsp;I&nbsp;&nbsp;M&nbsp;&nbsp;W&nbsp;&nbsp;C&nbsp;&nbsp;S</code></p>
+<p>So the cipher-text is OMQNHHQWUIGBIMWCS.  Deciphering is the inverse operation.</p>
+<p>Some variants of bifid break the plain-text into blocks of a given length, called the period, before encipherment, then encipher each block separately; a common period is five.  A 6 &times; 6 variant that includes digits is also common.  Another variant of bifid, called trifid, uses a 3 &times; 3 &times; 3 cube instead of a square, on the theory that if fractionating by two is good, fractionating by three is better.</p>
+<p>Your task is to write functions that encipher and decipher messages using the bifid cipher. When you are finished, you are welcome to <a href="/2009/10/13/bifid-cipher/2/">read</a> or <a href="http://programmingpraxis.codepad.org/rvI0TxI7">run</a> a suggested solution, or to post your solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "education");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2009/10/13/bifid-cipher/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2009/10/13/bifid-cipher/2/">2</a></p> </div></div>
+</body>
+</html>

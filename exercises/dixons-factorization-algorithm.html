@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Dixon&#8217;s Factorization Algorithm &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Dixon&#8217;s Factorization&nbsp;Algorithm</h2>
+<h3>May 13, 2011</h3>
+</div>
+<div class="entrybody">
+<p>In 1981, John D. Dixon, a mathematician at Carleton University, developed the integer factorization algorithm that bears his name.  Dixon&#8217;s algorithm is not used in practice, because it is quite slow, but it is important in the realm of number theory because it is the only sub-exponential factoring algorithm with a deterministic (not conjectured) run time, and it is the precursor to the quadratic sieve factorization algorithm, which <em>is</em> eminently practical.</p>
+<p>Dixon&#8217;s algorithm is based on the well-known fact of number theory that, given <em>x</em><sup>2</sup> &equiv; <em>y</em><sup>2</sup> (mod <em>n</em>), with <em>x</em> &ne; &plusmn;<em>y</em> (mod <em>n</em>), it is likely that gcd(<em>x</em>-<em>y</em>, <em>n</em>) will be a factor of <em>n</em>.  The algorithm is similar to the <a href="http://programmingpraxis.com/2010/09/14/the-factorization-of-f7-part-1/">CFRAC</a> <a href="http://programmingpraxis.com/2010/09/17/the-factorization-of-f7-part-2/">algorithm</a> of Morrison and Brillhart: the first phase finds smooth relations, and the second phase uses linear algebra to combine them and form a factorization.  The difference is the first phase, where CFRAC looks in the convergents of the continued fraction of the square root of the number being factored, but Dixon&#8217;s algorithm simply chooses numbers at random.</p>
+<p>Thus, the first stage of Dixon&#8217;s method is this: choose a bound <em>B</em> and identify the <em>factor base</em> of all primes less than <em>B</em> that are quadratic residues of <em>n</em> (their jacobi symbol is 1).  Then choose a positive integer <em>r</em> &lt; <em>n</em>, calculate its square modulo <em>n</em>, and if the square is smooth over the factor base, add <em>r</em> and its square to the linear algebra; repeat this step until you have found a sufficient number of smooth squares.  The second stage is identical to CFRAC.</p>
+<p>Your task is to write a function that factors integers by Dixon&#8217;s algorithm.  When you are finished you are welcome to <a href="/2011/05/13/dixons-factorization-algorithm/2/">read</a> or <a href="http://programmingpraxis.codepad.org/NVi2RHLa">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/05/13/dixons-factorization-algorithm/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/05/13/dixons-factorization-algorithm/2/">2</a></p> </div></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>Approximating Pi &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>Approximating&nbsp;Pi</h2>
+<h3>July 29, 2011</h3>
+</div>
+<div class="entrybody">
+<p>In the two <a href="/2011/07/22/counting-primes-using-legendres-formula/">previous</a> <a href="/2011/07/26/more-prime-counting-functions/">exercises</a> we have seen three different methods for computing the prime-counting function &pi;(<em>n</em>), all based on a formula of Legendre. We have also seen the difficulty of the calculation, as three eminent mathematicians got their sums wrong, and the difficulty continues even today with the use of computers, as Xavier Gourdon had to <a href="http://numbers.computation.free.fr/Constants/Primes/Pix/pixproject.html">stop</a> an attempt to compute &pi;(10<sup>23</sup>) because of an error. Given the difficulty of calculation, in some cases it might make sense to calculate an approximate value of &pi;, instead of an exact value. In today&#8217;s exercise we look at two methods for approximating the prime-counting function.</p>
+<p>The first method dates to the German mathematician Carl Friedrich Gauss, who gives an estimate &pi;(<em>x</em>) &sim; Li(<em>x</em>), the logarithmic integral&mdash;this is the celebrated <em>prime number theorem</em>, which Gauss figured out when he was fifteen years old! The logarithmic integral can be calculated by expanding the infinite series</p>
+<p><img src="http://s0.wp.com/latex.php?latex=%5Cmathrm%7BLi%7D%28x%29+%3D+%5Cint_0%5Ex+%5Cfrac%7Bd%5C+t%7D%7B%5Clog_e+t%7D+%3D+%5Cgamma+%2B+%5Clog+%5Clog+x+%2B+%5Csum_%7Bk%3D1%7D%5E%5Cinfty+%5Cfrac%7B%28%5Clog+x%29%5Ek%7D%7Bk%21%5C+k%7D&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="\mathrm{Li}(x) = \int_0^x \frac{d\ t}{\log_e t} = \gamma + \log \log x + \sum_{k=1}^\infty \frac{(\log x)^k}{k!\ k}" title="\mathrm{Li}(x) = \int_0^x \frac{d\ t}{\log_e t} = \gamma + \log \log x + \sum_{k=1}^\infty \frac{(\log x)^k}{k!\ k}" class="latex" /></p>
+<p>to the desired degree of accuracy; somewhere around a hundred terms ought to be sufficient for arguments up to 10<sup>12</sup>. Beware the singularity at <em>x</em>=0.</p>
+<p>In 1859, Bernhard Riemann, whose hypothesis about the prime numbers is one of the greatest open questions in mathematics, described a different, and much more accurate, approximation to the prime counting function:</p>
+<p><img src="http://s0.wp.com/latex.php?latex=%5Cmathrm%7BR%7D%28x%29+%3D+%5Csum_%7Bn%3D1%7D%5E%5Cinfty+%5Cfrac%7B%5Cmu%28n%29%7D%7Bn%7D+%5Cmathrm%7BLi%7D%28x%5E%7B1%2Fn%7D%29&amp;bg=ffffff&amp;fg=555555&amp;s=0" alt="\mathrm{R}(x) = \sum_{n=1}^\infty \frac{\mu(n)}{n} \mathrm{Li}(x^{1/n})" title="\mathrm{R}(x) = \sum_{n=1}^\infty \frac{\mu(n)}{n} \mathrm{Li}(x^{1/n})" class="latex" /></p>
+<p>where &mu;(n) is the M&ouml;bius function that takes the value 1 when <em>n</em> is 1, 0 when the factorization of <em>n</em> contains a duplicated factor, and (&minus;1)<sup><em>k</em></sup>, where <em>k</em> is the number of factors in the factorization of <em>n</em>, otherwise. There is no better way to compute the M&ouml;bius function than to compute the factors of <em>n</em>. As with the logarithmic integral, about a hundred terms of the infinite series ought to be sufficient to get a good approximation for arguments up to 10<sup>12</sup>.</p>
+<p>Your task is to write functions to compute the logarithmic integral, the M&ouml;bius function, and Riemann&#8217;s R function, and to compare the results to the values you calculated for the prime-counting function in the previous exercise. When you are finished, you are welcome to <a href="/2011/07/29/approximating-pi/2/">read</a> or <a href="http://programmingpraxis.codepad.org/Fvwfmjc5">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "science");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/07/29/approximating-pi/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/07/29/approximating-pi/2/">2</a></p> </div></div>
+</body>
+</html>

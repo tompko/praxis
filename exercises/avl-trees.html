@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+<title>AVL Trees &laquo;  Programming Praxis</title>
+</head>
+<body>
+<div class="entrytitle">
+<h2>AVL&nbsp;Trees</h2>
+<h3>November 25, 2011</h3>
+</div>
+<div class="entrybody">
+<p><img src="http://programmingpraxis.files.wordpress.com/2011/11/avl_tree_rebalancing.png?w=640" align="right" />In past exercises we have seen several flavors of search trees: <a href="/2010/03/05/binary-search-tree/">simple (unbalanced) binary trees</a>, <a href="/2009/10/02/red-black-trees/">red/black trees</a>, <a href="/2009/06/26/treaps/">treaps</a>, and <a href="/2009/06/05/ternary-search-tries/">ternary search trees</a>. In today&#8217;s exercise we look at the oldest, and in some ways simplest, of the balanced binary search trees, known as AVL trees, invented in 1962 by the Russian mathematicians Georgii Maksimovich Adelson-Velskii and Evgenii Mikhailovich Landis.</p>
+<p>AVL trees are a type of binary search tree, and maintain the property that all elements in the left child of each node have keys that are less than the key of the current node, and all elements in the right child of each node have keys that are greater than the key of the current node. AVL trees maintain balance using a <em>height</em> field in each node, along with the key, value, and pointers to the two children; the height of a node is length of the longest path from the node to the bottom of the tree. An AVL tree is balanced if, for every node in the tree, the heights of its children differ by no more than 1. Thus, the maximum height of the tree is <em>O</em>(log<sub>2</sub> <em>n</em>), where <em>n</em> is the number of nodes in the tree, so all operations &mdash; lookup, insert and delete &mdash; can be performed in guaranteed (not expected, not amortized) logarithmic time in both the average case and the worst case.</p>
+<p>The lookup operation is simple, and works exactly the same way as a simple (unbalanced) binary search tree. If the key at the root of the tree is the desired key, return the associated value. Otherwise, lookup the desired key recursively in either the left subtree or the right subtree, depending on whether the desired key is less than or greater than the current tree. If you reach a nil tree, the key is not in the tree and the search fails.</p>
+<p>The insertion operation works by searching to the point where the new node is to be inserted, then rewriting the tree locally to insert the new point. This maintains the binary search tree property that all left children are less than the current node and all right children are greater than the current but may violate the AVL tree property that the height of the two children of a node differ by no more than 1. In that case, either one or two local rotations are performed to maintain the binary search tree property and regain the AVL tree property; the box at right, which is <a href="http://en.wikipedia.org/wiki/File:AVL_Tree_Rebalancing.svg">stolen</a> from Wikipedia, gives the two symmetric cases. There are two special cases, where insertion occurs at the leaf of a tree, and where the key already exists in the tree; be sure to handle them properly.</p>
+<p>As is usual with tree operations, deletion is the trickiest operation. The basic idea is to search to the node to be deleted, replace it with either its maximal predecessor or minimal successor, then delete the maximal predecessor or minimal successor and rebalance the tree at each node back up to the point of the replacement. In the normal case, only a few rebalancing operations are required, as there is sufficient slack in the tree to absorb any imbalance. Note that although this description sounds simple, getting the details right can be anything but. There is a single special case: when the key doesn&#8217;t exist in the tree, the original tree should be returned.</p>
+<p>The final operation we consider enrolls the elements of an AVL tree in a list, in order. The procedure begins at the root of the tree and recursively appends the list formed by the left child, the current item, and the list formed by the right child; the base of the recursion is the nil tree, which is represented as a null list.</p>
+<p>Your task is to write a library of functions for manipulating AVL trees; be sure to provide a comprehensive test suite. When you are finished, you are welcome to <a href="/2011/11/25/avl-trees/2/">read</a> or <a href="http://programmingpraxis.codepad.org/SSrdpsMw">run</a> a suggested solution, or to post your own solution or discuss the exercise in the comments below.</p>
+<div id="wpcom_below_post" class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 310px;">
+<!-- <span style="text-align: left; letter-spacing: 1px; font: 8px/1em Verdana, sans-serif; color: #ccc; text-transform: uppercase; display: block; padding: 0 1px;">Advertisement</span> -->
+<script type="text/javascript">
+LD_AddCustomAttr("AdOpt", "1");
+LD_AddCustomAttr("Origin", "other");
+LD_AddCustomAttr("theme_bg", "ffffff"); 
+LD_AddCustomAttr("theme_text", "555555"); 
+LD_AddCustomAttr("theme_link", "557799"); 
+LD_AddCustomAttr("theme_border", "C8A799"); 
+LD_AddCustomAttr("theme_url", "8FB1D3"); 
+LD_AddCustomAttr("LangId", "1");
+LD_AddCustomAttr("Autotag", "technology");
+LD_AddCustomAttr("Autotag", "religion");
+LD_AddCustomAttr("Autotag", "entertainment");
+LD_AddCustomAttr("Tag", "exercises");
+
+LD_AddSlot("wpcom_below_post");
+LD_GetBids();
+</script>
+</div><div class="sharedaddy sd-like-enabled"><div id="wpl-likebox" class="sd-block sd-like"><h3 class="sd-title">Like this:</h3><div class="sd-content"><div id="wpl-button"><a href="http://programmingpraxis.com/2011/11/25/avl-trees/?like=1&amp;_wpnonce=a72c2c6ab5" title="I like this post" class="like needs-login sd-button" rel="nofollow"><span>Like</span></a></div><div id="wpl-count" class="sd-like-count">Be the first to like this post.</div></div></div></div> <p>Pages: 1 <a href="http://programmingpraxis.com/2011/11/25/avl-trees/2/">2</a></p> </div></div>
+</body>
+</html>
