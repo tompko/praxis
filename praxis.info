@@ -33,6 +33,7 @@ blurb	Evaluate numeric expressions at the command line
 exer	1
 soln	2
 codepad	fjzlC50x
+theme	Parsing
 
 number	2
 file	sieve-of-eratosthenes
@@ -44,6 +45,7 @@ blurb	A Scheme implementation of an ancient algorithm
 exer	1
 soln	2
 codepad	wI14BJ8Q
+theme	Historical Computing|Prime Numbers
 
 number	3
 file	bingo
@@ -55,6 +57,7 @@ blurb	Calculate the probability of winning at Bingo
 exer	1
 soln	2
 codepad	fQPItMI1
+theme	Games|Simulation
 
 number	4
 file	sudoku
@@ -66,6 +69,7 @@ blurb	A backtracking solution to everybody's favorite puzzle
 exer	1
 soln	2
 codepad	PB1czuyF
+theme	Games
 
 number	5
 file	flavius-josephus
@@ -88,6 +92,7 @@ blurb	A simple Caesar-shift cipher
 exer	1
 soln	2
 codepad	xSLxDTmO
+theme	Cryptography
 
 number	7
 file	multiple-dwellings
@@ -99,6 +104,7 @@ blurb	A simple logic puzzle, solved with the <code>amb</code> non-deterministic 
 exer	1
 soln	2
 codepad	8XublsDo
+theme	Logic|Puzzles
 
 number	8
 file	the-digits-of-pi
@@ -110,6 +116,7 @@ blurb	A spigot algorithm to calculate the digits of pi
 exer	1
 soln	2
 codepad	qfgnpRbn
+theme	Mathematics
 
 number	9
 file	a-self-reproducing-program
@@ -132,6 +139,7 @@ blurb	Compute the date of Easter
 exer	1
 soln	2
 codepad	LmOgrg98
+theme	Astronomy
 
 number	11
 file	mark-v-shaney
@@ -143,6 +151,7 @@ blurb	Generate parodies of a text using a Markov chain
 exer	1
 soln	2
 codepad	YREG9ZSu
+theme	Games|Word Games
 
 number	12
 file	creation
@@ -154,6 +163,7 @@ blurb	Cryptanalysis of a Vigenere cipher
 exer	1
 soln	3
 codepad	N8fi45eN
+theme	Cryptography
 
 number	13
 file	roman-numerals
@@ -176,6 +186,7 @@ blurb	Our interpretation of a problem solved by a classic unix pipeline
 exer	1
 soln	2
 codepad	CJcy6eGw
+theme	Text Processing|Unix V7
 
 number	15
 file	friday-the-thirteenth
@@ -187,6 +198,7 @@ blurb	A small calendar library, and a simple use of it
 exer	1
 soln	2
 codepad	RqYg0Qfi
+theme	Astronomy
 
 number	16
 file	comma-separated-values
@@ -198,6 +210,7 @@ blurb	Retrieve records from a comma-separated values file using a finite-state m
 exer	1
 soln	2
 codepad	8q3sQGzA
+theme	Data Processing|Parsing
 
 number	17
 file	dodgsons-doublets
@@ -209,6 +222,7 @@ blurb	A word game invented by the author of Alice in Wonderland
 exer	1
 soln	2
 codepad	HFMJWAe3
+theme	Games|Word Games
 
 number	18
 file	binary-search
@@ -220,6 +234,7 @@ blurb	A simple task, easy to get wrong
 exer	1
 soln	2
 codepad	UxAnLcJF
+theme	Sorting and Searching
 
 number	19
 file	a-turing-machine-simulator
@@ -231,6 +246,7 @@ blurb	An interpreter for a single-tape, multi-symbol turing machine
 exer	1
 soln	2
 codepad	bZje3rH9
+theme	Fundamentals of Computing
 
 number	20
 file	rail-fence-cipher
@@ -242,6 +258,7 @@ blurb	A simple transposition cipher
 exer	1
 soln	2
 codepad	9abH1QKb
+theme	Cryptography
 
 number	21
 file	programming-the-turing-machine
@@ -253,6 +270,7 @@ blurb	A turing-machine program to multiply two numbers
 exer	1
 soln	2
 codepad	2RPNPlHk
+theme	Fundamentals of Computing
 
 number	22
 file	flipping-pancakes
@@ -264,6 +282,7 @@ blurb	A sorting method analyzed by Bill Gates
 exer	1
 soln	2
 codepad	HQFNnbnb
+theme	Sorting and Searching
 
 number	23
 file	anagrams
@@ -275,6 +294,7 @@ blurb	Find anagrams in a dictionary
 exer	1
 soln	2
 codepad	b5C4nEf9
+theme	Spelling|Word Games
 
 number	24
 file	google-treasure-hunt-2008-puzzle-4
@@ -286,6 +306,7 @@ blurb	A prime-number puzzle
 exer	1
 soln	2
 codepad	PsUPfgmT
+theme	Prime Numbers|Puzzles
 
 number	25
 file	spell-checking
@@ -297,6 +318,7 @@ blurb	A spell-checker in a trie-based dictionary
 exer	1
 soln	2
 codepad	fK2CUpEQ
+theme	Sorting and Searching|Spelling|Unix V7
 
 number	26
 file	probabilistic-spell-checking
@@ -308,6 +330,7 @@ blurb	A probabilistic spell-checker based on a Bloom filter
 exer	1
 soln	2
 codepad	zUt3Ezz1
+theme	Sorting and Searching|Spelling|Unix V7
 
 number	27
 file	word-hy-phen-a-tion-by-com-pu-ter
@@ -319,6 +342,7 @@ blurb	Frank Liang's hyphenation algorithm, used in TeX
 exer	1
 soln	3
 codepad	s0N597UX
+theme	Spelling
 
 number	28
 file	morse-code
@@ -341,6 +365,7 @@ blurb	A probabilistic primality checker by Gary Miller and Michael Rabin
 exer	1
 soln	2
 codepad	rSDxFrZn
+theme	Prime Numbers
 
 number	30
 file	priority-queues
@@ -352,6 +377,7 @@ blurb	A simple library implementation of the priority queue data structure
 exer	1
 soln	2
 codepad	V8v6If7Z
+theme	Sorting and Searching
 
 number	31
 file	wheel-factorization
@@ -363,6 +389,7 @@ blurb	Find the factors of a number by a variant of trial division
 exer	1
 soln	2
 codepad	3kwNA12j
+theme	Prime Numbers
 
 number	32
 file	loan-amortization
@@ -385,6 +412,7 @@ blurb	Linear cellular automata as described by Stephen Wolfram in his book A New
 exer	1
 soln	2
 codepad	H7akaoDD
+theme	Fundamentals of Computing
 
 number	34
 file	fermats-method
@@ -396,6 +424,7 @@ blurb	Integer factorization by Fermat's algorithm
 exer	1
 soln	2
 codepad	Exr2kj9L
+theme	Historical Computing|Prime Numbers
 
 number	35
 file	the-next-palindrome
@@ -418,6 +447,7 @@ blurb	A computerized implementation of a popular time-waster
 exer	1
 soln	2
 codepad	odsy7y6L
+theme	Games
 
 number	37
 file	double-transposition-cipher
@@ -429,6 +459,7 @@ blurb	A simple and effective cipher, easy to perform by hand
 exer	1
 soln	2
 codepad	W4i2kueL
+theme	Cryptography
 
 number	38
 file	pig-latin
@@ -440,6 +471,7 @@ blurb	A simple exercise to solve a children's game
 exer	1
 soln	2
 codepad	hRfVoxCA
+theme	Games
 
 number	39
 file	ternary-search-tries
@@ -451,6 +483,7 @@ blurb	Build a function library for handling ternary search tries
 exer	1
 soln	2
 codepad	UnTljjnx
+theme	Sorting and Searching
 
 number	40
 file	longest-common-subsequence
@@ -473,6 +506,7 @@ blurb	A simple logic puzzle
 exer	1
 soln	2
 codepad	50ygwf6g
+theme	Logic|Recreational Mathematics
 
 number	42
 file	who-owns-the-zebra
@@ -484,6 +518,7 @@ blurb	A logic puzzle, solved by embedding a Prolog-like logic system in Scheme
 exer	1
 soln	2
 codepad	408Ehwhb
+theme	Logic|Puzzles
 
 number	43
 file	monte-carlo-factorization
@@ -495,6 +530,7 @@ blurb	Integer factorization via Pollard's rho algorithm
 exer	1
 soln	2
 codepad	4mQExWYY
+theme	Prime Numbers
 
 number	44
 file	the-mod-out-system
@@ -517,6 +553,7 @@ blurb	A randomized dictionary data structure, provides in-order access to key
 exer	1
 soln	2
 codepad	iFm0jW0A
+theme	Sorting and Searching
 
 number	46
 file	steve-yegges-phone-screen-coding-exercises
@@ -528,6 +565,7 @@ blurb	A simple set of programming exercises based on a blog entry by Steve Yegge
 exer	1
 soln	2
 codepad	XXX
+theme	Interview Questions
 
 number	47
 file	the-playfair-cipher
@@ -539,6 +577,7 @@ blurb	A classic military field cipher
 exer	1
 soln	2
 codepad	1lKnWAtU
+theme	Cryptography
 
 number	48
 file	modular-arithmetic
@@ -550,6 +589,7 @@ blurb	A function library for performing modular addition, subtraction, multiplic
 exer	1
 soln	2
 codepad	1QA39Fbf
+theme	Mathematics
 
 number	49
 file	the-golden-ratio
@@ -561,6 +601,7 @@ blurb	Evaluate a continued fraction, based on my daughter's math homework
 exer	1
 soln	2
 codepad	tJaZAyBY
+theme	Mathematics
 
 number	50
 file	the-daily-cryptogram
@@ -572,6 +613,7 @@ blurb	Solve a monoalphabetic substitution cipher
 exer	1
 soln	2
 codepad	GBXcEPTy
+theme	Cryptography
 
 number	51
 file	international-mathematical-olympiad
@@ -583,6 +625,7 @@ blurb	Three exercises from 1960s math competitions
 exer	1
 soln	2
 codepad	JRGmt2wZ
+theme	Puzzles|Recreational Mathematics
 
 number	52
 file	pollards-p-1-factorization-algorithm
@@ -594,6 +637,7 @@ blurb	A simple factorization algorithm by John Pollard
 exer	1
 soln	2
 codepad	dx55xB8V
+theme	Prime Numbers
 
 number	53
 file	lets-make-a-deal
@@ -605,6 +649,7 @@ blurb	Simulate a tricky probability calculation
 exer	1
 soln	2
 codepad	54PDMDSv
+theme	Simulation
 
 number	54
 file	elliptic-curves
@@ -616,6 +661,7 @@ blurb	Library of basic functions on elliptic curves
 exer	1
 soln	2
 codepad	rNlg4Pgt
+theme	Mathematics
 
 number	55
 file	elliptic-curve-factorization
@@ -627,6 +673,7 @@ blurb	A very simple implementation of elliptic curve factorization
 exer	1
 soln	2
 codepad	BLfW5dKY
+theme	Prime Numbers
 
 number	56
 file	lenstras-algorithm
@@ -638,6 +685,7 @@ blurb	Hendrik Lenstra's original algorithm for elliptic curve factorization
 exer	1
 soln	2
 codepad	S6l8kId7
+theme	Prime Numbers
 
 number	57
 file	adfgx
@@ -649,6 +697,7 @@ blurb	A classic German military field cipher from the First World War
 exer	1
 soln	2
 codepad	VwKUjLzk
+theme	Cryptography
 
 number	58
 file	uncle-bobs-bowling-game-kata
@@ -671,6 +720,7 @@ blurb	A standard algorithm for maintaining priority queues
 exer	1
 soln	2
 codepad	NHfZUl38
+theme	Sorting and Searching
 
 number	60
 file	blum-blum-shub
@@ -682,6 +732,7 @@ blurb	Stream cipher based on a cryptographically secure pseudo-random number gen
 exer	1
 soln	2
 codepad	CXQsxZ1f
+theme	Cryptography
 
 number	61
 file	string-search-brute-force
@@ -693,6 +744,7 @@ blurb	Search for a pattern in a text by comparing the pattern to the text at all
 exer	1
 soln	2
 codepad	XanMzASO
+theme	Strings
 
 number	62
 file	string-search-knuth-morris-pratt
@@ -704,6 +756,7 @@ blurb	Search for a pattern in a text using an O(n) algorithm
 exer	1
 soln	2
 codepad	sgwL8jFb
+theme	Strings
 
 number	63
 file	string-search-boyer-moore
@@ -715,6 +768,7 @@ blurb	Search for a pattern in a text using a fast and simple algorithm
 exer	1
 soln	2
 codepad	CjKUK0jC
+theme	Strings
 
 number	64
 file	string-search-rabin-karp
@@ -726,6 +780,7 @@ blurb	Our final classic string-search algorithm
 exer	1
 soln	2
 codepad	ybaO1twV
+theme	Strings
 
 number	65
 file	rons-cipher-4
@@ -737,6 +792,7 @@ blurb	Stream cipher by Ron Rivest that underlies the SSL and WEP protocols
 exer	1
 soln	2
 codepad	pQc8OwsW
+theme	Cryptography
 
 number	66
 file	porter-stemming
@@ -748,6 +804,7 @@ blurb	Martin Porter's algorithm for removing suffices from word stems
 exer	1
 soln	3
 codepad	Wyj6sW6N
+theme	Spelling
 
 number	67
 file	beautiful-code
@@ -759,6 +816,7 @@ blurb	A simple regular-expression matcher by Rob Pike
 exer	1
 soln	2
 codepad	vv72J3XE
+theme	Parsing|Strings
 
 number	68
 file	regular-expressions-part-1
@@ -770,6 +828,7 @@ blurb	A parser for regular expressions
 exer	1
 soln	2
 codepad	A4XmTLTu
+theme	Parsing|Strings
 
 number	69
 file	regular-expressions-part-2
@@ -781,6 +840,7 @@ blurb	The corresponding matcher
 exer	1
 soln	2
 codepad	eUxD9mwZ
+theme	Parsing|Strings
 
 number	70
 file	regular-expressions-part-3
@@ -792,6 +852,7 @@ blurb	A regular expression test suite
 exer	1
 soln	2
 codepad	sSob4fZM
+theme	Parsing|Strings
 
 number	71
 file	grep
@@ -803,6 +864,7 @@ blurb	Simple version of the classic unix regular-expression matching utility
 exer	1
 soln	2
 codepad	qkOnYNIC
+theme	Parsing|Strings|Unix V7
 
 number	72
 file	green-eyes
@@ -814,6 +876,7 @@ blurb	A counting problem from high-school math
 exer	1
 soln	2
 codepad	gSUgP0pn
+theme	Mathematics
 
 number	73
 file	red-black-trees
@@ -825,6 +888,7 @@ blurb	A purely functional dictionary data structure based on approximately-balan
 exer	1
 soln	2
 codepad	UA6qxeO7
+theme	Sorting and Searching
 
 number	74
 file	mapreduce
@@ -836,6 +900,7 @@ blurb	Google's famous system for parallelizing computations expressed as a progr
 exer	1
 soln	2
 codepad	h8YcTvLO
+theme	Data Processing
 
 number	75
 file	calculating-pi
@@ -847,6 +912,7 @@ blurb	Calculate the value of pi by monte-carlo methods and by an Archimedean met
 exer	1
 soln	2
 codepad	3LMdEHBZ
+theme	Historical Computing|Mathematics|Simulation
 
 number	76
 file	bifid
@@ -858,6 +924,7 @@ blurb	A simple but effective fractionating cipher, never used militarily
 exer	1
 soln	2
 codepad	rvI0TxI7
+theme	Cryptography
 
 number	77
 file	growable-arrays
@@ -869,6 +936,7 @@ blurb	Arrays that grow and shrink at run-time, with O(log n) complexity per oper
 exer	1
 soln	2
 codepad	gFUCaHuY
+theme	Sorting and Searching
 
 number	78
 file	shuffle
@@ -880,6 +948,7 @@ blurb	Create random permutations of an array or linked list
 exer	1
 soln	2
 codepad	bgrR41GU
+theme	Sorting and Searching
 
 number	79
 file	mr-s-and-mr-p
@@ -891,6 +960,7 @@ blurb	A logic puzzle popularized by John McCarthy
 exer	1
 soln	2
 codepad	cFiBzALC
+theme	Logic|Puzzles
 
 number	80
 file	three-quadratic-sorts
@@ -902,6 +972,7 @@ blurb	Bubble sort, selection sort and insertion sort
 exer	1
 soln	2
 codepad	vuYNXRdL
+theme	Sorting and Searching
 
 number	81
 file	two-sub-quadratic-sorts
@@ -913,6 +984,7 @@ blurb	Comb sort and shell sort
 exer	1
 soln	2
 codepad	XysypyUa
+theme	Sorting and Searching
 
 number	82
 file	quick-sort
@@ -924,6 +996,7 @@ blurb	Tony Hoare's divide-and-conquer sorting algorithm
 exer	1
 soln	2
 codepad	wTUyljFX
+theme	Sorting and Searching
 
 number	83
 file	heap-sort
@@ -935,6 +1008,7 @@ blurb	A guaranteed O(log n) sorting method based on priority queues
 exer	1
 soln	2
 codepad	6HryLp9f
+theme	Sorting and Searching
 
 number	84
 file	merge-sort
@@ -946,6 +1020,7 @@ blurb	A fast, stable sorting algorithm, especially well-suited to linked lists
 exer	1
 soln	2
 codepad	Wk6rsu1Z
+theme	Sorting and Searching
 
 number	85
 file	two-linear-sorts
@@ -957,6 +1032,7 @@ blurb	Count sort and radix sort exploit the structure of integer keys
 exer	1
 soln	2
 codepad	YMEdwxX5
+theme	Sorting and Searching
 
 number	86
 file	master-mind-part-1
@@ -968,6 +1044,7 @@ blurb	Referee a two-player game of deductive logic
 exer	1
 soln	2
 codepad	59rVyG1X
+theme	Games
 
 number	87
 file	master-mind-part-2
@@ -979,6 +1056,7 @@ blurb	Solve a Master Mind puzzle in five probes or less
 exer	1
 soln	2
 codepad	tHXIIIfF
+theme	Games
 
 number	88
 file	sunrise-sunset
@@ -990,6 +1068,7 @@ blurb	Calculate the times of sunrise and sunset on any day anywhere in the world
 exer	1
 soln	2
 codepad	6EHh1miI
+theme	Astronomy
 
 number	89
 file	7-11
@@ -1001,6 +1080,7 @@ blurb	A math puzzle: a+b+c+d = a.b.c.d = 7.11
 exer	1
 soln	2
 codepad	fqz7hDas
+theme	Puzzles|Recreational Mathematics
 
 number	90
 file	wolves-and-rabbits
@@ -1023,6 +1103,7 @@ blurb	A cipher in which the input text forms part of the key
 exer	1
 soln	2
 codepad	Re3dl3Q7
+theme	Cryptography
 
 number	92
 file	word-count
@@ -1034,6 +1115,7 @@ blurb	An implementation of the unix <code>wc</code> program
 exer	1
 soln	2
 codepad	ZxPjiEvw
+theme	Unix V7
 
 number	93
 file	selection
@@ -1045,6 +1127,7 @@ blurb	Find the k<sup>th</sup>-largest item in a list
 exer	1
 soln	2
 codepad	EpyiXmk9
+theme	Sorting and Searching
 
 number	94
 file	affine-shift-cipher
@@ -1056,6 +1139,7 @@ blurb	A cryptographically weak but mathematically interesting cipher
 exer	1
 soln	2
 codepad	uBwJCcEk
+theme	Cryptography
 
 number	95
 file	calculating-logarithms
@@ -1067,6 +1151,7 @@ blurb	Use the methods of Newton and Euler to calculate square roots and logarith
 exer	1
 soln	2
 codepad	oOdXhS7g
+theme	Historical Computing|Mathematics
 
 number	96
 file	permuted-index
@@ -1078,6 +1163,7 @@ blurb	David Parnas' classic deconstruction of the keyword-in-context index
 exer	1
 soln	2
 codepad	ay27GbL9
+theme	Sorting and Searching
 
 number	97
 file	a-statisticle-speling-korrecter
@@ -1089,6 +1175,7 @@ blurb	Peter Norvig's version of the Google spelling suggester
 exer	1
 soln	2
 codepad	ciNSny8H
+theme	Spelling
 
 number	98
 file	cal-2
@@ -1100,6 +1187,7 @@ blurb	Print a twelve-month calendar
 exer	1
 soln	2
 codepad	5T41NUut
+theme	Astronomy|Unix V7
 
 number	99
 file	the-sum-of-two-squares
@@ -1111,6 +1199,7 @@ blurb	A math puzzle with a solution by Dijkstra
 exer	1
 soln	2
 codepad	kdQgtQ34
+theme	Recreational Mathematics
 
 number	100
 file	nim
@@ -1122,6 +1211,7 @@ blurb	A two-player game of mathematical logic
 exer	1
 soln	2
 codepad	aNviDpKG
+theme	Games
 
 number	101
 file	calculating-sines
@@ -1133,6 +1223,7 @@ blurb	Calculate sines using Taylor series and the triple-angle formula, by Bill 
 exer	1
 soln	2
 codepad	uyaebBRj
+theme	Guest Authors|Mathematics
 
 number	102
 file	three-binary-algorithms
@@ -1144,6 +1235,7 @@ blurb	Multiplication, division and greatest common divisor using binary arithmet
 exer	1
 soln	2
 codepad	P9bxsjXo
+theme	Historical Computing|Mathematics
 
 number	103
 file	flight-planning
@@ -1155,6 +1247,7 @@ blurb	Computing the navigation triangle, by Jos Koot
 exer	1
 soln	2
 codepad	yE35J5Pw
+theme	Guest Authors
 
 number	104
 file	phases-of-the-moon
@@ -1166,6 +1259,7 @@ blurb	Calculate the number of days since the last new moon
 exer	1
 soln	2
 codepad	23rZcxsl
+theme	Astronomy
 
 number	105
 file	primality-checking-revisited
@@ -1177,6 +1271,7 @@ blurb	The Baillie-Wagstaff algorithm for primality checking
 exer	1
 soln	2
 codepad	07RDsaSw
+theme	Prime Numbers
 
 number	106
 file	straddling-checkerboard
@@ -1188,6 +1283,7 @@ blurb	An alternative to the Polybius square for ciphers that must convert letter
 exer	1
 soln	2
 codepad	jB1PVtjv
+theme	Cryptography
 
 number	107
 file	proving-primality
@@ -1199,6 +1295,7 @@ blurb	A deterministic, not probabilistic, method of checking primality
 exer	1
 soln	2
 codepad	1ttTLsZF
+theme	Prime Numbers
 
 number	108
 file	segmented-sieve-of-eratosthenes
@@ -1210,6 +1307,7 @@ blurb	Extend the Sieve of Eratosthenes to large ranges of integers
 exer	1
 soln	2
 codepad	nGUcDjGb
+theme	Prime Numbers
 
 number	109
 file	numerical-integration
@@ -1221,6 +1319,7 @@ blurb	Quadrature by the rectangular, trapezoidal and Simpson's method, including
 exer	1
 soln	2
 codepad	EeqvRWXv
+theme	Mathematics|Prime Numbers
 
 number	110
 file	sieve-of-atkin
@@ -1232,6 +1331,7 @@ blurb	A modern alternative to the Sieve of Eratosthenes for computing prime numb
 exer	1
 soln	2
 codepad	WAgoUQGS
+theme	Prime Numbers
 
 number	111
 file	soundex
@@ -1243,6 +1343,7 @@ blurb	An algorithm to assign people's last names to equivalence classes based on
 exer	1
 soln	2
 codepad	i0n0uIS7
+theme	Sorting and Searching
 
 number	112
 file	sieve-of-atkin-improved
@@ -1254,6 +1355,7 @@ blurb	A faster version of the Sieve of Atkin
 exer	1
 soln	2
 codepad	xyQbTn0p
+theme	Prime Numbers
 
 number	113
 file	engineering-a-sort-function
@@ -1265,6 +1367,7 @@ blurb	A high-performance quicksort by Jon Bentley and Doug McIlroy
 exer	1
 soln	2
 codepad	WrCRgnp4
+theme	Sorting and Searching
 
 number	114
 file	run-length-encoding
@@ -1287,6 +1390,7 @@ blurb	Every even number greater than two can be written as the sum of two primes
 exer	1
 soln	2
 codepad	B0jzdRps
+theme	Prime Numbers
 
 number	116
 file	binary-search-tree
@@ -1298,6 +1402,7 @@ blurb	Classic data structure, providing insert, delete and lookup for ordered da
 exer	1
 soln	2
 codepad	5TkexKqB
+theme	Sorting and Searching
 
 number	117
 file	lexicographic-permutations
@@ -1320,6 +1425,7 @@ blurb	Examine all possible permutations to find the least-cost tour
 exer	1
 soln	2
 codepad	EyLs49LA
+theme	Graphs
 
 number	119
 file	traveling-salesman-nearest-neighbor
@@ -1331,6 +1437,7 @@ blurb	A greedy heuristic that builds a path by always choosing the nearest unvis
 exer	1
 soln	2
 codepad	tVIXh2TW
+theme	Graphs
 
 number	120
 file	extending-pollards-p-1-factorization-algorithm
@@ -1342,6 +1449,7 @@ blurb	Add a second stage to allow larger factorizations
 exer	1
 soln	2
 codepad	VpaXvPEN
+theme	Prime Numbers
 
 number	121
 file	texas-hold-em
@@ -1353,6 +1461,7 @@ blurb	Find the best poker hand
 exer	1
 soln	2
 codepad	tdgaPIju
+theme	Games
 
 number	122
 file	the-next-prime
@@ -1364,6 +1473,7 @@ blurb	Efficiently find the next prime number larger than a given number
 exer	1
 soln	2
 codepad	KwCJJfYH
+theme	Prime Numbers
 
 number	123
 file	passover
@@ -1375,6 +1485,7 @@ blurb	Calculate the dates of the Jewish holidays Rosh Hashanah and Passover
 exer	1
 soln	2
 codepad	dPbrwFze
+theme	Astronomy
 
 number	124
 file	disjoint-sets
@@ -1397,6 +1508,7 @@ blurb	Find the minimum-cost tree that includes all the nodes in a graph
 exer	1
 soln	2
 codepad	HCnZJoTE
+theme	Graphs
 
 number	126
 file	minimum-spanning-tree-prims-algorithm
@@ -1408,6 +1520,7 @@ blurb	Find the minimum-cost tree that includes all the nodes in a graph
 exer	1
 soln	2
 codepad	mgrPcZel
+theme	Graphs
 
 number	127
 file	traveling-salesman-minimum-spanning-tree
@@ -1419,6 +1532,7 @@ blurb	Heuristic guarantees solution within factor of two of optimal tour
 exer	1
 soln	2
 codepad	ffuo6IzG
+theme	Graphs
 
 number	128
 file	expression-evaluation
@@ -1430,6 +1544,7 @@ blurb	Parse and evaluate an arithmetic expression with plus, minus, times, divid
 exer	1
 soln	2
 codepad	tAAtFW6d
+theme	Parsing
 
 number	129
 file	145-puzzle
@@ -1441,6 +1556,7 @@ blurb	Build and evaluate expressions using the digits one through nine and the s
 exer	1
 soln	2
 codepad	SzbrJbjx
+theme	Puzzles|Recreational Mathematics
 
 number	130
 file	modern-elliptic-curve-factorization-part-1
@@ -1452,6 +1568,7 @@ blurb	Elliptic arithmetic using Montgomery's parameterization
 exer	1
 soln	2
 codepad	t9gygODg
+theme	Prime Numbers
 
 number	131
 file	modern-elliptic-curve-factorization-part-2
@@ -1463,6 +1580,7 @@ blurb	Elliptic arithmetic using Montgomery's parameterization
 exer	1
 soln	2
 codepad	dN59DMk0
+theme	Prime Numbers
 
 number	132
 file	integer-factorization
@@ -1474,6 +1592,7 @@ blurb	Combine trial division, Pollard's rho and p-1 methods, and elliptic curves
 exer	1
 soln	2
 codepad	wcKg7nEw
+theme	Prime Numbers
 
 number	133
 file	spectacular-seven
@@ -1485,6 +1604,7 @@ blurb	Compute the odds at jai alai
 exer	1
 soln	2
 codepad	6bcXRB4Z
+theme	Games|Simulation
 
 number	134
 file	integer-logarithms
@@ -1496,6 +1616,7 @@ blurb	An improved algorithm is O(log n) instead of O(n)
 exer	1
 soln	2
 codepad	M5U3EZEv
+theme	Mathematics
 
 number	135
 file	gb_flip
@@ -1507,6 +1628,7 @@ blurb	Donald Knuth's portable, high-quality random-number generator from the Sta
 exer	1
 soln	2
 codepad	nBm7d0wF
+theme	Random Number Generators
 
 number	136
 file	printing-files
@@ -1518,6 +1640,7 @@ blurb	A simple program to list files, similar to the unix pr program
 exer	1
 soln	2
 codepad	kReRK3au
+theme	Unix V7
 
 number	137
 file	unwrapping-a-spiral
@@ -1529,6 +1652,7 @@ blurb	An exercise in recursion
 exer	1
 soln	2
 codepad	fCkL3Qmj
+theme	Interview Questions
 
 number	138
 file	williams-p1-factorization-algorithm
@@ -1540,6 +1664,7 @@ blurb	A factorization algorithm, similar to Pollard's p-1 algorithm
 exer	1
 soln	2
 codepad	gAMB9T4D
+theme	Prime Numbers
 
 number	139
 file	diff
@@ -1551,6 +1676,7 @@ blurb	Find the differences between two text files
 exer	1
 soln	2
 codepad	tNLiXFvE
+theme	Unix V7
 
 number	140
 file	n-queens
@@ -1573,6 +1699,7 @@ blurb	The fundamental relational database operator
 exer	1
 soln	2
 codepad	oTmFY1uw
+theme	Data Processing|Unix V7
 
 number	142
 file	parsing-command-line-arguments
@@ -1584,6 +1711,7 @@ blurb	An old-style getopt function
 exer	1
 soln	2
 codepad	5Pt0x3q4
+theme	Unix V7
 
 number	143
 file	matrix-operations
@@ -1595,6 +1723,7 @@ blurb	Matrix addition, scalar multiplication, multiplication and transposition
 exer	1
 soln	2
 codepad	5nzWMChE
+theme	Mathematics
 
 number	144
 file	learn-a-new-language
@@ -1617,6 +1746,7 @@ blurb	Simulate the knockout stage using elo ratings
 exer	1
 soln	2
 codepad	RjEZcaLh
+theme	Games|Simulation
 
 number	146
 file	contents-chronological-listing-of-exercises
@@ -1639,6 +1769,7 @@ blurb	First look at a ninety-two year old autokey-type cipher
 exer	1
 soln	2
 codepad	W6om4hgd
+theme	Cryptography
 
 number	148
 file	contents-permuted-table-of-contents
@@ -1661,6 +1792,7 @@ blurb	A game to form words from a given set of letters
 exer	1
 soln	2
 codepad	E61ALT0i
+theme	Word Games
 
 number	150
 file	contents-themes
@@ -1683,6 +1815,7 @@ blurb	Matrix operations LU-decomposition and LUP-decomposition
 exer	1
 soln	2
 codepad	Eec8zXDy
+theme	Mathematics
 
 number	152
 file	happy-numbers
@@ -1694,6 +1827,7 @@ blurb	Iterating the sum of the squares of the digits terminates with one
 exer	1
 soln	2
 codepad	eLVpRpM9
+theme	Interview Questions
 
 number	153
 file	hamurabi-bas
@@ -1705,6 +1839,7 @@ blurb	Manage grain and land in ancient Sumeria
 exer	1
 soln	3
 codepad	kx22J8TE
+theme	Games
 
 number	154
 file	fibonacci-numbers
@@ -1716,6 +1851,7 @@ blurb	Three algorithms taking exponential time, linear time, and logarithmic tim
 exer	1
 soln	2
 codepad	YpIgShGQ
+theme	Mathematics
 
 number	155
 file	carl-hewitts-same-fringe-problem
@@ -1738,6 +1874,7 @@ blurb	Determine if a number is a square or a prime power
 exer	1
 soln	2
 codepad	mmlYljtR
+theme	Mathematics
 
 number	157
 file	literate-programming
@@ -1760,6 +1897,7 @@ blurb	A simple simulation with a surprising ending
 exer	1
 soln	2
 codepad	AWzS1d7U
+theme	Recreational Mathematics|Simulation
 
 number	159
 file	cut
@@ -1771,6 +1909,7 @@ blurb	Select fields or characters from input lines
 exer	1
 soln	2
 codepad	U3Z6l5bV
+theme	Text Processing|Unix V7
 
 number	160
 file	marriage-sort
@@ -1782,6 +1921,7 @@ blurb	A sub-quadratic sort similar to shell sort or comb sort
 exer	1
 soln	2
 codepad	4Sldvq9Q
+theme	Sorting and Searching
 
 number	161
 file	daniel-shanks-square-form-factorization-algorithm
@@ -1793,6 +1933,7 @@ blurb	A simple and very fast factorization algorithm for integers between 10<sup
 exer	1
 soln	2
 codepad	jc1aCpdB
+theme	Prime Numbers
 
 number	162
 file	chinese-remainders
@@ -1804,6 +1945,7 @@ blurb	An ancient application of modular inverses
 exer	1
 soln	2
 codepad	5LUl9JTa
+theme	Mathematics|Prime Numbers|Puzzles
 
 number	163
 file	data-encryption-standard-part-1
@@ -1815,6 +1957,7 @@ blurb	Basic block enciphering and deciphering using DES
 exer	1
 soln	2
 codepad	9oLeziid
+theme	Cryptography
 
 number	164
 file	data-encryption-standard-part-2
@@ -1826,6 +1969,7 @@ blurb	ECB, CBC, CFB and OFB block modes for DES and other block ciphers
 exer	1
 soln	2
 codepad	lNLCu1vS
+theme	Cryptography
 
 number	165
 file	data-encryption-standard-part-3
@@ -1837,6 +1981,7 @@ blurb	Triple DES and cryptographic hashing
 exer	1
 soln	2
 codepad	hI295Aff
+theme	Cryptography
 
 number	166
 file	data-encryption-standard-part-4
@@ -1848,6 +1993,7 @@ blurb	DES driver program
 exer	1
 soln	2
 codepad	naNZtKeh
+theme	Cryptography
 
 number	167
 file	the-factorization-of-f7-part-1
@@ -1859,6 +2005,7 @@ blurb	Our fortieth anniversary celebration of Morrison and Brillhart's method of
 exer	1
 soln	2
 codepad	xbOhfe1M
+theme	Historical Computing|Prime Numbers
 
 number	168
 file	the-factorization-of-f7-part-2
@@ -1870,6 +2017,7 @@ blurb	Our fortieth anniversary celebration of Morrison and Brillhart's method of
 exer	1
 soln	2
 codepad	JGMHnA0v
+theme	Historical Computing|Prime Numbers
 
 number	169
 file	kaprekar-numbers
@@ -1881,6 +2029,7 @@ blurb	Square the number and add the digits in halves
 exer	1
 soln	2
 codepad	JGMHnA0v
+theme	Interview Questions
 
 number	170
 file	alien-numbers
@@ -1903,6 +2052,7 @@ blurb	A priority-queue data structure, similar to leftist heaps, due to Chris Ok
 exer	1
 soln	2
 codepad	YZIkmZ02
+theme	Sorting and Searching
 
 number	172
 file	oban-numbers
@@ -1914,6 +2064,7 @@ blurb	Numbers that omit the letter "o" when spelled, and a function to convert n
 exer	1
 soln	2
 codepad	pN3VLfJ
+theme	Recreational Mathematics
 
 number	173
 file	george-marsaglias-random-number-generators
@@ -1925,6 +2076,7 @@ blurb	Nine high-quality RNGs in nineteen lines of code
 exer	1
 soln	2
 codepad	sf8Z4pJP
+theme	Random Number Generators
 
 number	174
 file	zellers-congruence
@@ -1936,6 +2088,7 @@ blurb	Calculate the day of the week for a given date
 exer	1
 soln	2
 codepad	YNmQyDN1
+theme	Astronomy
 
 number	175
 file	rotate-an-array
@@ -1969,6 +2122,7 @@ blurb	Functions to read records with fields in various formats
 exer	1
 soln	2
 codepad	h3ENphv5
+theme	Data Processing
 
 number	178
 file	text-file-databases-part-2
@@ -1980,6 +2134,7 @@ blurb	Various functions to process records with fields
 exer	1
 soln	2
 codepad	c7utWH0v
+theme	Data Processing
 
 number	179
 file	benfords-law
@@ -1991,6 +2146,7 @@ blurb	A useful mathematical oddity, and an example of text file databases
 exer	1
 soln	3
 codepad	7l3dRSAn
+theme	Mathematics
 
 number	180
 file	fibonacci-primes
@@ -2002,6 +2158,7 @@ blurb	Find primes among the fibonacci numbers; includes the Park-Miller random n
 exer	1
 soln	2
 codepad	8i16Cbx7
+theme	Prime Numbers|Puzzles|Random Number Generators|Recreational Mathematics
 
 number	181
 file	emirps
@@ -2013,6 +2170,7 @@ blurb	Prime numbers that are prime when their digits are reversed, but not palin
 exer	1
 soln	2
 codepad	WCYfLGjL
+theme	Mathematics|Prime Numbers
 
 number	182
 file	weather-forecast
@@ -2035,6 +2193,7 @@ blurb	Third level of the Greplin Programming Challenge, using dynamic programmin
 exer	1
 soln	2
 codepad	8rQnIhhP
+theme	Puzzles
 
 number	184
 file	rowlands-prime-generating-function
@@ -2046,6 +2205,7 @@ blurb	A sequence of ones and primes
 exer	1
 soln	2
 codepad	8rQnIhhP
+theme	Prime Numbers
 
 number	185
 file	rsa-cryptography
@@ -2057,6 +2217,7 @@ blurb	The original public-key cryptographic system, still in wide use
 exer	1
 soln	2
 codepad	rRxeR2C9
+theme	Cryptography
 
 number	186
 file	topological-sort
@@ -2068,6 +2229,7 @@ blurb	Order the edges of a graph by their precedence relationship
 exer	1
 soln	2
 codepad	RjhH0OAK
+theme	Graphs|Sorting and Searching
 
 number	187
 file	string-subsets
@@ -2079,6 +2241,7 @@ blurb	Determine if one string is a subset of another
 exer	1
 soln	2
 codepad	qH8N4FfU
+theme	Interview Questions
 
 number	188
 file	divisors-and-totatives
@@ -2090,6 +2253,7 @@ blurb	The number-theoretic functions divisors, numdivs, sumdivs, totatives, and 
 exer	1
 soln	2
 codepad	SmASe1eC
+theme	Mathematics|Prime Numbers
 
 number	189
 file	form-letters
@@ -2101,6 +2265,7 @@ blurb	Merge a schema and a data file to write form letters
 exer	1
 soln	2
 codepad	IU214JGT
+theme	Data Processing
 
 number	190
 file	maximum-sum-subsequence
@@ -2123,6 +2288,7 @@ blurb	It never hurts to sort
 exer	1
 soln	2
 codepad	i7HUvdFb
+theme	Puzzles|Recreational Mathematics
 
 number	192
 file	two-random-selections
@@ -2145,6 +2311,7 @@ blurb	Use a sorted suffix list
 exer	1
 soln	2
 codepad	dY3aGxru
+theme	Strings
 
 number	194
 file	polite-numbers
@@ -2156,6 +2323,7 @@ blurb	Write numbers as the sum of two or more consecutive integers
 exer	1
 soln	2
 codepad	YgFEcg8Q
+theme	Recreational Mathematics
 
 number	195
 file	interval-arithmetic
@@ -2167,6 +2335,7 @@ blurb	An exercise from SICP
 exer	1
 soln	2
 codepad	JZQwpzdb
+theme	Mathematics
 
 number	196
 file	tracking-santa
@@ -2178,6 +2347,7 @@ blurb	How far does Santa travel on his annual journey?
 exer	1
 soln	3
 codepad	a9Uj7oPj
+theme	Games
 
 number	197
 file	carmichael-numbers
@@ -2189,6 +2359,7 @@ blurb	Composite numbers such that a<sup>n-1</sup> &equiv; 1 (mod n) if a is prim
 exer	1
 soln	2
 codepad	UudIdev3
+theme	Mathematics|Prime Numbers
 
 number	198
 file	arithmetic-drill
@@ -2200,6 +2371,7 @@ blurb	Repetitious drill for children learning basic arithmetic
 exer	1
 soln	2
 codepad	tjoTFXBo
+theme	Games
 
 number	199
 file	dijkstras-algorithm
@@ -2211,6 +2383,7 @@ blurb	Find the shortest path to all vertices of a graph from a single source, gu
 exer	1
 soln	2
 codepad	lRUh1tq8
+theme	Graphs|Guest Authors
 
 number	200
 file	counting-primes
@@ -2222,6 +2395,7 @@ blurb	The prime counting function and nth-prime function
 exer	1
 soln	2
 codepad	XmEwn8eE
+theme	Prime Numbers
 
 number	201
 file	two-integrals
@@ -2233,6 +2407,7 @@ blurb	The exponential and logarithmic integral, and an approximation for prime-p
 exer	1
 soln	2
 codepad	9hg2s20m
+theme	Mathematics
 
 number	202
 file	slots
@@ -2244,6 +2419,7 @@ blurb	Simulate a slot machine
 exer	1
 soln	2
 codepad	A8iRnYpJ
+theme	Games
 
 number	203
 file	solitaire-cipher
@@ -2255,6 +2431,7 @@ blurb	Bruce Schneier's strong cryptography based on a deck of playing cards
 exer	1
 soln	2
 codepad	PDJGeldx
+theme	Cryptography
 
 number	204
 file	pollard-rho-revisited
@@ -2266,6 +2443,7 @@ blurb	Richard Brent's variant of John Pollard's rho algorithm for integer factor
 exer	1
 soln	2
 codepad	WnqrjcxX
+theme	Prime Numbers
 
 number	205
 file	rational-numbers
@@ -2288,6 +2466,7 @@ blurb	Count the number of set bits (1-bits) in the binary representation of an i
 exer	1
 soln	2
 codepad	XdWh16R5
+theme	Interview Questions
 
 number	207
 file	cuckoo-hashing
@@ -2299,6 +2478,7 @@ blurb	A hashing system with guaranteed constant-time lookup and amortized consta
 exer	1
 soln	2
 codepad	LIYEw8xo
+theme	Sorting and Searching
 
 number	208
 file	excel-columns
@@ -2321,6 +2501,7 @@ blurb	Ada Lovelace's program to compute Bernoulli numbers for Charles Babbage's 
 exer	1
 soln	2
 codepad	USXM9t9Y
+theme	Historical Computing|Mathematics
 
 number	210
 file	sums-of-powers
@@ -2332,6 +2513,7 @@ blurb	Use Bernoulli numbers to quickly compute sums of powers
 exer	1
 soln	2
 codepad	D2FTIMnB
+theme	Mathematics
 
 number	211
 file	google-code-jam-qualification-round-africa-2010
@@ -2343,6 +2525,7 @@ blurb	Three simple exercises
 exer	1
 soln	2
 codepad	qfH2FyIH
+theme	Interview Questions
 
 number	212
 file	two-factoring-games
@@ -2354,6 +2537,7 @@ blurb	Home primes and the Euclid-Mullin sequence
 exer	1
 soln	2
 codepad	TULr3faG
+theme	Prime Numbers|Recreational Mathematics
 
 number	213
 file	sliding-window-minimum
@@ -2365,6 +2549,7 @@ blurb	List of minimums sliding across an input list
 exer	1
 soln	2
 codepad	zr59LnZk
+theme	Interview Questions
 
 number	214
 file	sieve-of-euler
@@ -2376,6 +2561,7 @@ blurb	An alternate, and slow, method of sieving for primes
 exer	1
 soln	2
 codepad	dcEnoKkS
+theme	Prime Numbers
 
 number	215
 file	an-early-lisp-program
@@ -2387,6 +2573,7 @@ blurb	A program to flatten a list, from the March 1960 LISP I manual
 exer	1
 soln	2
 codepad	U3q3yRDV
+theme	Historical Computing
 
 number	216
 file	chutes-and-ladders
@@ -2398,6 +2585,7 @@ blurb	Simulate a child's game, and compute its statistics
 exer	1
 soln	2
 codepad	RPq4Ocqx
+theme	Games|Simulation
 
 number	217
 file	reverse-words
@@ -2409,6 +2597,7 @@ blurb	Reverse the words in an input string
 exer	1
 soln	2
 codepad	NYohlcHq
+theme	Interview Questions
 
 number	218
 file	lowest-common-ancestor
@@ -2420,6 +2609,7 @@ blurb	Find the lowest node in a binary search tree that is a common ancestor to 
 exer	1
 soln	2
 codepad	h8u1RuTR
+theme	Interview Questions
 
 number	219
 file	look-and-say
@@ -2431,6 +2621,7 @@ blurb	Calculate John Horton Conway's "Look and Say" sequence
 exer	1
 soln	2
 codepad	XC60i6ec
+theme	Recreational Mathematics
 
 number	220
 file	loopy-loops
@@ -2442,6 +2633,7 @@ blurb	Print the numbers from 1 to 1000 without using loops or conditionals
 exer	1
 soln	2
 codepad	icuEmmu2
+theme	Interview Questions
 
 number	221
 file	two-kaprekar-exercises
@@ -2453,6 +2645,7 @@ blurb	Kaprekar chains and Kaprekar numbers, from the Indian mathematician Dattar
 exer	1
 soln	2
 codepad	jUEoq05B
+theme	Recreational Mathematics
 
 number	222
 file	sum
@@ -2464,6 +2657,7 @@ blurb	The standard Unix V7 file-checksum command
 exer	1
 soln	2
 codepad	ml5SKPg0
+theme	Unix V7
 
 number	223
 file	look-and-say-revisited
@@ -2475,6 +2669,7 @@ blurb	Compute Conway's constant
 exer	1
 soln	2
 codepad	3ia1g1r8
+theme	Recreational Mathematics
 
 number	224
 file	maximum-difference-in-an-array
@@ -2486,6 +2681,7 @@ blurb	Find maximum X<sub>j</sub> - X<sub>i</sub>, with i < j
 exer	1
 soln	2
 codepad	SlkN9AOJ
+theme	Interview Questions
 
 number	225
 file	fortune
@@ -2497,6 +2693,7 @@ blurb	Print a random aphorism from a file
 exer	1
 soln	2
 codepad	X3dRp0va
+theme	Games|Unix V7
 
 number	226
 file	credit-card-validation
@@ -2530,6 +2727,7 @@ blurb	Calculate the partition numbers, using memoization via growing arrays
 exer	1
 soln	2
 codepad	NwMn9iLn
+theme	Mathematics|Sorting and Searching
 
 number	229
 file	same-five-digits
@@ -2541,6 +2739,7 @@ blurb	A math puzzle from New Scientist, solved by guest author Bob Miller
 exer	1
 soln	2
 codepad	l2hDGwBm
+theme	Guest Authors|Recreational Mathematics
 
 number	230
 file	xref
@@ -2563,6 +2762,7 @@ blurb	FizzBuzz, Prime Words, and Split A List
 exer	1
 soln	2
 codepad	830f0msv
+theme	Interview Questions
 
 number	232
 file	rule-30-rng
@@ -2574,6 +2774,7 @@ blurb	The random number generator from Mathematica, based on Stephen Wolfram's R
 exer	1
 soln	2
 codepad	zoGntTfu
+theme	Random Number Generators
 
 number	233
 file	squaring-the-bishop
@@ -2585,6 +2786,7 @@ blurb	Charles Babbage's game of word squares
 exer	1
 soln	2
 codepad	IfouARKz
+theme	Historical Computing|Word Games
 
 number	234
 file	entab-and-detab
@@ -2596,6 +2798,7 @@ blurb	expand tabs into spaces, and replace spaces with tabs
 exer	1
 soln	2
 codepad	N44f2cDA
+theme	Unix V7
 
 number	235
 file	comm
@@ -2607,6 +2810,7 @@ blurb	select or reject lines common to two sorted files
 exer	1
 soln	2
 codepad	lE5eVcxf
+theme	Unix V7
 
 number	236
 file	dixons-factorization-algorithm
@@ -2618,6 +2822,7 @@ blurb	A slow, but theoretically important, algorithm for integer factorization
 exer	1
 soln	2
 codepad	NVi2RHLa
+theme	Prime Numbers
 
 number	237
 file	two-bad-sorts
@@ -2629,6 +2834,7 @@ blurb	Stooge sort and bogosort are worse than quadratic
 exer	1
 soln	2
 codepad	tmpDUJnJ
+theme	Sorting and Searching
 
 number	238
 file	isbn-validation
@@ -2651,6 +2857,7 @@ blurb	A library for big integers: representation, comparison, simple functions
 exer	1
 soln	2
 codepad	3RnYkEqN
+theme	Mathematics
 
 number	240
 file	upside-up
@@ -2662,6 +2869,7 @@ blurb	Numbers that read the same upside down
 exer	1
 soln	2
 codepad	VYkXm2GM
+theme	Recreational Mathematics
 
 number	241
 file	big-numbers-addition-subtraction-and-multiplication
@@ -2673,6 +2881,7 @@ blurb	A library for big integers: grade-school algorithms for addition, subtract
 exer	1
 soln	2
 codepad	gAbRGnwD
+theme	Mathematics
 
 number	242
 file	mersenne-primes
@@ -2684,6 +2893,7 @@ blurb	The Lucas-Lehmer test for identifying primes of the form 2<sup>n</sup>-1
 exer	1
 soln	2
 codepad	VEUVtatQ
+theme	Prime Numbers
 
 number	243
 file	big-numbers-division
@@ -2695,6 +2905,7 @@ blurb	A library for big integers: the grade-school algorithm for long division
 exer	1
 soln	2
 codepad	MJl0kPSU
+theme	Mathematics
 
 number	244
 file	steganography
@@ -2706,6 +2917,7 @@ blurb	A hand-operable system that combines cryptography and steganography
 exer	1
 soln	2
 codepad	ryMtgPbD
+theme	Cryptography
 
 number	245
 file	big-numbers-input-and-output
@@ -2717,6 +2929,7 @@ blurb	A library for big integers: input and output with radix conversion
 exer	1
 soln	2
 codepad	4TvtUDo3
+theme	Mathematics
 
 number	246
 file	adi-shamirs-threshold-scheme
@@ -2728,6 +2941,7 @@ blurb	Use cryptography to share a secret, by Graham Enos
 exer	1
 soln	2
 codepad	NvYVdZFT
+theme	Cryptography|Guest Authors
 
 number	247
 file	big-numbers-testing
@@ -2739,6 +2953,7 @@ blurb	A library for big integers: testing
 exer	1
 soln	2
 codepad	um9s9k8r
+theme	Mathematics
 
 number	248
 file	thank-god-its-friday
@@ -2750,6 +2965,7 @@ blurb	Three methods to calculate the day of the week
 exer	1
 soln	2
 codepad	BeTpy03N
+theme	Astronomy
 
 number	249
 file	big-numbers-functions
@@ -2761,6 +2977,7 @@ blurb	A library for big integers: gcd, powering, square root, random numbers
 exer	1
 soln	2
 codepad	hgy1QKi2
+theme	Mathematics
 
 number	250
 file	feet-and-inches
@@ -2783,6 +3000,7 @@ blurb	A library for big integers: display factorials to 50, determine if a numbe
 exer	1
 soln	2
 codepad	abIROIpC
+theme	Mathematics|Prime Numbers
 
 number	252
 file	vedic-divisibility
@@ -2794,6 +3012,7 @@ blurb	Use a method of testing divisibility using the method of osculators develo
 exer	1
 soln	2
 codepad	qZrg7y54
+theme	Mathematics
 
 number	253
 file	json-parsing-input
@@ -2805,6 +3024,7 @@ blurb	Parse JSON input
 exer	1
 soln	2
 codepad	iq1vyzGY
+theme	Parsing
 
 number	254
 file	json-writing-output
@@ -2816,6 +3036,7 @@ blurb	The other side of JSAON
 exer	1
 soln	2
 codepad	mPIKEbNN
+theme	Parsing
 
 number	255
 file	sum-of-two-integers
@@ -2827,6 +3048,7 @@ blurb	Determine if two integers in a list sum to a target
 exer	1
 soln	2
 codepad	OVsIhFYl
+theme	Interview Questions
 
 number	256
 file	counting-primes-using-legendres-formula
@@ -2838,6 +3060,7 @@ blurb	Recreate Legendre's two-century old calculation of the number of primes le
 exer	1
 soln	2
 codepad	sNCV5Y0d
+theme	Historical Computing|Prime Numbers
 
 number	257
 file	more-prime-counting-functions
@@ -2849,6 +3072,7 @@ blurb	Prime counting functions by Meissel and Lehmer, based on Legendre's sum
 exer	1
 soln	2
 codepad	grLPbEPx
+theme	Prime Numbers
 
 number	258
 file	approximating-pi
@@ -2860,6 +3084,7 @@ blurb	Approximating pi with the logarithmic integral and Riemann's R function
 exer	1
 soln	2
 codepad	Fvwfmjc5
+theme	Prime Numbers
 
 number	259
 file	the-nth-prime
@@ -2871,6 +3096,7 @@ blurb	The n prime, counting from p<sub>1</sub> = 2
 exer	1
 soln	2
 codepad	KgVfGvEG
+theme	Prime Numbers
 
 number	260
 file	ninety-nine-bottles-of-beer
@@ -2904,6 +3130,7 @@ blurb	Insert spaces between words: applepie => apple pie
 exer	1
 soln	2
 codepad	6fUMlr92
+theme	Interview Questions
 
 number	263
 file	insert-into-a-cyclic-sorted-list
@@ -2915,6 +3142,7 @@ blurb	Insert a new element into a cyclic list, in order
 exer	1
 soln	2
 codepad	JRWWLoi1
+theme	Interview Questions
 
 number	264
 file	first-non-repeating-character
@@ -2926,6 +3154,7 @@ blurb	Find the first character in a string that doesn't repeat later in the stri
 exer	1
 soln	2
 codepad	kWBmScj6
+theme	Interview Questions
 
 number	265
 file	knapsack
@@ -2937,6 +3166,7 @@ blurb	Fill a knapsack to maximize the value of its contents
 exer	1
 soln	2
 codepad	sZVbli97
+theme	Classic Algorithms
 
 number	266
 file	reverse-every-k-nodes-of-a-linked-list
@@ -2948,6 +3178,7 @@ blurb	Reverse the elements of a sub-list
 exer	1
 soln	2
 codepad	9VS3QBWC
+theme	Interview Questions
 
 number	267
 file	hamming-numbers
@@ -2959,6 +3190,7 @@ blurb	List the numbers with no factors greater than 5, a classic problem popular
 exer	1
 soln	2
 codepad	kzPfcVH7
+theme	Mathematics
 
 number	268
 file	two-string-exercises
@@ -2970,6 +3202,7 @@ blurb	Remove duplicate characters, and squish adjacent blanks
 exer	1
 soln	2
 codepad	3NjlYZ6s
+theme	Interview Questions
 
 number	269
 file	deques
@@ -2981,6 +3214,7 @@ blurb	Library implementation of double-ended queues
 exer	1
 soln	2
 codepad	ll2dgmTM
+theme	Sorting and Searching
 
 number	270
 file	mersenne-twister
@@ -2992,6 +3226,7 @@ blurb	Random number generator with very long period, useful for simulations
 exer	1
 soln	3
 codepad	xDgJGH16
+theme	Random Number Generators
 
 number	271
 file	tetrahedral-numbers
@@ -3003,6 +3238,7 @@ blurb	Find the base of the tetrahedron that contains 169179692512835000 balls
 exer	1
 soln	2
 codepad	6ZT1RVxa
+theme	Recreational Mathematics
 
 number	272
 file	pollards-p-1-factorization-algorithm-revisited
@@ -3014,6 +3250,7 @@ blurb	An improved second stage that is much faster than the original
 exer	1
 soln	2
 codepad	qFzbCxzp
+theme	Prime Numbers
 
 number	273
 file	project-euler-problem-3
@@ -3025,6 +3262,7 @@ blurb	Thorough explanation of integer factorization by trial division
 exer	1
 soln	2
 codepad	9NbfghJq
+theme	Prime Numbers
 
 number	274
 file	array-duplicates
@@ -3036,6 +3274,7 @@ blurb	Find the duplicate integer in a large array
 exer	1
 soln	2
 codepad	sGxhES1h
+theme	Interview Questions
 
 number	275
 file	statistics
@@ -3058,6 +3297,7 @@ blurb	Print old-fashioned tables of logarithms and anti-logarithms
 exer	1
 soln	3
 codepad	fiKOD0wV
+theme	Mathematics
 
 number	277
 file	brainfuck
@@ -3069,6 +3309,7 @@ blurb	Interpreter for a Turing-line language
 exer	1
 soln	3
 codepad	aetegm3n
+theme	Fundamentals of Computing
 
 number	278
 file	sieve-of-sundaram
@@ -3080,6 +3321,7 @@ blurb	Sieving for prime numbers using a method from India
 exer	1
 soln	2
 codepad	O6J0rkDn
+theme	Prime Numbers
 
 number	279
 file	tower-of-hanoi
@@ -3091,6 +3333,7 @@ blurb	Classic demonstration of recursion
 exer	1
 soln	2
 codepad	F8eo5XvG
+theme	Classic Algorithms
 
 number	279
 file	the-first-n-primes
@@ -3102,6 +3345,7 @@ blurb	Embedding the Sieve of Eratosthenes in a priority queue instead of an arra
 exer	1
 soln	2
 codepad	61r9U0eR
+theme	Prime Numbers
 
 number	280
 file	the-wall
@@ -3124,6 +3368,7 @@ blurb	SysV and Berkeley versions of the Unix V7 sum command
 exer	1
 soln	2
 codepad	KwePb916
+theme	Unix V7
 
 number	282
 file	Cksum
@@ -3135,6 +3380,7 @@ blurb	Unix checksum utility
 exer	1
 soln	3
 codepad	6FlmcgGC
+theme	Unix V7
 
 number	283
 file	crypt
@@ -3157,6 +3403,7 @@ blurb	Implementation of the "Maxwell's equations of software" from the LISP 1.5 
 exer	1
 soln	2
 codepad	8cfeZ3ER
+theme	Fundamentals of Computing
 
 number	285
 file	craps
@@ -3168,6 +3415,7 @@ blurb	Simulate a popular game of gambling with dice
 exer	1
 soln	2
 codepad	J9Tg9jZP
+theme	Games|Simulation
 
 number	286
 file	improved-standard-continuation
@@ -3179,6 +3427,7 @@ blurb	An improved version of elliptic curve factorization, widely used in curren
 exer	1
 soln	2
 codepad	SdrzlWbh
+theme	Prime Numbers
 
 number	287
 file	generators
@@ -3201,6 +3450,7 @@ blurb	partition {1,...,16} into two sets of equal size so each subset has the sa
 exer	1
 soln	2
 codepad	90qQobLz
+theme	Recreational Mathematics
 
 number	289
 file	grade-school-multiplication
@@ -3212,6 +3462,7 @@ blurb	Display the steps in the grade school multiplication algorithm
 exer	1
 soln	2
 codepad	AMItBoYw
+theme	Recreational Mathematics
 
 number	290
 file	rabins-cryptosystem
@@ -3223,6 +3474,7 @@ blurb	Public-key cryptosystem, similar to RSA
 exer	1
 soln	2
 codepad	wyHgxfpg
+theme	Cryptography
 
 number	291
 file	avl-trees
@@ -3234,6 +3486,7 @@ blurb	Basic implementation of the original balanced-tree algorithm
 exer	1
 soln	2
 codepad	SSrdpsMw
+theme	Sorting and Searching
 
 number	292
 file	avl-trees-extended
@@ -3245,6 +3498,7 @@ blurb	Add additional functionality to AVL trees
 exer	1
 soln	2
 codepad	pwYpvDFw
+theme	Sorting and Searching
 
 number	293
 file	knight-rider
@@ -3256,6 +3510,7 @@ blurb	Classic problem of the knight's tour
 exer	1
 soln	2
 codepad	XQEm0Kc6
+theme	Guest Authors|Recreational Mathematics
 
 number	294
 file	pascals-triangle
@@ -3267,6 +3522,7 @@ blurb	Display the binomial coefficients
 exer	1
 soln	2
 codepad	Qb5pOMrj
+theme	Mathematics
 
 number	295
 file	mcnugget-numbers
@@ -3278,6 +3534,7 @@ blurb	A simple problem, worked out on a napkin
 exer	1
 soln	2
 codepad	01h2PiHK
+theme	Recreational Mathematics
 
 number	296
 file	validating-telephone-numbers
@@ -3289,6 +3546,7 @@ blurb	An exercise in input validation
 exer	1
 soln	2
 codepad	qqpZYP36
+theme	Data Processing
 
 number	297
 file	majority-voting
@@ -3300,3 +3558,4 @@ blurb	Determine the results of an election
 exer	1
 soln	2
 codepad	CMspzByH
+
