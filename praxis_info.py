@@ -155,7 +155,6 @@ def parse_chrono(infos = None):
         if found == -1:
             infos.append(info)
         else:
-            print found
             infos[found].add_info(info)
 
     return infos
@@ -288,13 +287,6 @@ def write_praxis_info(infos):
             fout.write("%s" % str(info))
             fout.write("\n")
 
-
-def update_praxis_info():
-    infos = parse_praxis_info()
-    infos = parse_chrono(infos)
-    infos = parse_theme(infos)
-    write_praxis_info(infos)
-
 def strip_exercise(contents):
     soup = BeautifulSoup(contents)
 
@@ -340,6 +332,18 @@ def download_exercises(infos, force=False):
         with open(outpath, "w") as fout:
             fout.write(contents)
 
+        for i in range(2, int(info.soln)):
+            extra_url = url + str(i) + "/"
+
+            page = urllib.urlopen(extra_url)
+            contents = page.read()
+            page.close()
+            contents = strip_exercise(contents)
+
+            outpath = os.path.join("exercises", info.file + "-" + str(i) + ".html")
+            with open(outpath, "w") as fout:
+                fout.write(contents)
+
 def download_solutions(infos, force=False):
     for i, info in enumerate(infos):
         print "Downloading", i+1, "/", len(infos), ":", info.file
@@ -365,17 +369,13 @@ def download_solutions(infos, force=False):
         with open(outpath, "w") as fout:
             fout.write(contents)
 
-def chrono_page(infos):
-    with open("chrono.html", "w") as fout:
-        fout.write('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n')
-        fout.write('<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">\n')
-        fout.write('<head>\n')
-        fout.write('<title>Exercises by time</title>\n')
-        fout.write('</head>\n')
-        fout.write('<body>\n')
+def update_praxis_info():
+    infos = parse_praxis_info()
+    infos = parse_chrono(infos)
+    infos = parse_theme(infos)
+    write_praxis_info(infos)
 
-        for info in infos:
-            fout.write(info.title + '\n')
-
-        fout.write('</body>\n')
-        fout.write('</html>\n')
+def update_exercises():
+    infos = parse_praxis_info()
+    download_exercises(infos, True)
+    download_solutions(infos)
