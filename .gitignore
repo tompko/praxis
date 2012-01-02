@@ -1,4 +1,4 @@
 solutions/*.html
 exercises/*.html
 *.pyc
-
+*wordlist
