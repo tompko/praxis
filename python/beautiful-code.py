@@ -2,13 +2,11 @@ def match(re, text):
     """match: search for re anywhere in text"""
     if re[0] == '^':
         return matchhere(re[1:], text)
-    if matchhere(re, text):
-        return True
 
     while len(text) > 0:
-        text = text[1:]
         if matchhere(re, text):
             return True
+        text = text[1:]
     return False
 
 def matchhere(re, text):
@@ -25,10 +23,8 @@ def matchhere(re, text):
 
 def matchstar(c, re, text):
     """matchstar: search for c*re at beginning of text"""
-    if matchhere(re, text):
-        return True
     while len(text) > 0 and (text[0] == c or c == "."):
-        text = text[1:]
         if matchhere(re, text):
             return True
+        text = text[1:]
     return False
