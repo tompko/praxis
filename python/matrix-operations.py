@@ -1,41 +1,5 @@
-#Columnar transposition
-def make_key(text_len, keyword):
-    key_len = len(keyword)
-    columns = [range(text_len)[i::key_len] for i in range(key_len)]
+import unittest
 
-    tkey = zip(keyword, range(key_len), columns)
-    tkey.sort()
-
-    return reduce(lambda x, y: x+y, [tk[2] for tk in tkey])
-
-def transpose(message, keyword):
-    key = make_key(len(message), keyword)
-
-    return "".join([message[k] for k in key])
-
-def untranspose(cipher, keyword):
-    key = make_key(len(cipher), keyword)
-    message = ["" for i in range(len(cipher))]
-
-    for (i, k) in enumerate(key):
-        message[k] = cipher[i]
-
-    return "".join(message)
-
-#Math utilities
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
-
-def extended_gcd(a, b):
-    if b == 0:
-        return (1, 0)
-    q, r = a / b, a % b
-    s, t = extended_gcd(b, r)
-    return (t, s - q * t)
-
-#Matrices
 class Matrix():
     def __init__(self, row, col, val):
         self.vals = [[0 for c in range(col)] for r in range(row)]
@@ -117,3 +81,29 @@ class Matrix():
     def set_cell(self, row, col, val):
         self.vals[row][col] = val
         self.transposed[col][row] = val
+
+class TestMatrices(unittest.TestCase):
+    def test_matrix(self):
+        A = Matrix(3, 1, [1,2,3])
+        B = Matrix(2, 3, [1,2,3,4,5,6])
+        C = Matrix(2, 3, [2,3,4,3,4,5])
+        D = Matrix(3, 4, [1,2,3,4,2,3,4,5,3,4,5,6])
+
+        self.assertEqual(A.vals, [[1],[2],[3]])
+        self.assertEqual(B.vals, [[1,2,3], [4,5,6]])
+        self.assertEqual(C.vals, [[2,3,4], [3,4,5]])
+        self.assertEqual(D.vals, [[1,2,3,4], [2,3,4,5], [3,4,5,6]])
+
+        X = B + C
+        self.assertEqual(X.vals, [[3,5,7], [7,9,11]])
+
+        X = 2 * B
+        self.assertEqual(X.vals, [[2,4,6], [8, 10, 12]])
+
+        X = B * D
+        self.assertEqual(X.vals, [[14,20,26,32], [32,47,62,77]])
+
+        X = B.transpose()
+        self.assertEqual(X.vals, [[1,4], [2,5], [3,6]])
+if __name__ == "__main__":
+    unittest.main()
