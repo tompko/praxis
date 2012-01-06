@@ -1,8 +1,5 @@
 def seive(n):
-    erato = [False, True] * ((n // 2) + 1)
-    erato[1] = False
-    erato[2] = True
-
+    erato = [False,False,True] + [True, False] * ((n // 2) + 1)
     d = 3
 
     while d*d <= n:
@@ -13,10 +10,6 @@ def seive(n):
                 f += d
         d += 2
 
-    primes = []
-
-    for i in range(n+1):
-        if erato[i]:
-            primes.append(i)
+    primes = [i for i in range(n) if erato[i]]
 
     return primes

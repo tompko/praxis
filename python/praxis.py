@@ -117,3 +117,68 @@ class Matrix():
     def set_cell(self, row, col, val):
         self.vals[row][col] = val
         self.transposed[col][row] = val
+
+#Primes
+def seive(n):
+    erato = [False,False,True] + [True, False] * ((n // 2) + 1)
+    d = 3
+
+    while d*d <= n:
+        if erato[d]:
+            f = d*d
+            while f <= n:
+                erato[f] = False
+                f += d
+        d += 2
+
+    primes = [i for i in range(n) if erato[i]]
+
+    return primes
+
+def compute_wheel(limit):
+    primes = seive(limit)
+    circum = reduce(lambda x,y: x*y, primes, 1)
+    spokes = [i for i in range(1, circum) if gcd(i, circum) == 1]
+    diffs = [spokes[i+1] - s for i,s in enumerate(spokes[:-1])]
+    diffs.insert(0, circum - spokes[-1] + 1)
+
+    return primes, diffs
+
+def wheel_factorise(n):
+    factors = set([])
+    d = 11
+    primes, diffs = compute_wheel(d)
+
+    for p in primes:
+        while n % p == 0:
+            factors.add(p)
+            n /= p
+
+    while d*d <= n:
+        while n % d == 0:
+            factors.add(d)
+            n /= d
+        d += diffs[0]
+        diffs = diffs[1:] + diffs[:1]
+
+    if n > 1:
+        factors.add(n)
+    ret = list(factors)
+    ret.sort()
+    return ret
+
+def pollard_rho(n):
+    c = 1
+    while True:
+        f = lambda x: x**2 + c
+
+        x, y, d = 2, 2, 1
+
+        while d == 1:
+            x = f(x)
+            y = f(f(y))
+            d = gcd(abs(x - y), n)
+        if d != n:
+            return d
+
+        c += 1
