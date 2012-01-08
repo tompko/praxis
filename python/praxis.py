@@ -35,6 +35,10 @@ def extended_gcd(a, b):
     s, t = extended_gcd(b, r)
     return (t, s - q * t)
 
+def lcm(a, b):
+    g = gcd(a, b)
+    return a * (b / g)
+
 #Matrices
 class Matrix():
     def __init__(self, row, col, val):
@@ -182,3 +186,15 @@ def pollard_rho(n):
             return d
 
         c += 1
+
+#Date functions
+def jdn(year, month, day):
+    """Calculate the Julian Day Number for the given date"""
+    a = (14 - month) / 12
+    y = year + 4800 - a
+    m = month + 12 * a - 3
+
+    ret = day + ((153*m + 2) / 5) + (365*y)
+    ret = ret + (y / 4) - (y / 100) + (y / 400) - 32045
+
+    return ret
