@@ -1,0 +1,3561 @@
+praxis.info
+
+number  exercise number
+file    base name of files
+pubmon  month of publication
+pubday  day of publication
+pubyear year of publication
+title   formatted title
+ptitle  plain title
+blurb   formatted blurb
+pblurb  plain blurb
+exer    exercise sub-page number
+soln    solution sub-page number
+extra   extra info sub-page number
+codepad eight-character codepad index
+theme   category in which exercise appears
+
+name/value pairs on a line separated by tabs,
+with records separated by blank lines
+
+the "number" field must appear first, others
+may be in any order, and are optional
+
+----+----1----+----2----+----3----+----4----+----5----+----6
+
+number	1
+file	rpn-calculator
+pubmon	2
+pubday	19
+pubyear	2009
+title	RPN Calculator
+blurb	Evaluate numeric expressions at the command line
+exer	1
+soln	2
+codepad	fjzlC50x
+theme	Parsing
+
+number	2
+file	sieve-of-eratosthenes
+pubmon	2
+pubday	19
+pubyear	2009
+title	Sieve of Eratosthenes
+blurb	A Scheme implementation of an ancient algorithm
+exer	1
+soln	2
+codepad	wI14BJ8Q
+theme	Historical Computing|Prime Numbers
+
+number	3
+file	bingo
+pubmon	2
+pubday	19
+pubyear	2009
+title	Bingo
+blurb	Calculate the probability of winning at Bingo
+exer	1
+soln	2
+codepad	fQPItMI1
+theme	Games|Simulation
+
+number	4
+file	sudoku
+pubmon	2
+pubday	19
+pubyear	2009
+title	Sudoku
+blurb	A backtracking solution to everybody's favorite puzzle
+exer	1
+soln	2
+codepad	PB1czuyF
+theme	Games
+
+number	5
+file	flavius-josephus
+pubmon	2
+pubday	19
+pubyear	2009
+title	Flavius Josephus
+blurb	Programming a cyclical list
+exer	1
+soln	2
+codepad	RMwrace2
+
+number	6
+file	rot13
+pubmon	2
+pubday	20
+pubyear	2009
+title	ROT13
+blurb	A simple Caesar-shift cipher
+exer	1
+soln	2
+codepad	xSLxDTmO
+theme	Cryptography
+
+number	7
+file	multiple-dwellings
+pubmon	2
+pubday	20
+pubyear	2009
+title	Multiple Dwellings
+blurb	A simple logic puzzle, solved with the <code>amb</code> non-deterministic operator
+exer	1
+soln	2
+codepad	8XublsDo
+theme	Logic|Puzzles
+
+number	8
+file	the-digits-of-pi
+pubmon	2
+pubday	20
+pubyear	2009
+title	The Digits of Pi
+blurb	A spigot algorithm to calculate the digits of pi
+exer	1
+soln	2
+codepad	qfgnpRbn
+theme	Mathematics
+
+number	9
+file	a-self-reproducing-program
+pubmon	2
+pubday	20
+pubyear	2009
+title	A Self-Reproducing Program
+blurb	The quintessential quine
+exer	1
+soln	2
+codepad	gVae4PRG
+
+number	10
+file	mardi-gras
+pubmon	2
+pubday	24
+pubyear	2009
+title	Mardi Gras
+blurb	Compute the date of Easter
+exer	1
+soln	2
+codepad	LmOgrg98
+theme	Astronomy
+
+number	11
+file	mark-v-shaney
+pubmon	2
+pubday	27
+pubyear	2009
+title	Mark V. Shaney
+blurb	Generate parodies of a text using a Markov chain
+exer	1
+soln	2
+codepad	YREG9ZSu
+theme	Games|Word Games
+
+number	12
+file	creation
+pubmon	3
+pubday	3
+pubyear	2009
+title	Creation
+blurb	Cryptanalysis of a Vigenere cipher
+exer	1
+soln	3
+codepad	N8fi45eN
+theme	Cryptography
+
+number	13
+file	roman-numerals
+pubmon	3
+pubday	6
+pubyear	2009
+title	Roman Numerals
+blurb	A library to read and write Roman numerals
+exer	1
+soln	2
+codepad	FxDMoASG
+
+number	14
+file	word-frequencies
+pubmon	3
+pubday	10
+pubyear	2009
+title	Word Frequencies
+blurb	Our interpretation of a problem solved by a classic unix pipeline
+exer	1
+soln	2
+codepad	CJcy6eGw
+theme	Text Processing|Unix V7
+
+number	15
+file	friday-the-thirteenth
+pubmon	3
+pubday	13
+pubyear	2009
+title	Friday, the Thirteenth
+blurb	A small calendar library, and a simple use of it
+exer	1
+soln	2
+codepad	RqYg0Qfi
+theme	Astronomy
+
+number	16
+file	comma-separated-values
+pubmon	3
+pubday	17
+pubyear	2009
+title	Comma-Separated Values
+blurb	Retrieve records from a comma-separated values file using a finite-state machine
+exer	1
+soln	2
+codepad	8q3sQGzA
+theme	Data Processing|Parsing
+
+number	17
+file	dodgsons-doublets
+pubmon	3
+pubday	20
+pubyear	2009
+title	Dodgson's Doublets
+blurb	A word game invented by the author of Alice in Wonderland
+exer	1
+soln	2
+codepad	HFMJWAe3
+theme	Games|Word Games
+
+number	18
+file	binary-search
+pubmon	3
+pubday	23
+pubyear	2009
+title	Binary Search
+blurb	A simple task, easy to get wrong
+exer	1
+soln	2
+codepad	UxAnLcJF
+theme	Sorting and Searching
+
+number	19
+file	a-turing-machine-simulator
+pubmon	3
+pubday	27
+pubyear	2009
+title	A Turing Machine Simulator
+blurb	An interpreter for a single-tape, multi-symbol turing machine
+exer	1
+soln	2
+codepad	bZje3rH9
+theme	Fundamentals of Computing
+
+number	20
+file	rail-fence-cipher
+pubmon	3
+pubday	31
+pubyear	2009
+title	Rail-Fence Cipher
+blurb	A simple transposition cipher
+exer	1
+soln	2
+codepad	9abH1QKb
+theme	Cryptography
+
+number	21
+file	programming-the-turing-machine
+pubmon	4
+pubday	3
+pubyear	2009
+title	Programming the Turing Machine
+blurb	A turing-machine program to multiply two numbers
+exer	1
+soln	2
+codepad	2RPNPlHk
+theme	Fundamentals of Computing
+
+number	22
+file	flipping-pancakes
+pubmon	4
+pubday	7
+pubyear	2009
+title	Flipping Pancakes
+blurb	A sorting method analyzed by Bill Gates
+exer	1
+soln	2
+codepad	HQFNnbnb
+theme	Sorting and Searching
+
+number	23
+file	anagrams
+pubmon	4
+pubday	10
+pubyear	2009
+title	Anagrams
+blurb	Find anagrams in a dictionary
+exer	1
+soln	2
+codepad	b5C4nEf9
+theme	Spelling|Word Games
+
+number	24
+file	google-treasure-hunt-2008-puzzle-4
+pubmon	4
+pubday	14
+pubyear	2009
+title	Google Treasure Hunt 2008 Puzzle 4
+blurb	A prime-number puzzle
+exer	1
+soln	2
+codepad	PsUPfgmT
+theme	Prime Numbers|Puzzles
+
+number	25
+file	spell-checking
+pubmon	4
+pubday	17
+pubyear	2009
+title	Spell Checking
+blurb	A spell-checker in a trie-based dictionary
+exer	1
+soln	2
+codepad	fK2CUpEQ
+theme	Sorting and Searching|Spelling|Unix V7
+
+number	26
+file	probabilistic-spell-checking
+pubmon	4
+pubday	21
+pubyear	2009
+title	Probabilistic Spell Checking
+blurb	A probabilistic spell-checker based on a Bloom filter
+exer	1
+soln	2
+codepad	zUt3Ezz1
+theme	Sorting and Searching|Spelling|Unix V7
+
+number	27
+file	word-hy-phen-a-tion-by-com-pu-ter
+pubmon	4
+pubday	24
+pubyear	2009
+title	Word Hy-phen-a-tion By Com-pu-ter
+blurb	Frank Liang's hyphenation algorithm, used in TeX
+exer	1
+soln	3
+codepad	s0N597UX
+theme	Spelling
+
+number	28
+file	morse-code
+pubmon	4
+pubday	28
+pubyear	2009
+title	Morse Code
+blurb	Translating the dots-and-dashes of Samuel Finley Breese Morse's telegraph code
+exer	1
+soln	2
+codepad	7Gf5N1I2
+
+number	29
+file	primality-checking
+pubmon	5
+pubday	1
+pubyear	2009
+title	Primality Checking
+blurb	A probabilistic primality checker by Gary Miller and Michael Rabin
+exer	1
+soln	2
+codepad	rSDxFrZn
+theme	Prime Numbers
+
+number	30
+file	priority-queues
+pubmon	5
+pubday	5
+pubyear	2009
+title	Priority Queues
+blurb	A simple library implementation of the priority queue data structure
+exer	1
+soln	2
+codepad	V8v6If7Z
+theme	Sorting and Searching
+
+number	31
+file	wheel-factorization
+pubmon	5
+pubday	8
+pubyear	2009
+title	Wheel Factorization
+blurb	Find the factors of a number by a variant of trial division
+exer	1
+soln	2
+codepad	3kwNA12j
+theme	Prime Numbers
+
+number	32
+file	loan-amortization
+pubmon	5
+pubday	12
+pubyear	2009
+title	Loan Amortization
+blurb	Calculate and print a simple loan amortization table
+exer	1
+soln	2
+codepad	XXX
+
+number	33
+file	cellular-automata
+pubmon	5
+pubday	15
+pubyear	2009
+title	Cellular Automata
+blurb	Linear cellular automata as described by Stephen Wolfram in his book A New Kind of Science
+exer	1
+soln	2
+codepad	H7akaoDD
+theme	Fundamentals of Computing
+
+number	34
+file	fermats-method
+pubmon	5
+pubday	19
+pubyear	2009
+title	Fermat's Method
+blurb	Integer factorization by Fermat's algorithm
+exer	1
+soln	2
+codepad	Exr2kj9L
+theme	Historical Computing|Prime Numbers
+
+number	35
+file	the-next-palindrome
+pubmon	5
+pubday	22
+pubyear	2009
+title	The Next Palindrome
+blurb	Find the next palindromic number greater than the input number
+exer	1
+soln	2
+codepad	oHbzw5WF
+
+number	36
+file	word-search-solver
+pubmon	5
+pubday	26
+pubyear	2009
+title	Word Search Solver
+blurb	A computerized implementation of a popular time-waster
+exer	1
+soln	2
+codepad	odsy7y6L
+theme	Games
+
+number	37
+file	double-transposition-cipher
+pubmon	5
+pubday	29
+pubyear	2009
+title	Double Transposition Cipher
+blurb	A simple and effective cipher, easy to perform by hand
+exer	1
+soln	2
+codepad	W4i2kueL
+theme	Cryptography
+
+number	38
+file	pig-latin
+pubmon	6
+pubday	2
+pubyear	2009
+title	Pig Latin
+blurb	A simple exercise to solve a children's game
+exer	1
+soln	2
+codepad	hRfVoxCA
+theme	Games
+
+number	39
+file	ternary-search-tries
+pubmon	6
+pubday	5
+pubyear	2009
+title	Ternary Search Tries
+blurb	Build a function library for handling ternary search tries
+exer	1
+soln	2
+codepad	UnTljjnx
+theme	Sorting and Searching
+
+number	40
+file	longest-common-subsequence
+pubmon	6
+pubday	9
+pubyear	2009
+title	Longest Common Subsequence
+blurb	A classic programming algorithm, with a solution that dates to folklore
+exer	1
+soln	2
+codepad	MQK6CN9q
+
+number	41
+file	feynmans-puzzle
+pubmon	6
+pubday	12
+pubyear	2009
+title	Feynman's Puzzle
+blurb	A simple logic puzzle
+exer	1
+soln	2
+codepad	50ygwf6g
+theme	Logic|Recreational Mathematics
+
+number	42
+file	who-owns-the-zebra
+pubmon	6
+pubday	16
+pubyear	2009
+title	Who Owns The Zebra?
+blurb	A logic puzzle, solved by embedding a Prolog-like logic system in Scheme
+exer	1
+soln	2
+codepad	408Ehwhb
+theme	Logic|Puzzles
+
+number	43
+file	monte-carlo-factorization
+pubmon	6
+pubday	19
+pubyear	2009
+title	Monte Carlo Factorization
+blurb	Integer factorization via Pollard's rho algorithm
+exer	1
+soln	2
+codepad	4mQExWYY
+theme	Prime Numbers
+
+number	44
+file	the-mod-out-system
+pubmon	6
+pubday	23
+pubyear	2009
+title	The Mod Out System
+blurb	Expand a series of ranges
+exer	1
+soln	2
+codepad	5rArlKwi
+
+number	45
+file	treaps
+pubmon	6
+pubday	26
+pubyear	2009
+title	Treaps
+blurb	A randomized dictionary data structure, provides in-order access to key
+exer	1
+soln	2
+codepad	iFm0jW0A
+theme	Sorting and Searching
+
+number	46
+file	steve-yegges-phone-screen-coding-exercises
+pubmon	6
+pubday	30
+pubyear	2009
+title	Steve Yegge's Phone-Screen Coding Exercises
+blurb	A simple set of programming exercises based on a blog entry by Steve Yegge
+exer	1
+soln	2
+codepad	XXX
+theme	Interview Questions
+
+number	47
+file	the-playfair-cipher
+pubmon	7
+pubday	3
+pubyear	2009
+title	The Playfair Cipher
+blurb	A classic military field cipher
+exer	1
+soln	2
+codepad	1lKnWAtU
+theme	Cryptography
+
+number	48
+file	modular-arithmetic
+pubmon	7
+pubday	7
+pubyear	2009
+title	Modular Arithmetic
+blurb	A function library for performing modular addition, subtraction, multiplication, division, and square root
+exer	1
+soln	2
+codepad	1QA39Fbf
+theme	Mathematics
+
+number	49
+file	the-golden-ratio
+pubmon	7
+pubday	10
+pubyear	2009
+title	The Golden Ratio
+blurb	Evaluate a continued fraction, based on my daughter's math homework
+exer	1
+soln	2
+codepad	tJaZAyBY
+theme	Mathematics
+
+number	50
+file	the-daily-cryptogram
+pubmon	7
+pubday	14
+pubyear	2009
+title	The Daily Cryptogram
+blurb	Solve a monoalphabetic substitution cipher
+exer	1
+soln	2
+codepad	GBXcEPTy
+theme	Cryptography
+
+number	51
+file	international-mathematical-olympiad
+pubmon	7
+pubday	17
+pubyear	2009
+title	International Mathematical Olympiad
+blurb	Three exercises from 1960s math competitions
+exer	1
+soln	2
+codepad	JRGmt2wZ
+theme	Puzzles|Recreational Mathematics
+
+number	52
+file	pollards-p-1-factorization-algorithm
+pubmon	7
+pubday	21
+pubyear	2009
+title	Pollard's P-1 Factorization Algorithm
+blurb	A simple factorization algorithm by John Pollard
+exer	1
+soln	2
+codepad	dx55xB8V
+theme	Prime Numbers
+
+number	53
+file	lets-make-a-deal
+pubmon	7
+pubday	24
+pubyear	2009
+title	Let's Make A Deal!
+blurb	Simulate a tricky probability calculation
+exer	1
+soln	2
+codepad	54PDMDSv
+theme	Simulation
+
+number	54
+file	elliptic-curves
+pubmon	7
+pubday	28
+pubyear	2009
+title	Elliptic Curves
+blurb	Library of basic functions on elliptic curves
+exer	1
+soln	2
+codepad	rNlg4Pgt
+theme	Mathematics
+
+number	55
+file	elliptic-curve-factorization
+pubmon	7
+pubday	31
+pubyear	2009
+title	Elliptic Curve Factorization
+blurb	A very simple implementation of elliptic curve factorization
+exer	1
+soln	2
+codepad	BLfW5dKY
+theme	Prime Numbers
+
+number	56
+file	lenstras-algorithm
+pubmon	8
+pubday	4
+pubyear	2009
+title	Lenstra's Algorithm
+blurb	Hendrik Lenstra's original algorithm for elliptic curve factorization
+exer	1
+soln	2
+codepad	S6l8kId7
+theme	Prime Numbers
+
+number	57
+file	adfgx
+pubmon	8
+pubday	7
+pubyear	2009
+title	ADFGX
+blurb	A classic German military field cipher from the First World War
+exer	1
+soln	2
+codepad	VwKUjLzk
+theme	Cryptography
+
+number	58
+file	uncle-bobs-bowling-game-kata
+pubmon	8
+pubday	11
+pubyear	2009
+title	Uncle Bob's Bowling Game Kata
+blurb	Use pattern-matching on lists to solve a classic object-oriented programming exercise
+exer	1
+soln	2
+codepad	oissVw14
+
+number	59
+file	pairing-heaps
+pubmon	8
+pubday	14
+pubyear	2009
+title	Pairing Heaps
+blurb	A standard algorithm for maintaining priority queues
+exer	1
+soln	2
+codepad	NHfZUl38
+theme	Sorting and Searching
+
+number	60
+file	blum-blum-shub
+pubmon	8
+pubday	18
+pubyear	2009
+title	Blum Blum Shub
+blurb	Stream cipher based on a cryptographically secure pseudo-random number generator
+exer	1
+soln	2
+codepad	CXQsxZ1f
+theme	Cryptography
+
+number	61
+file	string-search-brute-force
+pubmon	8
+pubday	21
+pubyear	2009
+title	String Search: Brute Force
+blurb	Search for a pattern in a text by comparing the pattern to the text at all possible positions
+exer	1
+soln	2
+codepad	XanMzASO
+theme	Strings
+
+number	62
+file	string-search-knuth-morris-pratt
+pubmon	8
+pubday	25
+pubyear	2009
+title	String Search: Knuth-Morris-Pratt
+blurb	Search for a pattern in a text using an O(n) algorithm
+exer	1
+soln	2
+codepad	sgwL8jFb
+theme	Strings
+
+number	63
+file	string-search-boyer-moore
+pubmon	8
+pubday	28
+pubyear	2009
+title	String Search: Boyer-Moore
+blurb	Search for a pattern in a text using a fast and simple algorithm
+exer	1
+soln	2
+codepad	CjKUK0jC
+theme	Strings
+
+number	64
+file	string-search-rabin-karp
+pubmon	9
+pubday	1
+pubyear	2009
+title	String Search: Rabin-Karp
+blurb	Our final classic string-search algorithm
+exer	1
+soln	2
+codepad	ybaO1twV
+theme	Strings
+
+number	65
+file	rons-cipher-4
+pubmon	9
+pubday	4
+pubyear	2009
+title	Ron's Cipher #4
+blurb	Stream cipher by Ron Rivest that underlies the SSL and WEP protocols
+exer	1
+soln	2
+codepad	pQc8OwsW
+theme	Cryptography
+
+number	66
+file	porter-stemming
+pubmon	9
+pubday	8
+pubyear	2009
+title	Porter Stemming
+blurb	Martin Porter's algorithm for removing suffices from word stems
+exer	1
+soln	3
+codepad	Wyj6sW6N
+theme	Spelling
+
+number	67
+file	beautiful-code
+pubmon	9
+pubday	11
+pubyear	2009
+title	Beautiful Code
+blurb	A simple regular-expression matcher by Rob Pike
+exer	1
+soln	2
+codepad	vv72J3XE
+theme	Parsing|Strings
+
+number	68
+file	regular-expressions-part-1
+pubmon	9
+pubday	15
+pubyear	2009
+title	Regular Expressions, Part 1
+blurb	A parser for regular expressions
+exer	1
+soln	2
+codepad	A4XmTLTu
+theme	Parsing|Strings
+
+number	69
+file	regular-expressions-part-2
+pubmon	9
+pubday	18
+pubyear	2009
+title	Regular Expressions, Part 2
+blurb	The corresponding matcher
+exer	1
+soln	2
+codepad	eUxD9mwZ
+theme	Parsing|Strings
+
+number	70
+file	regular-expressions-part-3
+pubmon	9
+pubday	22
+pubyear	2009
+title	Regular Expressions, Part 3
+blurb	A regular expression test suite
+exer	1
+soln	2
+codepad	sSob4fZM
+theme	Parsing|Strings
+
+number	71
+file	grep
+pubmon	9
+pubday	25
+pubyear	2009
+title	Grep
+blurb	Simple version of the classic unix regular-expression matching utility
+exer	1
+soln	2
+codepad	qkOnYNIC
+theme	Parsing|Strings|Unix V7
+
+number	72
+file	green-eyes
+pubmon	9
+pubday	29
+pubyear	2009
+title	Green Eyes
+blurb	A counting problem from high-school math
+exer	1
+soln	2
+codepad	gSUgP0pn
+theme	Mathematics
+
+number	73
+file	red-black-trees
+pubmon	10
+pubday	2
+pubyear	2009
+title	Red-Black Trees
+blurb	A purely functional dictionary data structure based on approximately-balanced trees
+exer	1
+soln	2
+codepad	UA6qxeO7
+theme	Sorting and Searching
+
+number	74
+file	mapreduce
+pubmon	10
+pubday	6
+pubyear	2009
+title	MapReduce
+blurb	Google's famous system for parallelizing computations expressed as a programming idiom
+exer	1
+soln	2
+codepad	h8YcTvLO
+theme	Data Processing
+
+number	75
+file	calculating-pi
+pubmon	10
+pubday	9
+pubyear	2009
+title	Calculating Pi
+blurb	Calculate the value of pi by monte-carlo methods and by an Archimedean method
+exer	1
+soln	2
+codepad	3LMdEHBZ
+theme	Historical Computing|Mathematics|Simulation
+
+number	76
+file	bifid
+pubmon	10
+pubday	13
+pubyear	2009
+title	Bifid
+blurb	A simple but effective fractionating cipher, never used militarily
+exer	1
+soln	2
+codepad	rvI0TxI7
+theme	Cryptography
+
+number	77
+file	growable-arrays
+pubmon	10
+pubday	16
+pubyear	2009
+title	Growable Arrays
+blurb	Arrays that grow and shrink at run-time, with O(log n) complexity per operation
+exer	1
+soln	2
+codepad	gFUCaHuY
+theme	Sorting and Searching
+
+number	78
+file	shuffle
+pubmon	10
+pubday	20
+pubyear	2009
+title	Shuffle
+blurb	Create random permutations of an array or linked list
+exer	1
+soln	2
+codepad	bgrR41GU
+theme	Sorting and Searching
+
+number	79
+file	mr-s-and-mr-p
+pubmon	10
+pubday	23
+pubyear	2009
+title	Mr. S. and Mr. P.
+blurb	A logic puzzle popularized by John McCarthy
+exer	1
+soln	2
+codepad	cFiBzALC
+theme	Logic|Puzzles
+
+number	80
+file	three-quadratic-sorts
+pubmon	10
+pubday	27
+pubyear	2009
+title	Three Quadratic Sorts
+blurb	Bubble sort, selection sort and insertion sort
+exer	1
+soln	2
+codepad	vuYNXRdL
+theme	Sorting and Searching
+
+number	81
+file	two-sub-quadratic-sorts
+pubmon	10
+pubday	30
+pubyear	2009
+title	Two Sub-Quadratic Sorts
+blurb	Comb sort and shell sort
+exer	1
+soln	2
+codepad	XysypyUa
+theme	Sorting and Searching
+
+number	82
+file	quick-sort
+pubmon	11
+pubday	3
+pubyear	2009
+title	Quick Sort
+blurb	Tony Hoare's divide-and-conquer sorting algorithm
+exer	1
+soln	2
+codepad	wTUyljFX
+theme	Sorting and Searching
+
+number	83
+file	heap-sort
+pubmon	11
+pubday	6
+pubyear	2009
+title	Heap Sort
+blurb	A guaranteed O(log n) sorting method based on priority queues
+exer	1
+soln	2
+codepad	6HryLp9f
+theme	Sorting and Searching
+
+number	84
+file	merge-sort
+pubmon	11
+pubday	10
+pubyear	2009
+title	Merge Sort
+blurb	A fast, stable sorting algorithm, especially well-suited to linked lists
+exer	1
+soln	2
+codepad	Wk6rsu1Z
+theme	Sorting and Searching
+
+number	85
+file	two-linear-sorts
+pubmon	11
+pubday	13
+pubyear	2009
+title	Two linear sorts
+blurb	Count sort and radix sort exploit the structure of integer keys
+exer	1
+soln	2
+codepad	YMEdwxX5
+theme	Sorting and Searching
+
+number	86
+file	master-mind-part-1
+pubmon	11
+pubday	17
+pubyear	2009
+title	Master Mind, Part 1
+blurb	Referee a two-player game of deductive logic
+exer	1
+soln	2
+codepad	59rVyG1X
+theme	Games
+
+number	87
+file	master-mind-part-2
+pubmon	11
+pubday	20
+pubyear	2009
+title	Master Mind, Part 2
+blurb	Solve a Master Mind puzzle in five probes or less
+exer	1
+soln	2
+codepad	tHXIIIfF
+theme	Games
+
+number	88
+file	sunrise-sunset
+pubmon	11
+pubday	24
+pubyear	2009
+title	Sunrise, Sunset
+blurb	Calculate the times of sunrise and sunset on any day anywhere in the world
+exer	1
+soln	2
+codepad	6EHh1miI
+theme	Astronomy
+
+number	89
+file	7-11
+pubmon	11
+pubday	27
+pubyear	2009
+title	$7.11
+blurb	A math puzzle: a+b+c+d = a.b.c.d = 7.11
+exer	1
+soln	2
+codepad	fqz7hDas
+theme	Puzzles|Recreational Mathematics
+
+number	90
+file	wolves-and-rabbits
+pubmon	12
+pubday	1
+pubyear	2009
+title	Wolves And Rabbits
+blurb	Analyze population dynamics using the Lotka-Volterra equations
+exer	1
+soln	2
+codepad	WXb79n5K
+
+number	91
+file	autokey
+pubmon	12
+pubday	4
+pubyear	2009
+title	Autokey
+blurb	A cipher in which the input text forms part of the key
+exer	1
+soln	2
+codepad	Re3dl3Q7
+theme	Cryptography
+
+number	92
+file	word-count
+pubmon	12
+pubday	8
+pubyear	2009
+title	Word Count
+blurb	An implementation of the unix <code>wc</code> program
+exer	1
+soln	2
+codepad	ZxPjiEvw
+theme	Unix V7
+
+number	93
+file	selection
+pubmon	12
+pubday	11
+pubyear	2009
+title	Selection
+blurb	Find the k<sup>th</sup>-largest item in a list
+exer	1
+soln	2
+codepad	EpyiXmk9
+theme	Sorting and Searching
+
+number	94
+file	affine-shift-cipher
+pubmon	12
+pubday	15
+pubyear	2009
+title	Affine-Shift Cipher
+blurb	A cryptographically weak but mathematically interesting cipher
+exer	1
+soln	2
+codepad	uBwJCcEk
+theme	Cryptography
+
+number	95
+file	calculating-logarithms
+pubmon	12
+pubday	18
+pubyear	2009
+title	Calculating Logarithms
+blurb	Use the methods of Newton and Euler to calculate square roots and logarithms
+exer	1
+soln	2
+codepad	oOdXhS7g
+theme	Historical Computing|Mathematics
+
+number	96
+file	permuted-index
+pubmon	12
+pubday	22
+pubyear	2009
+title	Permuted Index
+blurb	David Parnas' classic deconstruction of the keyword-in-context index
+exer	1
+soln	2
+codepad	ay27GbL9
+theme	Sorting and Searching
+
+number	97
+file	a-statisticle-speling-korrecter
+pubmon	12
+pubday	29
+pubyear	2009
+title	A Statisticle Speling Korrecter
+blurb	Peter Norvig's version of the Google spelling suggester
+exer	1
+soln	2
+codepad	ciNSny8H
+theme	Spelling
+
+number	98
+file	cal-2
+pubmon	1
+pubday	1
+pubyear	2010
+title	Cal
+blurb	Print a twelve-month calendar
+exer	1
+soln	2
+codepad	5T41NUut
+theme	Astronomy|Unix V7
+
+number	99
+file	the-sum-of-two-squares
+pubmon	1
+pubday	5
+pubyear	2010
+title	The Sum Of Two Squares
+blurb	A math puzzle with a solution by Dijkstra
+exer	1
+soln	2
+codepad	kdQgtQ34
+theme	Recreational Mathematics
+
+number	100
+file	nim
+pubmon	1
+pubday	8
+pubyear	2010
+title	Nim
+blurb	A two-player game of mathematical logic
+exer	1
+soln	2
+codepad	aNviDpKG
+theme	Games
+
+number	101
+file	calculating-sines
+pubmon	1
+pubday	12
+pubyear	2010
+title	Calculating Sines
+blurb	Calculate sines using Taylor series and the triple-angle formula, by Bill Cruise
+exer	1
+soln	2
+codepad	uyaebBRj
+theme	Guest Authors|Mathematics
+
+number	102
+file	three-binary-algorithms
+pubmon	1
+pubday	15
+pubyear	2010
+title	Three Binary Algorithms
+blurb	Multiplication, division and greatest common divisor using binary arithmetic
+exer	1
+soln	2
+codepad	P9bxsjXo
+theme	Historical Computing|Mathematics
+
+number	103
+file	flight-planning
+pubmon	1
+pubday	19
+pubyear	2010
+title	Flight Planning
+blurb	Computing the navigation triangle, by Jos Koot
+exer	1
+soln	2
+codepad	yE35J5Pw
+theme	Guest Authors
+
+number	104
+file	phases-of-the-moon
+pubmon	1
+pubday	22
+pubyear	2010
+title	Phases Of The Moon
+blurb	Calculate the number of days since the last new moon
+exer	1
+soln	2
+codepad	23rZcxsl
+theme	Astronomy
+
+number	105
+file	primality-checking-revisited
+pubmon	1
+pubday	26
+pubyear	2010
+title	Primality Checking, Revisited
+blurb	The Baillie-Wagstaff algorithm for primality checking
+exer	1
+soln	2
+codepad	07RDsaSw
+theme	Prime Numbers
+
+number	106
+file	straddling-checkerboard
+pubmon	1
+pubday	29
+pubyear	2010
+title	Straddling Checkerboard
+blurb	An alternative to the Polybius square for ciphers that must convert letters to digits
+exer	1
+soln	2
+codepad	jB1PVtjv
+theme	Cryptography
+
+number	107
+file	proving-primality
+pubmon	2
+pubday	2
+pubyear	2010
+title	Proving Primality
+blurb	A deterministic, not probabilistic, method of checking primality
+exer	1
+soln	2
+codepad	1ttTLsZF
+theme	Prime Numbers
+
+number	108
+file	segmented-sieve-of-eratosthenes
+pubmon	2
+pubday	5
+pubyear	2010
+title	Segmented Sieve Of Eratosthenes
+blurb	Extend the Sieve of Eratosthenes to large ranges of integers
+exer	1
+soln	2
+codepad	nGUcDjGb
+theme	Prime Numbers
+
+number	109
+file	numerical-integration
+pubmon	2
+pubday	9
+pubyear	2010
+title	Numerical Integration
+blurb	Quadrature by the rectangular, trapezoidal and Simpson's method, including adaptive quadrature
+exer	1
+soln	2
+codepad	EeqvRWXv
+theme	Mathematics|Prime Numbers
+
+number	110
+file	sieve-of-atkin
+pubmon	2
+pubday	12
+pubyear	2010
+title	Sieve of Atkin
+blurb	A modern alternative to the Sieve of Eratosthenes for computing prime numbers
+exer	1
+soln	2
+codepad	WAgoUQGS
+theme	Prime Numbers
+
+number	111
+file	soundex
+pubmon	2
+pubday	16
+pubyear	2010
+title	Soundex
+blurb	An algorithm to assign people's last names to equivalence classes based on similar spelling
+exer	1
+soln	2
+codepad	i0n0uIS7
+theme	Sorting and Searching
+
+number	112
+file	sieve-of-atkin-improved
+pubmon	2
+pubday	19
+pubyear	2010
+title	Sieve Of Atkin, Improved
+blurb	A faster version of the Sieve of Atkin
+exer	1
+soln	2
+codepad	xyQbTn0p
+theme	Prime Numbers
+
+number	113
+file	engineering-a-sort-function
+pubmon	2
+pubday	23
+pubyear	2010
+title	Engineering A Sort Function
+blurb	A high-performance quicksort by Jon Bentley and Doug McIlroy
+exer	1
+soln	2
+codepad	WrCRgnp4
+theme	Sorting and Searching
+
+number	114
+file	run-length-encoding
+pubmon	2
+pubday	26
+pubyear	2010
+title	Run Length Encoding
+blurb	A simple compression method for text files
+exer	1
+soln	2
+codepad	ZQoT0BnW
+
+number	115
+file	goldbachs-conjecture
+pubmon	3
+pubday	2
+pubyear	2010
+title	Goldbach's Conjecture
+blurb	Every even number greater than two can be written as the sum of two primes
+exer	1
+soln	2
+codepad	B0jzdRps
+theme	Prime Numbers
+
+number	116
+file	binary-search-tree
+pubmon	3
+pubday	5
+pubyear	2010
+title	Binary Search Tree
+blurb	Classic data structure, providing insert, delete and lookup for ordered datatypes
+exer	1
+soln	2
+codepad	5TkexKqB
+theme	Sorting and Searching
+
+number	117
+file	lexicographic-permutations
+pubmon	3
+pubday	9
+pubyear	2010
+title	Lexicographic Permutations
+blurb	Continually generate the next permutation using an algorithm by Dijkstra
+exer	1
+soln	2
+codepad	Y8uDXfrX
+
+number	118
+file	traveling-salesman-brute-force
+pubmon	3
+pubday	12
+pubyear	2010
+title	Traveling Salesman: Brute Force
+blurb	Examine all possible permutations to find the least-cost tour
+exer	1
+soln	2
+codepad	EyLs49LA
+theme	Graphs
+
+number	119
+file	traveling-salesman-nearest-neighbor
+pubmon	3
+pubday	16
+pubyear	2010
+title	Traveling Salesman: Nearest Neighbor
+blurb	A greedy heuristic that builds a path by always choosing the nearest unvisited point
+exer	1
+soln	2
+codepad	tVIXh2TW
+theme	Graphs
+
+number	120
+file	extending-pollards-p-1-factorization-algorithm
+pubmon	3
+pubday	19
+pubyear	2010
+title	Extending Pollard's P-1 Factorization Algorithm
+blurb	Add a second stage to allow larger factorizations
+exer	1
+soln	2
+codepad	VpaXvPEN
+theme	Prime Numbers
+
+number	121
+file	texas-hold-em
+pubmon	3
+pubday	23
+pubyear	2010
+title	Texas Hold 'Em
+blurb	Find the best poker hand
+exer	1
+soln	2
+codepad	tdgaPIju
+theme	Games
+
+number	122
+file	the-next-prime
+pubmon	3
+pubday	26
+pubyear	2010
+title	The Next Prime
+blurb	Efficiently find the next prime number larger than a given number
+exer	1
+soln	2
+codepad	KwCJJfYH
+theme	Prime Numbers
+
+number	123
+file	passover
+pubmon	3
+pubday	30
+pubyear	2010
+title	Passover
+blurb	Calculate the dates of the Jewish holidays Rosh Hashanah and Passover
+exer	1
+soln	2
+codepad	dPbrwFze
+theme	Astronomy
+
+number	124
+file	disjoint-sets
+pubmon	4
+pubday	2
+pubyear	2010
+title	Disjoint Sets
+blurb	A data structure for storing sets of items in disjoint partitions
+exer	1
+soln	2
+codepad	STcpI9Cu
+
+number	125
+file	minimum-spanning-tree-kruskals-algorithm
+pubmon	4
+pubday	6
+pubyear	2010
+title	Minimum Spanning Tree: Kruskal's Algorithm
+blurb	Find the minimum-cost tree that includes all the nodes in a graph
+exer	1
+soln	2
+codepad	HCnZJoTE
+theme	Graphs
+
+number	126
+file	minimum-spanning-tree-prims-algorithm
+pubmon	4
+pubday	9
+pubyear	2010
+title	Minimum Spanning Tree: Prim's Algorithm
+blurb	Find the minimum-cost tree that includes all the nodes in a graph
+exer	1
+soln	2
+codepad	mgrPcZel
+theme	Graphs
+
+number	127
+file	traveling-salesman-minimum-spanning-tree
+pubmon	4
+pubday	13
+pubyear	2010
+title	Traveling Salesman: Minimum Spanning Tree
+blurb	Heuristic guarantees solution within factor of two of optimal tour
+exer	1
+soln	2
+codepad	ffuo6IzG
+theme	Graphs
+
+number	128
+file	expression-evaluation
+pubmon	4
+pubday	16
+pubyear	2010
+title	Expression Evaluation
+blurb	Parse and evaluate an arithmetic expression with plus, minus, times, divide and parentheses
+exer	1
+soln	2
+codepad	tAAtFW6d
+theme	Parsing
+
+number	129
+file	145-puzzle
+pubmon	4
+pubday	20
+pubyear	2010
+title	145 Puzzle
+blurb	Build and evaluate expressions using the digits one through nine and the simple arithmetic operators
+exer	1
+soln	2
+codepad	SzbrJbjx
+theme	Puzzles|Recreational Mathematics
+
+number	130
+file	modern-elliptic-curve-factorization-part-1
+pubmon	4
+pubday	23
+pubyear	2010
+title	Modern Elliptic Curve Factorization, Part 1
+blurb	Elliptic arithmetic using Montgomery's parameterization
+exer	1
+soln	2
+codepad	t9gygODg
+theme	Prime Numbers
+
+number	131
+file	modern-elliptic-curve-factorization-part-2
+pubmon	4
+pubday	27
+pubyear	2010
+title	Modern Elliptic Curve Factorization, Part 2
+blurb	Elliptic arithmetic using Montgomery's parameterization
+exer	1
+soln	2
+codepad	dN59DMk0
+theme	Prime Numbers
+
+number	132
+file	integer-factorization
+pubmon	4
+pubday	30
+pubyear	2010
+title	Integer Factorization
+blurb	Combine trial division, Pollard's rho and p-1 methods, and elliptic curves into a single factorization program
+exer	1
+soln	2
+codepad	wcKg7nEw
+theme	Prime Numbers
+
+number	133
+file	spectacular-seven
+pubmon	5
+pubday	4
+pubyear	2010
+title	Spectacular Seven
+blurb	Compute the odds at jai alai
+exer	1
+soln	2
+codepad	6bcXRB4Z
+theme	Games|Simulation
+
+number	134
+file	integer-logarithms
+pubmon	5
+pubday	7
+pubyear	2010
+title	Integer Logarithms
+blurb	An improved algorithm is O(log n) instead of O(n)
+exer	1
+soln	2
+codepad	M5U3EZEv
+theme	Mathematics
+
+number	135
+file	gb_flip
+pubmon	5
+pubday	25
+pubyear	2010
+title	GB_FLIP
+blurb	Donald Knuth's portable, high-quality random-number generator from the Stanford Graphbase
+exer	1
+soln	2
+codepad	nBm7d0wF
+theme	Random Number Generators
+
+number	136
+file	printing-files
+pubmon	5
+pubday	28
+pubyear	2010
+title	Printing Files
+blurb	A simple program to list files, similar to the unix pr program
+exer	1
+soln	2
+codepad	kReRK3au
+theme	Unix V7
+
+number	137
+file	unwrapping-a-spiral
+pubmon	6
+pubday	1
+pubyear	2010
+title	Unwrapping A Spiral
+blurb	An exercise in recursion
+exer	1
+soln	2
+codepad	fCkL3Qmj
+theme	Interview Questions
+
+number	138
+file	williams-p1-factorization-algorithm
+pubmon	6
+pubday	4
+pubyear	2010
+title	Williams' P+1 Factorization Algorithm
+blurb	A factorization algorithm, similar to Pollard's p-1 algorithm
+exer	1
+soln	2
+codepad	gAMB9T4D
+theme	Prime Numbers
+
+number	139
+file	diff
+pubmon	6
+pubday	8
+pubyear	2010
+title	Diff
+blurb	Find the differences between two text files
+exer	1
+soln	2
+codepad	tNLiXFvE
+theme	Unix V7
+
+number	140
+file	n-queens
+pubmon	6
+pubday	11
+pubyear	2010
+title	N-Queens
+blurb	Our version of a classic algorithmic exercise
+exer	1
+soln	2
+codepad	BL9RmfPM
+
+number	141
+file	natural-join
+pubmon	6
+pubday	15
+pubyear	2010
+title	Natural Join
+blurb	The fundamental relational database operator
+exer	1
+soln	2
+codepad	oTmFY1uw
+theme	Data Processing|Unix V7
+
+number	142
+file	parsing-command-line-arguments
+pubmon	6
+pubday	18
+pubyear	2010
+title	Parsing Command-Line Arguments
+blurb	An old-style getopt function
+exer	1
+soln	2
+codepad	5Pt0x3q4
+theme	Unix V7
+
+number	143
+file	matrix-operations
+pubmon	6
+pubday	22
+pubyear	2010
+title	Matrix Operations
+blurb	Matrix addition, scalar multiplication, multiplication and transposition
+exer	1
+soln	2
+codepad	5nzWMChE
+theme	Mathematics
+
+number	144
+file	learn-a-new-language
+pubmon	6
+pubday	25
+pubyear	2010
+title	Learn A New Language
+blurb	Solve the exercise of your choice in an unfamiliar language
+exer	1
+soln	2
+codepad	5nzWMChE
+
+number	145
+file	world-cup-prognostication
+pubmon	6
+pubday	29
+pubyear	2010
+title	World Cup Prognostication
+blurb	Simulate the knockout stage using elo ratings
+exer	1
+soln	2
+codepad	RjEZcaLh
+theme	Games|Simulation
+
+number	146
+file	contents-chronological-listing-of-exercises
+pubmon	7
+pubday	2
+pubyear	2010
+title	Contents: Chronological Listing Of Exercises
+blurb	Blog management
+exer	1
+soln	2
+codepad	KpvDEPnn
+
+number	147
+file	chaocipher
+pubmon	7
+pubday	6
+pubyear	2010
+title	Chaocipher
+blurb	First look at a ninety-two year old autokey-type cipher
+exer	1
+soln	2
+codepad	W6om4hgd
+theme	Cryptography
+
+number	148
+file	contents-permuted-table-of-contents
+pubmon	7
+pubday	9
+pubyear	2010
+title	Contents: Permuted Table Of Contents
+blurb	Blog management
+exer	1
+soln	2
+codepad	K5OCk9zv
+
+number	149
+file	word-cube
+pubmon	7
+pubday	13
+pubyear	2010
+title	Word Cube
+blurb	A game to form words from a given set of letters
+exer	1
+soln	2
+codepad	E61ALT0i
+theme	Word Games
+
+number	150
+file	contents-themes
+pubmon	7
+pubday	16
+pubyear	2010
+title	Contents: Themes
+blurb	Blog Management
+exer	1
+soln	2
+codepad	DXzbpli1
+
+number	151
+file	solving-systems-of-linear-equations
+pubmon	7
+pubday	20
+pubyear	2010
+title	Solving Systems Of Linear Equations
+blurb	Matrix operations LU-decomposition and LUP-decomposition
+exer	1
+soln	2
+codepad	Eec8zXDy
+theme	Mathematics
+
+number	152
+file	happy-numbers
+pubmon	7
+pubday	23
+pubyear	2010
+title	Happy Numbers
+blurb	Iterating the sum of the squares of the digits terminates with one
+exer	1
+soln	2
+codepad	eLVpRpM9
+theme	Interview Questions
+
+number	153
+file	hamurabi-bas
+pubmon	7
+pubday	27
+pubyear	2010
+title	HAMURABI.BAS
+blurb	Manage grain and land in ancient Sumeria
+exer	1
+soln	3
+codepad	kx22J8TE
+theme	Games
+
+number	154
+file	fibonacci-numbers
+pubmon	7
+pubday	30
+pubyear	2010
+title	Fibonacci Numbers
+blurb	Three algorithms taking exponential time, linear time, and logarithmic time
+exer	1
+soln	2
+codepad	YpIgShGQ
+theme	Mathematics
+
+number	155
+file	carl-hewitts-same-fringe-problem
+pubmon	8
+pubday	3
+pubyear	2010
+title	Carl Hewitt's Same-Fringe Problem
+blurb	Do two trees have the same leaves, solved with streams (lazy lists)
+exer	1
+soln	2
+codepad	ZNuaLYqQ
+
+number	156
+file	two-powering-predicates
+pubmon	8
+pubday	6
+pubyear	2010
+title	Two Powering Predicates
+blurb	Determine if a number is a square or a prime power
+exer	1
+soln	2
+codepad	mmlYljtR
+theme	Mathematics
+
+number	157
+file	literate-programming
+pubmon	8
+pubday	10
+pubyear	2010
+title	Literate Programming
+blurb	Structured documentation in the style of Donald Knuth
+exer	1
+soln	2
+codepad	WneWNXBF
+
+number	158
+file	e
+pubmon	8
+pubday	13
+pubyear	2010
+title	E
+blurb	A simple simulation with a surprising ending
+exer	1
+soln	2
+codepad	AWzS1d7U
+theme	Recreational Mathematics|Simulation
+
+number	159
+file	cut
+pubmon	8
+pubday	17
+pubyear	2010
+title	Cut
+blurb	Select fields or characters from input lines
+exer	1
+soln	2
+codepad	U3Z6l5bV
+theme	Text Processing|Unix V7
+
+number	160
+file	marriage-sort
+pubmon	8
+pubday	20
+pubyear	2010
+title	Marriage Sort
+blurb	A sub-quadratic sort similar to shell sort or comb sort
+exer	1
+soln	2
+codepad	4Sldvq9Q
+theme	Sorting and Searching
+
+number	161
+file	daniel-shanks-square-form-factorization-algorithm
+pubmon	8
+pubday	24
+pubyear	2010
+title	Daniel Shanks' Square Form Factorization Algorithm
+blurb	A simple and very fast factorization algorithm for integers between 10<sup>5</sup> and 10<sup>20</sup>
+exer	1
+soln	2
+codepad	jc1aCpdB
+theme	Prime Numbers
+
+number	162
+file	chinese-remainders
+pubmon	8
+pubday	27
+pubyear	2010
+title	Chinese Remainders
+blurb	An ancient application of modular inverses
+exer	1
+soln	2
+codepad	5LUl9JTa
+theme	Mathematics|Prime Numbers|Puzzles
+
+number	163
+file	data-encryption-standard-part-1
+pubmon	8
+pubday	31
+pubyear	2010
+title	Data Encryption Standard: Part 1
+blurb	Basic block enciphering and deciphering using DES
+exer	1
+soln	2
+codepad	9oLeziid
+theme	Cryptography
+
+number	164
+file	data-encryption-standard-part-2
+pubmon	9
+pubday	3
+pubyear	2010
+title	Data Encryption Standard: Part 2
+blurb	ECB, CBC, CFB and OFB block modes for DES and other block ciphers
+exer	1
+soln	2
+codepad	lNLCu1vS
+theme	Cryptography
+
+number	165
+file	data-encryption-standard-part-3
+pubmon	9
+pubday	7
+pubyear	2010
+title	Data Encryption Standard: Part 3
+blurb	Triple DES and cryptographic hashing
+exer	1
+soln	2
+codepad	hI295Aff
+theme	Cryptography
+
+number	166
+file	data-encryption-standard-part-4
+pubmon	9
+pubday	10
+pubyear	2010
+title	Data Encryption Standard: Part 4
+blurb	DES driver program
+exer	1
+soln	2
+codepad	naNZtKeh
+theme	Cryptography
+
+number	167
+file	the-factorization-of-f7-part-1
+pubmon	9
+pubday	14
+pubyear	2010
+title	The Factorization Of F<sub>7</sub>: Part 1
+blurb	Our fortieth anniversary celebration of Morrison and Brillhart's method of integer factorization by continued fractions
+exer	1
+soln	2
+codepad	xbOhfe1M
+theme	Historical Computing|Prime Numbers
+
+number	168
+file	the-factorization-of-f7-part-2
+pubmon	9
+pubday	17
+pubyear	2010
+title	The Factorization Of F<sub>7</sub>: Part 2
+blurb	Our fortieth anniversary celebration of Morrison and Brillhart's method of integer factorization by continued fractions
+exer	1
+soln	2
+codepad	JGMHnA0v
+theme	Historical Computing|Prime Numbers
+
+number	169
+file	kaprekar-numbers
+pubmon	9
+pubday	21
+pubyear	2010
+title	Kaprekar Numbers
+blurb	Square the number and add the digits in halves
+exer	1
+soln	2
+codepad	JGMHnA0v
+theme	Interview Questions
+
+number	170
+file	alien-numbers
+pubmon	9
+pubday	24
+pubyear	2010
+title	Alien Numbers
+blurb	An exercise from Google Code Jam
+exer	1
+soln	2
+codepad	GPar0q3v
+
+number	171
+file	maxiphobic-heaps
+pubmon	9
+pubday	28
+pubyear	2010
+title	Maxiphobic Heaps
+blurb	A priority-queue data structure, similar to leftist heaps, due to Chris Okasaki
+exer	1
+soln	2
+codepad	YZIkmZ02
+theme	Sorting and Searching
+
+number	172
+file	oban-numbers
+pubmon	10
+pubday	1
+pubyear	2010
+title	Oban Numbers
+blurb	Numbers that omit the letter "o" when spelled, and a function to convert numbers to words
+exer	1
+soln	2
+codepad	pN3VLfJ
+theme	Recreational Mathematics
+
+number	173
+file	george-marsaglias-random-number-generators
+pubmon	10
+pubday	5
+pubyear	2010
+title	George Marsaglia's Random Number Generators
+blurb	Nine high-quality RNGs in nineteen lines of code
+exer	1
+soln	2
+codepad	sf8Z4pJP
+theme	Random Number Generators
+
+number	174
+file	zellers-congruence
+pubmon	10
+pubday	8
+pubyear	2010
+title	Zeller's Congruence
+blurb	Calculate the day of the week for a given date
+exer	1
+soln	2
+codepad	YNmQyDN1
+theme	Astronomy
+
+number	175
+file	rotate-an-array
+pubmon	10
+pubday	12
+pubyear	2010
+title	Rotate An Array
+blurb	A simple but tricky exercise solved by an algorithm from the folklore of computing
+exer	1
+soln	2
+codepad	QKrX5JfK
+
+number	176
+file	find-the-longest-palindrome-in-a-string
+pubmon	10
+pubday	15
+pubyear	2010
+title	Find The Longest Palindrome In A String
+blurb	A beautiful linear-time algorithm due to Johan Jeuring
+exer	1
+soln	2
+codepad	HuGrtndJ
+
+number	177
+file	text-file-databases-part-1
+pubmon	10
+pubday	19
+pubyear	2010
+title	Text File Databases: Part 1
+blurb	Functions to read records with fields in various formats
+exer	1
+soln	2
+codepad	h3ENphv5
+theme	Data Processing
+
+number	178
+file	text-file-databases-part-2
+pubmon	10
+pubday	22
+pubyear	2010
+title	Text File Databases: Part 2
+blurb	Various functions to process records with fields
+exer	1
+soln	2
+codepad	c7utWH0v
+theme	Data Processing
+
+number	179
+file	benfords-law
+pubmon	10
+pubday	26
+pubyear	2010
+title	Benford's Law
+blurb	A useful mathematical oddity, and an example of text file databases
+exer	1
+soln	3
+codepad	7l3dRSAn
+theme	Mathematics
+
+number	180
+file	fibonacci-primes
+pubmon	10
+pubday	29
+pubyear	2010
+title	Fibonacci Primes
+blurb	Find primes among the fibonacci numbers; includes the Park-Miller random number generator and Miller-Rabin primality checker
+exer	1
+soln	2
+codepad	8i16Cbx7
+theme	Prime Numbers|Puzzles|Random Number Generators|Recreational Mathematics
+
+number	181
+file	emirps
+pubmon	11
+pubday	2
+pubyear	2010
+title	Emirps
+blurb	Prime numbers that are prime when their digits are reversed, but not palindromic
+exer	1
+soln	2
+codepad	WCYfLGjL
+theme	Mathematics|Prime Numbers
+
+number	182
+file	weather-forecast
+pubmon	11
+pubday	5
+pubyear	2010
+title	Weather Forecast
+blurb	Fetch the weather forecast from the internet
+exer	1
+soln	2
+codepad	0ppN34nS
+
+number	183
+file	subset-sums
+pubmon	11
+pubday	9
+pubyear	2010
+title	Subset Sums
+blurb	Third level of the Greplin Programming Challenge, using dynamic programming and memoization
+exer	1
+soln	2
+codepad	8rQnIhhP
+theme	Puzzles
+
+number	184
+file	rowlands-prime-generating-function
+pubmon	11
+pubday	12
+pubyear	2010
+title	Rowland's Prime-Generating Function
+blurb	A sequence of ones and primes
+exer	1
+soln	2
+codepad	8rQnIhhP
+theme	Prime Numbers
+
+number	185
+file	rsa-cryptography
+pubmon	11
+pubday	16
+pubyear	2010
+title	RSA Cryptography
+blurb	The original public-key cryptographic system, still in wide use
+exer	1
+soln	2
+codepad	rRxeR2C9
+theme	Cryptography
+
+number	186
+file	topological-sort
+pubmon	11
+pubday	19
+pubyear	2010
+title	Topological Sort
+blurb	Order the edges of a graph by their precedence relationship
+exer	1
+soln	2
+codepad	RjhH0OAK
+theme	Graphs|Sorting and Searching
+
+number	187
+file	string-subsets
+pubmon	11
+pubday	23
+pubyear	2010
+title	String Subsets
+blurb	Determine if one string is a subset of another
+exer	1
+soln	2
+codepad	qH8N4FfU
+theme	Interview Questions
+
+number	188
+file	divisors-and-totatives
+pubmon	11
+pubday	26
+pubyear	2010
+title	Divisors And Totatives
+blurb	The number-theoretic functions divisors, numdivs, sumdivs, totatives, and totient
+exer	1
+soln	2
+codepad	SmASe1eC
+theme	Mathematics|Prime Numbers
+
+number	189
+file	form-letters
+pubmon	11
+pubday	30
+pubyear	2010
+title	Form Letters
+blurb	Merge a schema and a data file to write form letters
+exer	1
+soln	2
+codepad	IU214JGT
+theme	Data Processing
+
+number	190
+file	maximum-sum-subsequence
+pubmon	12
+pubday	3
+pubyear	2010
+title	Maximum Sum Subsequence
+blurb	A classic programming exercise due to Jon Bentley
+exer	1
+soln	2
+codepad	eM3jPDSO
+
+number	191
+file	ullmans-puzzle
+pubmon	12
+pubday	7
+pubyear	2010
+title	Ullman's Puzzle
+blurb	It never hurts to sort
+exer	1
+soln	2
+codepad	i7HUvdFb
+theme	Puzzles|Recreational Mathematics
+
+number	192
+file	two-random-selections
+pubmon	12
+pubday	10
+pubyear	2010
+title	Two Random Selections
+blurb	Use random number to select fortunes and lotto winners
+exer	1
+soln	2
+codepad	6raHapY0
+
+number	193
+file	longest-duplicated-substring
+pubmon	12
+pubday	14
+pubyear	2010
+title	Longest Duplicated Substring
+blurb	Use a sorted suffix list
+exer	1
+soln	2
+codepad	dY3aGxru
+theme	Strings
+
+number	194
+file	polite-numbers
+pubmon	12
+pubday	17
+pubyear	2010
+title	Polite Numbers
+blurb	Write numbers as the sum of two or more consecutive integers
+exer	1
+soln	2
+codepad	YgFEcg8Q
+theme	Recreational Mathematics
+
+number	195
+file	interval-arithmetic
+pubmon	12
+pubday	21
+pubyear	2010
+title	Interval Arithmetic
+blurb	An exercise from SICP
+exer	1
+soln	2
+codepad	JZQwpzdb
+theme	Mathematics
+
+number	196
+file	tracking-santa
+pubmon	12
+pubday	24
+pubyear	2010
+title	Tracking Santa
+blurb	How far does Santa travel on his annual journey?
+exer	1
+soln	3
+codepad	a9Uj7oPj
+theme	Games
+
+number	197
+file	carmichael-numbers
+pubmon	12
+pubday	28
+pubyear	2010
+title	Carmichael Numbers
+blurb	Composite numbers such that a<sup>n-1</sup> &equiv; 1 (mod n) if a is prime to n
+exer	1
+soln	2
+codepad	UudIdev3
+theme	Mathematics|Prime Numbers
+
+number	198
+file	arithmetic-drill
+pubmon	12
+pubday	31
+pubyear	2010
+title	Arithmetic Drill
+blurb	Repetitious drill for children learning basic arithmetic
+exer	1
+soln	2
+codepad	tjoTFXBo
+theme	Games
+
+number	199
+file	dijkstras-algorithm
+pubmon	1
+pubday	4
+pubyear	2011
+title	Dijkstra's Algorithm
+blurb	Find the shortest path to all vertices of a graph from a single source, guest written by Graham Enos
+exer	1
+soln	2
+codepad	lRUh1tq8
+theme	Graphs|Guest Authors
+
+number	200
+file	counting-primes
+pubmon	1
+pubday	7
+pubyear	2011
+title	Counting Primes
+blurb	The prime counting function and nth-prime function
+exer	1
+soln	2
+codepad	XmEwn8eE
+theme	Prime Numbers
+
+number	201
+file	two-integrals
+pubmon	1
+pubday	11
+pubyear	2011
+title	Two Integrals
+blurb	The exponential and logarithmic integral, and an approximation for prime-pi
+exer	1
+soln	2
+codepad	9hg2s20m
+theme	Mathematics
+
+number	202
+file	slots
+pubmon	1
+pubday	14
+pubyear	2011
+title	Slots
+blurb	Simulate a slot machine
+exer	1
+soln	2
+codepad	A8iRnYpJ
+theme	Games
+
+number	203
+file	solitaire-cipher
+pubmon	1
+pubday	18
+pubyear	2011
+title	Solitaire Cipher
+blurb	Bruce Schneier's strong cryptography based on a deck of playing cards
+exer	1
+soln	2
+codepad	PDJGeldx
+theme	Cryptography
+
+number	204
+file	pollard-rho-revisited
+pubmon	1
+pubday	21
+pubyear	2011
+title	Pollard Rho, Revisited
+blurb	Richard Brent's variant of John Pollard's rho algorithm for integer factorization
+exer	1
+soln	2
+codepad	WnqrjcxX
+theme	Prime Numbers
+
+number	205
+file	rational-numbers
+pubmon	1
+pubday	25
+pubyear	2011
+title	Rational Numbers
+blurb	A library of basic arithmetic and comparison of fractions
+exer	1
+soln	2
+codepad	EnDFmHgs
+
+number	206
+file	population-count
+pubmon	1
+pubday	28
+pubyear	2011
+title	Population Count
+blurb	Count the number of set bits (1-bits) in the binary representation of an integer
+exer	1
+soln	2
+codepad	XdWh16R5
+theme	Interview Questions
+
+number	207
+file	cuckoo-hashing
+pubmon	2
+pubday	1
+pubyear	2011
+title	Cuckoo Hashing
+blurb	A hashing system with guaranteed constant-time lookup and amortized constant-time insertion
+exer	1
+soln	2
+codepad	LIYEw8xo
+theme	Sorting and Searching
+
+number	208
+file	excel-columns
+pubmon	2
+pubday	4
+pubyear	2011
+title	Excel Columns
+blurb	Numbers as in Excel column names, A=1, Z=26, IV=256
+exer	1
+soln	2
+codepad	DXx4AX1q
+
+number	209
+file	the-first-computer-program
+pubmon	2
+pubday	8
+pubyear	2011
+title	The First Computer Program
+blurb	Ada Lovelace's program to compute Bernoulli numbers for Charles Babbage's Analytical Engine
+exer	1
+soln	2
+codepad	USXM9t9Y
+theme	Historical Computing|Mathematics
+
+number	210
+file	sums-of-powers
+pubmon	2
+pubday	11
+pubyear	2011
+title	Sums Of Powers
+blurb	Use Bernoulli numbers to quickly compute sums of powers
+exer	1
+soln	2
+codepad	D2FTIMnB
+theme	Mathematics
+
+number	211
+file	google-code-jam-qualification-round-africa-2010
+pubmon	2
+pubday	15
+pubyear	2011
+title	Google Code Jam Qualification Round Africa 2010
+blurb	Three simple exercises
+exer	1
+soln	2
+codepad	qfH2FyIH
+theme	Interview Questions
+
+number	212
+file	two-factoring-games
+pubmon	2
+pubday	18
+pubyear	2011
+title	Two Factoring Games
+blurb	Home primes and the Euclid-Mullin sequence
+exer	1
+soln	2
+codepad	TULr3faG
+theme	Prime Numbers|Recreational Mathematics
+
+number	213
+file	sliding-window-minimum
+pubmon	2
+pubday	22
+pubyear	2011
+title	Sliding Window Minimum
+blurb	List of minimums sliding across an input list
+exer	1
+soln	2
+codepad	zr59LnZk
+theme	Interview Questions
+
+number	214
+file	sieve-of-euler
+pubmon	2
+pubday	25
+pubyear	2011
+title	Sieve Of Euler
+blurb	An alternate, and slow, method of sieving for primes
+exer	1
+soln	2
+codepad	dcEnoKkS
+theme	Prime Numbers
+
+number	215
+file	an-early-lisp-program
+pubmon	3
+pubday	1
+pubyear	2011
+title	An Early LISP Program
+blurb	A program to flatten a list, from the March 1960 LISP I manual
+exer	1
+soln	2
+codepad	U3q3yRDV
+theme	Historical Computing
+
+number	216
+file	chutes-and-ladders
+pubmon	3
+pubday	4
+pubyear	2011
+title	Chutes And Ladders
+blurb	Simulate a child's game, and compute its statistics
+exer	1
+soln	2
+codepad	RPq4Ocqx
+theme	Games|Simulation
+
+number	217
+file	reverse-words
+pubmon	3
+pubday	8
+pubyear	2011
+title	Reverse Words
+blurb	Reverse the words in an input string
+exer	1
+soln	2
+codepad	NYohlcHq
+theme	Interview Questions
+
+number	218
+file	lowest-common-ancestor
+pubmon	3
+pubday	11
+pubyear	2011
+title	Lowest Common Ancestor
+blurb	Find the lowest node in a binary search tree that is a common ancestor to two given nodes
+exer	1
+soln	2
+codepad	h8u1RuTR
+theme	Interview Questions
+
+number	219
+file	look-and-say
+pubmon	3
+pubday	15
+pubyear	2011
+title	Look And Say
+blurb	Calculate John Horton Conway's "Look and Say" sequence
+exer	1
+soln	2
+codepad	XC60i6ec
+theme	Recreational Mathematics
+
+number	220
+file	loopy-loops
+pubmon	3
+pubday	18
+pubyear	2011
+title	Loopy Loops
+blurb	Print the numbers from 1 to 1000 without using loops or conditionals
+exer	1
+soln	2
+codepad	icuEmmu2
+theme	Interview Questions
+
+number	221
+file	two-kaprekar-exercises
+pubmon	3
+pubday	22
+pubyear	2011
+title	Two Kaprekar Exercises
+blurb	Kaprekar chains and Kaprekar numbers, from the Indian mathematician Dattaraya Ramchandra Kaprekar
+exer	1
+soln	2
+codepad	jUEoq05B
+theme	Recreational Mathematics
+
+number	222
+file	sum
+pubmon	3
+pubday	25
+pubyear	2011
+title	Sum
+blurb	The standard Unix V7 file-checksum command
+exer	1
+soln	2
+codepad	ml5SKPg0
+theme	Unix V7
+
+number	223
+file	look-and-say-revisited
+pubmon	3
+pubday	28
+pubyear	2011
+title	Look And Say, Revisited
+blurb	Compute Conway's constant
+exer	1
+soln	2
+codepad	3ia1g1r8
+theme	Recreational Mathematics
+
+number	224
+file	maximum-difference-in-an-array
+pubmon	4
+pubday	1
+pubyear	2011
+title	Maximum Difference In An Array
+blurb	Find maximum X<sub>j</sub> - X<sub>i</sub>, with i < j
+exer	1
+soln	2
+codepad	SlkN9AOJ
+theme	Interview Questions
+
+number	225
+file	fortune
+pubmon	4
+pubday	5
+pubyear	2011
+title	Fortune
+blurb	Print a random aphorism from a file
+exer	1
+soln	2
+codepad	X3dRp0va
+theme	Games|Unix V7
+
+number	226
+file	credit-card-validation
+pubmon	4
+pubday	8
+pubyear	2011
+title	Credit Card Validation
+blurb	Validate decimal numbers using the Luhn algorithm
+exer	1
+soln	2
+codepad	io514WKh
+
+number	227
+file	house-of-representatives
+pubmon	4
+pubday	12
+pubyear	2011
+title	House Of Representatives
+blurb	Apportion representatives by the Huntington-Hill method
+exer	1
+soln	2
+codepad	NwMn9iLn
+
+number	228
+file	partition-numbers
+pubmon	4
+pubday	15
+pubyear	2011
+title	Partition Numbers
+blurb	Calculate the partition numbers, using memoization via growing arrays
+exer	1
+soln	2
+codepad	NwMn9iLn
+theme	Mathematics|Sorting and Searching
+
+number	229
+file	same-five-digits
+pubmon	4
+pubday	19
+pubyear	2011
+title	Same Five Digits
+blurb	A math puzzle from New Scientist, solved by guest author Bob Miller
+exer	1
+soln	2
+codepad	l2hDGwBm
+theme	Guest Authors|Recreational Mathematics
+
+number	230
+file	xref
+pubmon	4
+pubday	22
+pubyear	2011
+title	Xref
+blurb	Programmer's cross-reference utility
+exer	1
+soln	2
+codepad	h4D8umzr
+
+number	231
+file	miscellanea
+pubmon	4
+pubday	26
+pubyear	2011
+title	Miscellanea
+blurb	FizzBuzz, Prime Words, and Split A List
+exer	1
+soln	2
+codepad	830f0msv
+theme	Interview Questions
+
+number	232
+file	rule-30-rng
+pubmon	4
+pubday	29
+pubyear	2011
+title	Rule 30 RNG
+blurb	The random number generator from Mathematica, based on Stephen Wolfram's Rule 30 cellular automata
+exer	1
+soln	2
+codepad	zoGntTfu
+theme	Random Number Generators
+
+number	233
+file	squaring-the-bishop
+pubmon	5
+pubday	3
+pubyear	2011
+title	Squaring The Bishop
+blurb	Charles Babbage's game of word squares
+exer	1
+soln	2
+codepad	IfouARKz
+theme	Historical Computing|Word Games
+
+number	234
+file	entab-and-detab
+pubmon	5
+pubday	6
+pubyear	2011
+title	Entab And Detab
+blurb	expand tabs into spaces, and replace spaces with tabs
+exer	1
+soln	2
+codepad	N44f2cDA
+theme	Unix V7
+
+number	235
+file	comm
+pubmon	5
+pubday	10
+pubyear	2011
+title	Comm
+blurb	select or reject lines common to two sorted files
+exer	1
+soln	2
+codepad	lE5eVcxf
+theme	Unix V7
+
+number	236
+file	dixons-factorization-algorithm
+pubmon	5
+pubday	13
+pubyear	2011
+title	Dixon's Factorization Algorithm
+blurb	A slow, but theoretically important, algorithm for integer factorization
+exer	1
+soln	2
+codepad	NVi2RHLa
+theme	Prime Numbers
+
+number	237
+file	two-bad-sorts
+pubmon	5
+pubday	17
+pubyear	2011
+title	Two Bad Sorts
+blurb	Stooge sort and bogosort are worse than quadratic
+exer	1
+soln	2
+codepad	tmpDUJnJ
+theme	Sorting and Searching
+
+number	238
+file	isbn-validation
+pubmon	5
+pubday	20
+pubyear	2011
+title	ISBN Validation
+blurb	Validate ISBN book numbers, and fetch author and title from the internet
+exer	1
+soln	2
+codepad	vxKNN1KE
+
+number	239
+file	big-numbers-getting-started
+pubmon	5
+pubday	24
+pubyear	2011
+title	Big Numbers: Getting Started
+blurb	A library for big integers: representation, comparison, simple functions
+exer	1
+soln	2
+codepad	3RnYkEqN
+theme	Mathematics
+
+number	240
+file	upside-up
+pubmon	5
+pubday	27
+pubyear	2011
+title	Upside Up
+blurb	Numbers that read the same upside down
+exer	1
+soln	2
+codepad	VYkXm2GM
+theme	Recreational Mathematics
+
+number	241
+file	big-numbers-addition-subtraction-and-multiplication
+pubmon	5
+pubday	31
+pubyear	2011
+title	Big Numbers: Addition, Subtraction And Multiplication
+blurb	A library for big integers: grade-school algorithms for addition, subtraction, and multiplication
+exer	1
+soln	2
+codepad	gAbRGnwD
+theme	Mathematics
+
+number	242
+file	mersenne-primes
+pubmon	6
+pubday	3
+pubyear	2011
+title	Mersenne Primes
+blurb	The Lucas-Lehmer test for identifying primes of the form 2<sup>n</sup>-1
+exer	1
+soln	2
+codepad	VEUVtatQ
+theme	Prime Numbers
+
+number	243
+file	big-numbers-division
+pubmon	6
+pubday	7
+pubyear	2011
+title	Big Numbers: Division
+blurb	A library for big integers: the grade-school algorithm for long division
+exer	1
+soln	2
+codepad	MJl0kPSU
+theme	Mathematics
+
+number	244
+file	steganography
+pubmon	6
+pubday	10
+pubyear	2011
+title	Steganography
+blurb	A hand-operable system that combines cryptography and steganography
+exer	1
+soln	2
+codepad	ryMtgPbD
+theme	Cryptography
+
+number	245
+file	big-numbers-input-and-output
+pubmon	6
+pubday	14
+pubyear	2011
+title	Big Numbers: Input And Output
+blurb	A library for big integers: input and output with radix conversion
+exer	1
+soln	2
+codepad	4TvtUDo3
+theme	Mathematics
+
+number	246
+file	adi-shamirs-threshold-scheme
+pubmon	6
+pubday	17
+pubyear	2011
+title	Adi Shamir's Threshold Scheme
+blurb	Use cryptography to share a secret, by Graham Enos
+exer	1
+soln	2
+codepad	NvYVdZFT
+theme	Cryptography|Guest Authors
+
+number	247
+file	big-numbers-testing
+pubmon	6
+pubday	21
+pubyear	2011
+title	Big Numbers: Testing
+blurb	A library for big integers: testing
+exer	1
+soln	2
+codepad	um9s9k8r
+theme	Mathematics
+
+number	248
+file	thank-god-its-friday
+pubmon	6
+pubday	24
+pubyear	2011
+title	Thank God It's Friday!
+blurb	Three methods to calculate the day of the week
+exer	1
+soln	2
+codepad	BeTpy03N
+theme	Astronomy
+
+number	249
+file	big-numbers-functions
+pubmon	6
+pubday	28
+pubyear	2011
+title	Big Numbers: Functions
+blurb	A library for big integers: gcd, powering, square root, random numbers
+exer	1
+soln	2
+codepad	hgy1QKi2
+theme	Mathematics
+
+number	250
+file	feet-and-inches
+pubmon	7
+pubday	1
+pubyear	2011
+title	Feet And Inches
+blurb	Convert decimal inches to carpenters' fractions
+exer	1
+soln	2
+codepad	XF5DR2Gc
+
+number	251
+file	big-numbers-examples
+pubmon	7
+pubday	5
+pubyear	2011
+title	Big Numbers: Examples
+blurb	A library for big integers: display factorials to 50, determine if a number is prime, and compute its prime factors
+exer	1
+soln	2
+codepad	abIROIpC
+theme	Mathematics|Prime Numbers
+
+number	252
+file	vedic-divisibility
+pubmon	7
+pubday	8
+pubyear	2011
+title	Vedic Divisibility
+blurb	Use a method of testing divisibility using the method of osculators developed in India
+exer	1
+soln	2
+codepad	qZrg7y54
+theme	Mathematics
+
+number	253
+file	json-parsing-input
+pubmon	7
+pubday	12
+pubyear	2011
+title	JSON: Parsing Input
+blurb	Parse JSON input
+exer	1
+soln	2
+codepad	iq1vyzGY
+theme	Parsing
+
+number	254
+file	json-writing-output
+pubmon	7
+pubday	15
+pubyear	2011
+title	JSON: Writing Output
+blurb	The other side of JSAON
+exer	1
+soln	2
+codepad	mPIKEbNN
+theme	Parsing
+
+number	255
+file	sum-of-two-integers
+pubmon	7
+pubday	19
+pubyear	2011
+title	Sum Of Two Integers
+blurb	Determine if two integers in a list sum to a target
+exer	1
+soln	2
+codepad	OVsIhFYl
+theme	Interview Questions
+
+number	256
+file	counting-primes-using-legendres-formula
+pubmon	7
+pubday	22
+pubyear	2011
+title	Counting Primes Using Legendre's Formula
+blurb	Recreate Legendre's two-century old calculation of the number of primes less than a million
+exer	1
+soln	2
+codepad	sNCV5Y0d
+theme	Historical Computing|Prime Numbers
+
+number	257
+file	more-prime-counting-functions
+pubmon	7
+pubday	26
+pubyear	2011
+title	More Prime-Counting Functions
+blurb	Prime counting functions by Meissel and Lehmer, based on Legendre's sum
+exer	1
+soln	2
+codepad	grLPbEPx
+theme	Prime Numbers
+
+number	258
+file	approximating-pi
+pubmon	7
+pubday	29
+pubyear	2011
+title	Approximating Pi
+blurb	Approximating pi with the logarithmic integral and Riemann's R function
+exer	1
+soln	2
+codepad	Fvwfmjc5
+theme	Prime Numbers
+
+number	259
+file	the-nth-prime
+pubmon	8
+pubday	2
+pubyear	2011
+title	The Nth Prime
+blurb	The n prime, counting from p<sub>1</sub> = 2
+exer	1
+soln	2
+codepad	KgVfGvEG
+theme	Prime Numbers
+
+number	260
+file	ninety-nine-bottles-of-beer
+pubmon	8
+pubday	5
+pubyear	2011
+title	Ninety-Nine Bottles Of Beer
+blurb	The popular song
+exer	1
+soln	2
+codepad	TMOKOo5n
+
+number	261
+file	hetts-problem-128
+pubmon	8
+pubday	9
+pubyear	2011
+title	Hett's Problem 1.28
+blurb	Sorting a list of lists according to length of sublists
+exer	1
+soln	2
+codepad	fQUYFP6u
+
+number	262
+file	word-breaks
+pubmon	8
+pubday	12
+pubyear	2011
+title	Word Breaks
+blurb	Insert spaces between words: applepie => apple pie
+exer	1
+soln	2
+codepad	6fUMlr92
+theme	Interview Questions
+
+number	263
+file	insert-into-a-cyclic-sorted-list
+pubmon	8
+pubday	16
+pubyear	2011
+title	Insert Into A Cyclic Sorted List
+blurb	Insert a new element into a cyclic list, in order
+exer	1
+soln	2
+codepad	JRWWLoi1
+theme	Interview Questions
+
+number	264
+file	first-non-repeating-character
+pubmon	8
+pubday	19
+pubyear	2011
+title	First Non-Repeating Character
+blurb	Find the first character in a string that doesn't repeat later in the string
+exer	1
+soln	2
+codepad	kWBmScj6
+theme	Interview Questions
+
+number	265
+file	knapsack
+pubmon	8
+pubday	23
+pubyear	2011
+title	Knapsack
+blurb	Fill a knapsack to maximize the value of its contents
+exer	1
+soln	2
+codepad	sZVbli97
+theme	Classic Algorithms
+
+number	266
+file	reverse-every-k-nodes-of-a-linked-list
+pubmon	8
+pubday	26
+pubyear	2011
+title	Reverse Every K Nodes Of A Linked List
+blurb	Reverse the elements of a sub-list
+exer	1
+soln	2
+codepad	9VS3QBWC
+theme	Interview Questions
+
+number	267
+file	hamming-numbers
+pubmon	8
+pubday	30
+pubyear	2011
+title	Hamming Numbers
+blurb	List the numbers with no factors greater than 5, a classic problem popularized by Dijkstra
+exer	1
+soln	2
+codepad	kzPfcVH7
+theme	Mathematics
+
+number	268
+file	two-string-exercises
+pubmon	9
+pubday	2
+pubyear	2011
+title	Two String Exercises
+blurb	Remove duplicate characters, and squish adjacent blanks
+exer	1
+soln	2
+codepad	3NjlYZ6s
+theme	Interview Questions
+
+number	269
+file	deques
+pubmon	9
+pubday	6
+pubyear	2011
+title	Deques
+blurb	Library implementation of double-ended queues
+exer	1
+soln	2
+codepad	ll2dgmTM
+theme	Sorting and Searching
+
+number	270
+file	mersenne-twister
+pubmon	9
+pubday	9
+pubyear	2011
+title	Mersenne Twister
+blurb	Random number generator with very long period, useful for simulations
+exer	1
+soln	3
+codepad	xDgJGH16
+theme	Random Number Generators
+
+number	271
+file	tetrahedral-numbers
+pubmon	9
+pubday	13
+pubyear	2011
+title	Tetrahedral Numbers
+blurb	Find the base of the tetrahedron that contains 169179692512835000 balls
+exer	1
+soln	2
+codepad	6ZT1RVxa
+theme	Recreational Mathematics
+
+number	272
+file	pollards-p-1-factorization-algorithm-revisited
+pubmon	9
+pubday	16
+pubyear	2011
+title	Pollard's P-1 Factorization Algoritihm, Revisited
+blurb	An improved second stage that is much faster than the original
+exer	1
+soln	2
+codepad	qFzbCxzp
+theme	Prime Numbers
+
+number	273
+file	project-euler-problem-3
+pubmon	9
+pubday	20
+pubyear	2011
+title	Project Euler Problem 3
+blurb	Thorough explanation of integer factorization by trial division
+exer	1
+soln	2
+codepad	9NbfghJq
+theme	Prime Numbers
+
+number	274
+file	array-duplicates
+pubmon	9
+pubday	23
+pubyear	2011
+title	Array Duplicates
+blurb	Find the duplicate integer in a large array
+exer	1
+soln	2
+codepad	sGxhES1h
+theme	Interview Questions
+
+number	275
+file	statistics
+pubmon	9
+pubday	27
+pubyear	2011
+title	Statistics
+blurb	Calculate the mean, standard deviation, linear regression and correlation
+exer	1
+soln	2
+codepad	8WJpBVc9
+
+number	276
+file	logarithm-tables
+pubmon	9
+pubday	30
+pubyear	2011
+title	Logarithm Tables
+blurb	Print old-fashioned tables of logarithms and anti-logarithms
+exer	1
+soln	3
+codepad	fiKOD0wV
+theme	Mathematics
+
+number	277
+file	brainfuck
+pubmon	10
+pubday	4
+pubyear	2011
+title	Brainfuck
+blurb	Interpreter for a Turing-line language
+exer	1
+soln	3
+codepad	aetegm3n
+theme	Fundamentals of Computing
+
+number	278
+file	sieve-of-sundaram
+pubmon	10
+pubday	7
+pubyear	2011
+title	Sieve of Sundaram
+blurb	Sieving for prime numbers using a method from India
+exer	1
+soln	2
+codepad	O6J0rkDn
+theme	Prime Numbers
+
+number	279
+file	tower-of-hanoi
+pubmon	10
+pubday	11
+pubyear	2011
+title	Tower Of Hanoi
+blurb	Classic demonstration of recursion
+exer	1
+soln	2
+codepad	F8eo5XvG
+theme	Classic Algorithms
+
+number	279
+file	the-first-n-primes
+pubmon	10
+pubday	14
+pubyear	2011
+title	The First N Primes
+blurb	Embedding the Sieve of Eratosthenes in a priority queue instead of an array
+exer	1
+soln	2
+codepad	61r9U0eR
+theme	Prime Numbers
+
+number	280
+file	the-wall
+pubmon	10
+pubday	18
+pubyear	2011
+title	The Wall
+blurb	Ray Panko's spreadsheet exercise
+exer	1
+soln	2
+codepad	F8sO8tLO
+
+number	281
+file	sum-revisited
+pubmon	10
+pubday	21
+pubyear	2011
+title	Sum, Revisited
+blurb	SysV and Berkeley versions of the Unix V7 sum command
+exer	1
+soln	2
+codepad	KwePb916
+theme	Unix V7
+
+number	282
+file	Cksum
+pubmon	10
+pubday	25
+pubyear	2011
+title	Cksum
+blurb	Unix checksum utility
+exer	1
+soln	3
+codepad	6FlmcgGC
+theme	Unix V7
+
+number	283
+file	crypt
+pubmon	10
+pubday	28
+pubyear	2011
+title	Crypt
+blurb	Simple encryption tool from Kernighan and Plauger
+exer	1
+soln	2
+codepad	SUkyyUpu
+
+number	284
+file	rip-john-mccarthy
+pubmon	11
+pubday	1
+pubyear	2011
+title	RIP John McCarthy
+blurb	Implementation of the "Maxwell's equations of software" from the LISP 1.5 Programmer's Manual
+exer	1
+soln	2
+codepad	8cfeZ3ER
+theme	Fundamentals of Computing
+
+number	285
+file	craps
+pubmon	11
+pubday	4
+pubyear	2011
+title	Craps
+blurb	Simulate a popular game of gambling with dice
+exer	1
+soln	2
+codepad	J9Tg9jZP
+theme	Games|Simulation
+
+number	286
+file	improved-standard-continuation
+pubmon	11
+pubday	8
+pubyear	2011
+title	Improved Standard Continuation
+blurb	An improved version of elliptic curve factorization, widely used in current practice
+exer	1
+soln	2
+codepad	SdrzlWbh
+theme	Prime Numbers
+
+number	287
+file	generators
+pubmon	11
+pubday	11
+pubyear	2011
+title	Generators
+blurb	Write functions that yield a value, but can then be re-entered
+exer	1
+soln	2
+codepad	WNImfKrZ
+
+number	288
+file	phil-harveys-puzzle
+pubmon	11
+pubday	15
+pubyear	2011
+title	Phil Harvey's Puzle
+blurb	partition {1,...,16} into two sets of equal size so each subset has the same sum, sum of squares and sum of cubes
+exer	1
+soln	2
+codepad	90qQobLz
+theme	Recreational Mathematics
+
+number	289
+file	grade-school-multiplication
+pubmon	11
+pubday	18
+pubyear	2011
+title	Grade School Multiplication
+blurb	Display the steps in the grade school multiplication algorithm
+exer	1
+soln	2
+codepad	AMItBoYw
+theme	Recreational Mathematics
+
+number	290
+file	rabins-cryptosystem
+pubmon	11
+pubday	22
+pubyear	2011
+title	Rabin's Cryptosystem
+blurb	Public-key cryptosystem, similar to RSA
+exer	1
+soln	2
+codepad	wyHgxfpg
+theme	Cryptography
+
+number	291
+file	avl-trees
+pubmon	11
+pubday	25
+pubyear	2011
+title	AVL Trees
+blurb	Basic implementation of the original balanced-tree algorithm
+exer	1
+soln	2
+codepad	SSrdpsMw
+theme	Sorting and Searching
+
+number	292
+file	avl-trees-extended
+pubmon	11
+pubday	29
+pubyear	2011
+title	AVL Trees, Extended
+blurb	Add additional functionality to AVL trees
+exer	1
+soln	2
+codepad	pwYpvDFw
+theme	Sorting and Searching
+
+number	293
+file	knight-rider
+pubmon	12
+pubday	2
+pubyear	2011
+title	Knight Rider
+blurb	Classic problem of the knight's tour
+exer	1
+soln	2
+codepad	XQEm0Kc6
+theme	Guest Authors|Recreational Mathematics
+
+number	294
+file	pascals-triangle
+pubmon	12
+pubday	6
+pubyear	2011
+title	Pascal's Triangle
+blurb	Display the binomial coefficients
+exer	1
+soln	2
+codepad	Qb5pOMrj
+theme	Mathematics
+
+number	295
+file	mcnugget-numbers
+pubmon	12
+pubday	9
+pubyear	2011
+title	McNugget Numbers
+blurb	A simple problem, worked out on a napkin
+exer	1
+soln	2
+codepad	01h2PiHK
+theme	Recreational Mathematics
+
+number	296
+file	validating-telephone-numbers
+pubmon	12
+pubday	13
+pubyear	2011
+title	Validating Telephone Numbers
+blurb	An exercise in input validation
+exer	1
+soln	2
+codepad	qqpZYP36
+theme	Data Processing
+
+number	297
+file	majority-voting
+pubmon	12
+pubday	16
+pubyear	2011
+title	Majority Voting
+blurb	Determine the results of an election
+exer	1
+soln	2
+codepad	CMspzByH
+
